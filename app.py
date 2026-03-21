@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 from stories import stories
+from datetime import date, timedelta
 
 # ---------- LOAD PROGRESS ----------
 def load_progress():
@@ -32,6 +33,9 @@ if "answer_submitted" not in st.session_state:
 if "last_answer" not in st.session_state:
     st.session_state.last_answer = None
 
+if "points_added" not in st.session_state:
+    st.session_state.points_added = False
+
 # ---------- HOME ----------
 def home():
     st.title(f"📚 Welcome, {progress['name']}!")
@@ -54,6 +58,7 @@ def home():
             st.session_state.question_index = 0
             st.session_state.answer_submitted = False
             st.session_state.last_answer = None
+            st.session_state.points_added = False
 
 # ---------- READING ----------
 def reading():
@@ -70,7 +75,6 @@ def quiz():
     story = st.session_state.current_story
     q_index = st.session_state.question_index
 
-    # Si terminamos las preguntas, ir directo a resultados
     if q_index >= len(story["questions"]):
         st.session_state.page = "result"
         result()
@@ -81,12 +85,10 @@ def quiz():
     st.subheader(q["question"])
     answer = st.radio("Choose an answer:", q["options"], key=f"q_{q_index}")
 
-    # Botón Submit valida la respuesta
     if st.button("Submit", key=f"submit_{q_index}"):
         st.session_state.last_answer = answer
         st.session_state.answer_submitted = True
 
-    # Botón Next aparece solo si ya se envió la respuesta
     if st.session_state.answer_submitted:
         if st.button("Next", key=f"next_{q_index}"):
             progress["total_answers"] += 1
@@ -108,16 +110,30 @@ def result():
     score = st.session_state.score
 
     st.title("Results")
-
     st.write(f"You got {score} out of {total_q}")
 
-    earned_points = 10 + (score * 5)
-    progress["points"] += earned_points
+    # ---------- POINTS (PATCH: solo sumar si primera vez) ----------
+    if not st.session_state.points_added and story["id"] not in progress["stories_completed"]:
+        earned_points = 10 + (score * 5)
+        progress["points"] += earned_points
+        st.session_state.points_added = True
 
-    if story["id"] not in progress["stories_completed"]:
+        # ---------- STREAK ----------
+        today = date.today()
+        last_read_str = progress.get("last_read_date", None)
+        if last_read_str:
+            last_read = date.fromisoformat(last_read_str)
+        else:
+            last_read = today - timedelta(days=1)
+
+        if today == last_read + timedelta(days=1):
+            progress["streak"] += 1
+        elif today > last_read + timedelta(days=1):
+            progress["streak"] = 1
+
+        progress["last_read_date"] = str(today)
         progress["stories_completed"].append(story["id"])
-
-    save_progress(progress)
+        save_progress(progress)
 
     st.markdown(f"**💰 EdiCoins:** {progress['points']}")
 
@@ -128,6 +144,7 @@ def result():
 
     if st.button("Back to Home"):
         st.session_state.page = "home"
+        st.session_state.points_added = False
 
 # ---------- ADMIN DASHBOARD ----------
 def admin():
