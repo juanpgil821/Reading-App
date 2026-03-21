@@ -2,29 +2,20 @@ import streamlit as st
 import json
 from stories import stories
 from datetime import date, timedelta
-import os  # agregado para persistencia en Streamlit Cloud
+import os  # para persistencia en Streamlit Cloud
 
 # ---------- LOAD / SAVE PROGRESS (persistente) ----------
 PROGRESS_FILE = "/mnt/data/progress.json"
-
-DEFAULT_PROGRESS = {
-    "name": "Edimar",
-    "points": 0,
-    "streak": 0,
-    "stories_completed": [],
-    "total_answers": 0,
-    "correct_answers": 0,
-    "last_read_date": None
-}
 
 def load_progress():
     if os.path.exists(PROGRESS_FILE):
         with open(PROGRESS_FILE, "r") as f:
             return json.load(f)
     else:
-        # Inicializa progreso por primera vez
-        save_progress(DEFAULT_PROGRESS)
-        return DEFAULT_PROGRESS.copy()
+        with open("progress.json", "r") as f:
+            data = json.load(f)
+        save_progress(data)
+        return data
 
 def save_progress(data):
     with open(PROGRESS_FILE, "w") as f:
@@ -32,27 +23,14 @@ def save_progress(data):
 
 progress = load_progress()
 
-# ---------- SESSION STATE ----------
-if "page" not in st.session_state:
-    st.session_state.page = "home"
-
-if "current_story" not in st.session_state:
-    st.session_state.current_story = None
-
-if "score" not in st.session_state:
-    st.session_state.score = 0
-
-if "question_index" not in st.session_state:
-    st.session_state.question_index = 0
-
-if "answer_submitted" not in st.session_state:
-    st.session_state.answer_submitted = False
-
-if "last_answer" not in st.session_state:
-    st.session_state.last_answer = None
-
-if "points_added" not in st.session_state:
-    st.session_state.points_added = False
+# ---------- SESSION STATE (CORREGIDO) ----------
+st.session_state.page = st.session_state.get("page", "home")
+st.session_state.current_story = st.session_state.get("current_story", None)
+st.session_state.score = st.session_state.get("score", 0)
+st.session_state.question_index = st.session_state.get("question_index", 0)
+st.session_state.answer_submitted = st.session_state.get("answer_submitted", False)
+st.session_state.last_answer = st.session_state.get("last_answer", None)
+st.session_state.points_added = st.session_state.get("points_added", False)
 
 # ---------- HOME ----------
 def home():
