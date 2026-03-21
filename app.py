@@ -141,7 +141,11 @@ def result():
             progress["streak"] = 1
 
         progress["last_read_date"] = str(today)
-        progress["stories_completed"].append(story["id"])
+
+        # Evita duplicados en stories_completed
+        if story["id"] not in progress["stories_completed"]:
+            progress["stories_completed"].append(story["id"])
+
         save_progress(progress)
 
     st.markdown(f"**💰 EdiCoins:** {progress['points']}")
@@ -154,6 +158,7 @@ def result():
     if st.button("Back to Home"):
         st.session_state.page = "home"
         st.session_state.points_added = False
+        save_progress(progress) # asegura persistencia al volver a Home
 
 # ---------- ADMIN DASHBOARD ----------
 def admin():
