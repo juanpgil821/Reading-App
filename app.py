@@ -5,50 +5,77 @@ from stories import stories
 import pandas as pd
 
 # ---------- CONFIGURACIÓN DE PÁGINA ----------
-st.set_page_state = "wide"
+st.set_page_config(page_title="App de Lectura", layout="centered")
 
 # ---------- CONEXIÓN A GOOGLE SHEETS ----------
 def get_connection():
-    # Limpieza automática de la llave privada (por si los Secrets tienen \n de más)
-    secret_dict = st.secrets["connections"]["gsheets"].to_dict()
-    if "\\n" in secret_dict["private_key"]:
-        secret_dict["private_key"] = secret_dict["private_key"].replace("\\n", "\n")
-    
-    return st.connection("gsheets", type=GSheetsConnection)
+    try:
+        # Limpieza automática de la llave privada (por si los Secrets tienen \n de más)
+        secret_dict = st.secrets["connections"]["gsheets"].to_dict()
+        if "\\n" in secret_dict["private_key"]:
+            secret_dict["private_key"] = secret_dict["private_key"].replace("\\n", "\n")
+        
+        return st.connection("gsheets", type=GSheetsConnection)
+    except Exception as e:
+        st.error(f"Error en la configuración de Secrets: {e}")
+        return None
 
 conn = get_connection()
 
 def load_progress():
+    # Datos de respaldo por si falla la conexión
+    default_data = {
+        "name": "Lectora", "points": 0, "streak": 0, 
+        "last_read_date": "2026-01-01", "stories_completed": [],
+        "total_answers": 0, "correct_answers": 0
+    }
+    
     try:
-        # Intentamos leer la hoja usando la URL de los secrets
+        if conn is None: return default_data
+        
         url = st.secrets["connections"]["gsheets"]["spreadsheet"]
+        # Intentamos leer la pestaña "Lectura_App"
         df = conn.read(spreadsheet=url, worksheet="Lectura_App", ttl=0)
         
-        if df is None or df.empty:
-            st.error("⚠️ La hoja de cálculo está vacía o no se encuentra.")
-            return None
+        # Si la hoja no tiene filas de datos (solo títulos o vacía)
+        if df is None or len(df) == 0:
+            st.warning("⚠️ La Fila 2 del Excel está vacía. Usando datos nuevos.")
+            return default_data
             
-        data = df.iloc[0].to_dict()
+        # Tomamos la primera fila de datos
+        raw_data = df.iloc[0].to_dict()
         
-        # Conversión de la lista de historias (Celda E)
-        stories_val = str(data.get("stories_completed", ""))
-        if pd.isna(data["stories_completed"]) or stories_val.strip() == "" or stories_val == "nan":
+        # Limpiamos los datos para que Python no se confunda
+        data = {
+            "name": str(raw_data.get("name", "Lectora")),
+            "points": int(raw_data.get("points", 0)) if not pd.isna(raw_data.get("points")) else 0,
+            "streak": int(raw_data.get("streak", 0)) if not pd.isna(raw_data.get("streak")) else 0,
+            "last_read_date": str(raw_data.get("last_read_date", "2026-01-01")),
+            "total_answers": int(raw_data.get("total_answers", 0)) if not pd.isna(raw_data.get("total_answers")) else 0,
+            "correct_answers": int(raw_data.get("correct_answers", 0)) if not pd.isna(raw_data.get("correct_answers")) else 0
+        }
+        
+        # Procesar la lista de historias completadas (Celda E)
+        stories_val = str(raw_data.get("stories_completed", ""))
+        if stories_val.strip() in ["", "nan", "None"]:
             data["stories_completed"] = []
         else:
+            # Convierte "1,2" en [1, 2]
             data["stories_completed"] = [int(i) for i in stories_val.split(",") if i.strip()]
-        
+            
         return data
+
     except Exception as e:
-        st.error(f"❌ Error al cargar datos: {e}")
-        return None
+        st.error(f"Nota: No pude leer el Excel ({e}). Usando modo local.")
+        return default_data
 
 def save_progress_to_sheets(data):
     try:
         url = st.secrets["connections"]["gsheets"]["spreadsheet"]
-        # Convertimos la lista [1, 2] a texto "1,2"
+        # Convertimos la lista [1, 2] a texto "1,2" para Excel
         stories_str = ",".join(map(str, data["stories_completed"]))
         
-        # Preparamos la fila para subir
+        # Preparamos la fila única para actualizar
         updated_df = pd.DataFrame([{
             "name": data["name"],
             "points": int(data["points"]),
@@ -63,16 +90,11 @@ def save_progress_to_sheets(data):
     except Exception as e:
         st.error(f"❌ Error al guardar en la nube: {e}")
 
-# ---------- INICIALIZACIÓN DE SESIÓN ----------
+# ---------- INICIALIZACIÓN ----------
 if "user_data" not in st.session_state:
     st.session_state.user_data = load_progress()
 
 progress = st.session_state.user_data
-
-# Si no se pudo cargar el progreso, detenemos la app para no romper nada
-if progress is None:
-    st.warning("Revisa que hayas compartido el Excel con el correo de la cuenta de servicio y que la pestaña se llame 'Lectura_App'.")
-    st.stop()
 
 # Estados de navegación
 if "page" not in st.session_state: st.session_state.page = "home"
@@ -95,7 +117,7 @@ def update_streak():
     
     progress["last_read_date"] = today
 
-# ---------- INTERFAZ ----------
+# ---------- PÁGINAS ----------
 
 def home():
     st.title(f"📚 ¡Hola, {progress['name']}!")
@@ -103,52 +125,16 @@ def home():
     c1.metric("💰 EdiCoins", progress['points'])
     c2.metric("🔥 Racha", f"{progress['streak']} días")
 
-    st.subheader("Elige una historia para leer:")
-    for story in stories:
-        completada = story["id"] in progress["stories_completed"]
-        icono = "✅" if completada else "📖"
-        if st.button(f"{icono} {story['title']}", key=f"s_{story['id']}", use_container_width=True):
-            st.session_state.current_story = story
-            st.session_state.page = "reading"
-            st.session_state.score = 0
-            st.session_state.question_index = 0
-            st.session_state.answer_submitted = False
-            st.session_state.reward_given = False
-            st.rerun()
-
-def reading():
-    story = st.session_state.current_story
-    st.title(story["title"])
-    st.write(story["text"])
-    if st.button("✨ ¡Ya terminé de leer!", use_container_width=True):
-        st.session_state.page = "quiz"
-        st.rerun()
-
-def quiz():
-    story = st.session_state.current_story
-    idx = st.session_state.question_index
-    preguntas = story["questions"]
-
-    if idx >= len(preguntas):
-        st.session_state.page = "result"
-        st.rerun()
-        return
-
-    q = preguntas[idx]
-    st.subheader(f"Pregunta {idx + 1} de {len(preguntas)}")
-    st.write(q["question"])
-    
-    opcion = st.radio("Selecciona tu respuesta:", q["options"], key=f"q_{idx}")
+    st.subheader("Elige una historia:")
+    opcion = st.radio("Respuesta:", q["options"], key=f"q_{idx}")
 
     if not st.session_state.answer_submitted:
-        if st.button("Enviar respuesta"):
+        if st.button("Enviar"):
             st.session_state.answer_submitted = True
             st.rerun()
     else:
-        if opcion == q["answer"]:
-            st.success("¡Excelente! Es correcto. 🌟")
-        else:
-            st.error(f"Casi... la respuesta era: {q['answer']}")
+        if opcion == q["answer"]: st.success("¡Correcto! 🌟")
+        else: st.error(f"Era: {q['answer']}")
         
         if st.button("Siguiente ➡️"):
             progress["total_answers"] += 1
@@ -161,44 +147,35 @@ def quiz():
 
 def result():
     story = st.session_state.current_story
-    puntos_obtenidos = 0
-    
-    st.title("¡Lectura Completada! 🎉")
+    st.title("¡Resultados! 🎉")
     
     if not st.session_state.reward_given:
-        # Solo damos puntos si es la primera vez que la lee
         if story["id"] not in progress["stories_completed"]:
-            puntos_obtenidos = 10 + (st.session_state.score * 5)
-            progress["points"] += puntos_obtenidos
+            puntos = 10 + (st.session_state.score * 5)
+            progress["points"] += puntos
             progress["stories_completed"].append(story["id"])
             update_streak()
             save_progress_to_sheets(progress)
             st.balloons()
-            st.success(f"¡Has ganado {puntos_obtenidos} EdiCoins! Ya los guardé en tu cuenta.")
+            st.success(f"¡Ganaste {puntos} EdiCoins!")
         else:
-            st.info("¡Gracias por leerla de nuevo! Esta ya la tenías completada.")
+            st.info("¡Ya habías leído esta historia!")
         st.session_state.reward_given = True
 
-    st.write(f"Aciertos: {st.session_state.score} de {len(story['questions'])}")
     if st.button("Volver al Inicio"):
         st.session_state.page = "home"
         st.rerun()
 
-# ---------- NAVEGACIÓN PRINCIPAL ----------
+# ---------- NAVEGACIÓN ----------
 if st.session_state.page == "home": home()
 elif st.session_state.page == "reading": reading()
 elif st.session_state.page == "quiz": quiz()
 elif st.session_state.page == "result": result()
 
-# Sidebar para el papá
+# Sidebar Papá
 with st.sidebar:
-    st.divider()
     if st.checkbox("🔑 Modo Papá"):
-        pass_input = st.text_input("Contraseña", type="password")
-        if pass_input == "1234":
-            st.write("### Estadísticas")
-            st.write(f"Total respuestas: {progress['total_answers']}")
-            st.write(f"Correctas: {progress['correct_answers']}")
-            if st.button("🔄 Refrescar desde Google"):
+        if st.text_input("Pass", type="password") == "1234":
+            if st.button("🔄 Forzar Recarga"):
                 st.session_state.user_data = load_progress()
                 st.rerun()
