@@ -26,11 +26,17 @@ if "score" not in st.session_state:
 if "question_index" not in st.session_state:
     st.session_state.question_index = 0
 
+if "answer_submitted" not in st.session_state:
+    st.session_state.answer_submitted = False
+
+if "last_answer" not in st.session_state:
+    st.session_state.last_answer = None
+
 # ---------- HOME ----------
 def home():
     st.title(f"📚 Welcome, {progress['name']}!")
 
-    st.write(f"🪙 EdiCoins: {progress['points']}")
+    st.markdown(f"**💰 EdiCoins:** {progress['points']}")
     st.write(f"🔥 Streak: {progress['streak']} days")
 
     st.subheader("Stories")
@@ -46,6 +52,8 @@ def home():
             st.session_state.page = "reading"
             st.session_state.score = 0
             st.session_state.question_index = 0
+            st.session_state.answer_submitted = False
+            st.session_state.last_answer = None
 
 # ---------- READING ----------
 def reading():
@@ -62,16 +70,27 @@ def quiz():
     story = st.session_state.current_story
     q_index = st.session_state.question_index
 
-    if q_index < len(story["questions"]):
-        q = story["questions"][q_index]
+    # Si terminamos las preguntas, ir directo a resultados
+    if q_index >= len(story["questions"]):
+        st.session_state.page = "result"
+        result()
+        return
 
-        st.subheader(q["question"])
-        answer = st.radio("Choose an answer:", q["options"])
+    q = story["questions"][q_index]
 
-        if st.button("Submit"):
+    st.subheader(q["question"])
+    answer = st.radio("Choose an answer:", q["options"], key=f"q_{q_index}")
+
+    # Botón Submit valida la respuesta
+    if st.button("Submit", key=f"submit_{q_index}"):
+        st.session_state.last_answer = answer
+        st.session_state.answer_submitted = True
+
+    # Botón Next aparece solo si ya se envió la respuesta
+    if st.session_state.answer_submitted:
+        if st.button("Next", key=f"next_{q_index}"):
             progress["total_answers"] += 1
-
-            if answer == q["answer"]:
+            if st.session_state.last_answer == q["answer"]:
                 st.success("Correct! 🎉")
                 st.session_state.score += 1
                 progress["correct_answers"] += 1
@@ -79,8 +98,8 @@ def quiz():
                 st.error(f"Wrong! The correct answer was: {q['answer']}")
 
             st.session_state.question_index += 1
-    else:
-        st.session_state.page = "result"
+            st.session_state.answer_submitted = False
+            st.session_state.last_answer = None
 
 # ---------- RESULT ----------
 def result():
@@ -100,6 +119,8 @@ def result():
 
     save_progress(progress)
 
+    st.markdown(f"**💰 EdiCoins:** {progress['points']}")
+
     if score == total_q:
         st.success("🔥 Amazing! You're a reading star!")
     else:
@@ -116,7 +137,7 @@ def admin():
     if progress["total_answers"] > 0:
         accuracy = (progress["correct_answers"] / progress["total_answers"]) * 100
 
-    st.write(f"🪙 EdiCoins: {progress['points']}")
+    st.markdown(f"**💰 EdiCoins:** {progress['points']}")
     st.write(f"Stories completed: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
