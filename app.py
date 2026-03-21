@@ -1,8 +1,3 @@
-
-Edixon Mejias <edimejiasb@gmail.com>
-10:59 p.m. (hace 0 minutos)
-para mí
-
 import streamlit as st
 import json
 from stories import stories
