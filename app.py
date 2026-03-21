@@ -3,21 +3,21 @@ import json
 from datetime import date, timedelta
 from stories import stories
 
-# ---------- CONFIGURACIÓN VISUAL (CSS) ----------
-st.set_page_config(page_title="El Castillo de Lectura", layout="centered")
+# ---------- 1. ESTILO MÁGICO (CSS) ----------
+st.set_page_config(page_title="Castillo de Lectura", layout="centered")
 
 st.markdown(
     """
     <style>
-    /* Fondo del Castillo - Usando una URL más estable */
+    /* Fondo del Castillo (Imagen de dominio público de un castillo de cuento) */
     .stApp {
-        background-image: url("https://img.freepik.com/vector-gratis/fondo-paisaje-castillo-cuento-hadas-dibujado-mano_23-2148492271.jpg");
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fairytale_Castle.jpg/1024px-Fairytale_Castle.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
 
-    /* Bloques de texto (Pergaminos) */
+    /* Pergaminos para el texto */
     .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -52,7 +52,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ---------- LOGICA JSON (INTACTA) ----------
+# ---------- 2. LÓGICA JSON (Tu código original) ----------
 def load_progress():
     try:
         with open("progress.json", "r") as f:
@@ -77,7 +77,7 @@ if "user_data" not in st.session_state:
 
 progress = st.session_state.user_data
 
-# ---------- ESTADOS DE SESIÓN ----------
+# ---------- 3. ESTADOS Y RACHA ----------
 if "page" not in st.session_state: st.session_state.page = "home"
 if "current_story" not in st.session_state: st.session_state.current_story = None
 if "score" not in st.session_state: st.session_state.score = 0
@@ -95,20 +95,20 @@ def update_streak():
     progress["last_read_date"] = today
     save_progress(progress)
 
-# ---------- BARRA LATERAL (PERSONAJES CORREGIDOS) ----------
+# ---------- 4. BARRA LATERAL (IMÁGENES FIJAS) ----------
 with st.sidebar:
-    # Princesa de verdad (un dibujo lindo de una princesa con un libro)
-    st.image("https://res.cloudinary.com/dz0v8m747/image/upload/v1711000000/princess_reading.png", 
+    # Una princesa clásica de cuento (URL de Wikipedia)
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Princess_and_the_Pea.jpg/439px-Princess_and_the_Pea.jpg", 
              caption="👑 Tu Guía Real", use_container_width=True)
     
-    # Ajolote Rosa real (sin fondo de cuadros)
-    st.image("https://res.cloudinary.com/dz0v8m747/image/upload/v1711000000/pink_axolotl.png", 
-             width=140)
+    # Axolote Rosa (URL de una ilustración de código abierto)
+    st.image("https://raw.githubusercontent.com/Tarik-A/axolotl-js/master/assets/axolotl.png", 
+             width=150)
     
     st.title("Menú Mágico")
     menu = st.sidebar.radio("Ir a:", ["Inicio", "Panel de Papá"])
 
-# ---------- FUNCIONES DE PÁGINA (HOME, READING, QUIZ, RESULT) ----------
+# ---------- 5. PÁGINAS ----------
 def home():
     st.title(f"✨ ¡Hola, {progress['name']}! ✨")
     c1, c2 = st.columns(2)
@@ -186,10 +186,12 @@ def result():
 
 # ---------- NAVEGACIÓN ----------
 if menu == "Panel de Papá":
-    if st.sidebar.text_input("Pass", type="password") == "1234":
+    if st.sidebar.text_input("Contraseña", type="password") == "1234":
         st.title("👨‍👧 Panel de Papá")
+        accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
         st.metric("Puntos", progress['points'])
-        st.write(f"Historias: {len(progress['stories_completed'])}")
+        st.write(f"Historias leídas: {len(progress['stories_completed'])}")
+        st.write(f"Precisión: {round(accuracy, 2)}%")
 else:
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
