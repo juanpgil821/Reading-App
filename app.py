@@ -2,14 +2,23 @@ import streamlit as st
 import json
 from stories import stories
 from datetime import date, timedelta
+import os # agregado para persistencia en Streamlit Cloud
 
-# ---------- LOAD PROGRESS ----------
+# ---------- LOAD / SAVE PROGRESS (persistente) ----------
+PROGRESS_FILE = "/mnt/data/progress.json"
+
 def load_progress():
-    with open("progress.json", "r") as f:
-        return json.load(f)
+    if os.path.exists(PROGRESS_FILE):
+        with open(PROGRESS_FILE, "r") as f:
+            return json.load(f)
+    else:
+        with open("progress.json", "r") as f:
+            data = json.load(f)
+        save_progress(data)
+        return data
 
 def save_progress(data):
-    with open("progress.json", "w") as f:
+    with open(PROGRESS_FILE, "w") as f:
         json.dump(data, f, indent=4)
 
 progress = load_progress()
@@ -112,7 +121,7 @@ def result():
     st.title("Results")
     st.write(f"You got {score} out of {total_q}")
 
-    # ---------- POINTS (PATCH: solo sumar si primera vez) ----------
+    # ---------- POINTS (PATCH: solo sumar si primera vez y no repetir capítulo) ----------
     if not st.session_state.points_added and story["id"] not in progress["stories_completed"]:
         earned_points = 10 + (score * 5)
         progress["points"] += earned_points
