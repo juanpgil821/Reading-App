@@ -30,7 +30,7 @@ if "question_index" not in st.session_state:
 def home():
     st.title(f"📚 Welcome, {progress['name']}!")
 
-    st.write(f"⭐ Points: {progress['points']}")
+    st.write(f"🪙 EdiCoins: {progress['points']}")
     st.write(f"🔥 Streak: {progress['streak']} days")
 
     st.subheader("Stories")
@@ -116,7 +116,7 @@ def admin():
     if progress["total_answers"] > 0:
         accuracy = (progress["correct_answers"] / progress["total_answers"]) * 100
 
-    st.write(f"Points: {progress['points']}")
+    st.write(f"🪙 EdiCoins: {progress['points']}")
     st.write(f"Stories completed: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
