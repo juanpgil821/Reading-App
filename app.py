@@ -2,20 +2,29 @@ import streamlit as st
 import json
 from stories import stories
 from datetime import date, timedelta
-import os # agregado para persistencia en Streamlit Cloud
+import os  # agregado para persistencia en Streamlit Cloud
 
 # ---------- LOAD / SAVE PROGRESS (persistente) ----------
 PROGRESS_FILE = "/mnt/data/progress.json"
+
+DEFAULT_PROGRESS = {
+    "name": "Edimar",
+    "points": 0,
+    "streak": 0,
+    "stories_completed": [],
+    "total_answers": 0,
+    "correct_answers": 0,
+    "last_read_date": None
+}
 
 def load_progress():
     if os.path.exists(PROGRESS_FILE):
         with open(PROGRESS_FILE, "r") as f:
             return json.load(f)
     else:
-        with open("progress.json", "r") as f:
-            data = json.load(f)
-        save_progress(data)
-        return data
+        # Inicializa progreso por primera vez
+        save_progress(DEFAULT_PROGRESS)
+        return DEFAULT_PROGRESS.copy()
 
 def save_progress(data):
     with open(PROGRESS_FILE, "w") as f:
@@ -158,7 +167,7 @@ def result():
     if st.button("Back to Home"):
         st.session_state.page = "home"
         st.session_state.points_added = False
-        save_progress(progress) # asegura persistencia al volver a Home
+        save_progress(progress)  # asegura persistencia al volver a Home
 
 # ---------- ADMIN DASHBOARD ----------
 def admin():
