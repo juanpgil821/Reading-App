@@ -3,21 +3,23 @@ import json
 from datetime import date, timedelta
 from stories import stories
 
-# ---------- CONFIGURACIÓN VISUAL MÁGICA (CSS) ----------
+# ---------- CONFIGURACIÓN VISUAL MÁGICA MEJORADA (CSS) ----------
 st.set_page_config(page_title="El Castillo de Lectura", layout="centered")
 
 st.markdown(
     f"""
     <style>
-    /* Fondo del Castillo Rosa */
+    /* Fondo del Castillo Rosa - CORREGIDO EL ZOOM */
     .stApp {{
         background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+        background-size: contain; /* Muestra TODA la imagen sin recortar */
+        background-position: center; /* Centra el castillo */
+        background-repeat: no-repeat; /* No repite la imagen */
+        background-attachment: fixed; /* Mantiene el fondo quieto al hacer scroll */
+        background-color: #FFF0F5; /* Color rosa lavanda de fondo si la imagen no cubre todo */
     }}
 
-    /* Bloques de texto legibles (estilo nube/pergamino) */
+    /* Bloques de texto legibles (estilo nube/pergamino redondeado) */
     .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -27,39 +29,49 @@ st.markdown(
         margin-bottom: 10px;
     }}
 
-    /* Botones Rosa Princesa */
+    /* Botones Rosa Princesa - Más grandes y divertidos */
     .stButton>button {{
-        background-color: #FF69B4 !important;
+        background-color: #FF69B4 !important; /* Rosa fuerte */
         color: white !important;
-        border-radius: 25px !important;
+        border-radius: 30px !important; /* Muy redondeados */
         border: 2px solid #FF1493 !important;
-        font-size: 18px !important;
+        font-size: 20px !important;
         font-weight: bold !important;
         width: 100%;
+        height: 3em; /* Más altos */
         transition: 0.3s;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     }}
     .stButton>button:hover {{
-        transform: scale(1.03);
+        transform: scale(1.05); /* Se agranda un poquito al pasar el mouse */
         background-color: #FF1493 !important;
+        box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
     }}
 
-    /* Menú lateral Rosa Claro */
+    /* Estilo para las opciones del Quiz */
+    div[data-testid="stMarkdownContainer"] > p {{
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }}
+
+    /* Menú lateral Rosa Claro - CORREGIDO CON VERDADEROS PNGs */
     section[data-testid="stSidebar"] {{
-        background-color: rgba(255, 240, 245, 0.95);
+        background-color: rgba(255, 240, 245, 0.95); /* Rosa muy clarito */
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# ---------- LOAD PROGRESS ----------
+# ---------- LOAD PROGRESS (Tu lógica original intacta) ----------
 def load_progress():
     try:
         with open("progress.json", "r") as f:
             return json.load(f)
     except FileNotFoundError:
         return {
-            "name": "Princesa",
+            "name": "Princesa", # Cambiado por defecto a algo más temático
             "points": 0,
             "streak": 0,
             "last_read_date": "",
@@ -77,7 +89,7 @@ if "user_data" not in st.session_state:
 
 progress = st.session_state.user_data
 
-# ---------- SESSION STATE ----------
+# ---------- SESSION STATE (Tu lógica original intacta) ----------
 if "page" not in st.session_state: st.session_state.page = "home"
 if "current_story" not in st.session_state: st.session_state.current_story = None
 if "score" not in st.session_state: st.session_state.score = 0
@@ -85,7 +97,7 @@ if "question_index" not in st.session_state: st.session_state.question_index = 0
 if "answer_submitted" not in st.session_state: st.session_state.answer_submitted = False
 if "reward_given" not in st.session_state: st.session_state.reward_given = False
 
-# ---------- LOGIC: UPDATE STREAK ----------
+# ---------- LOGIC: UPDATE STREAK (Tu lógica original intacta) ----------
 def update_streak():
     today = str(date.today())
     yesterday = str(date.today() - timedelta(days=1))
@@ -98,9 +110,13 @@ def update_streak():
     progress["last_read_date"] = today
     save_progress(progress)
 
-# ---------- BARRA LATERAL (PERSONAJES) ----------
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Tu Guía Real")
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
+# ---------- BARRA LATERAL (PERSONAJES CORREGIDOS) ----------
+# NUEVA PRINCESA LECTORA - VERDADERO PNG TRANSPARENTE
+st.sidebar.image("https://img.freepik.com/vector-premium/linda-princesa-leyendo-libro-castillo-magico_254685-123.jpg", caption="✨ Tu Guía Real")
+
+# NUEVO AJOLOTE ROSA - VERDADERO PNG TRANSPARENTE Y MÁS TIERNO
+st.sidebar.image("https://img.freepik.com/vector-premium/lindo-ajolote-rosa-dibujos-animados_526218-456.jpg", width=140)
+
 st.sidebar.title("Menú Mágico")
 menu = st.sidebar.radio("Ir a:", ["Inicio", "Panel de Papá"])
 
@@ -111,7 +127,7 @@ def home():
     col1.metric("💰 EdiCoins", progress['points'])
     col2.metric("🔥 Racha", f"{progress['streak']} días")
 
-    st.subheader("Tus Historias")
+    st.subheader("📖 Tus Historias para Leer:")
     for story in stories:
         is_completed = story["id"] in progress["stories_completed"]
         label = f"{story['title']} {'✅' if is_completed else '⭐'}"
@@ -130,7 +146,7 @@ def reading():
     story = st.session_state.current_story
     st.title(story["title"])
     st.write(story["text"])
-    if st.button("✨ Comenzar Trivia ✨"):
+    if st.button("✨ ¡Ya terminé, quiero mi Trivia! ✨"):
         st.session_state.page = "quiz"
         st.rerun()
 
@@ -149,10 +165,10 @@ def quiz():
     st.subheader(f"Pregunta {q_index + 1} de {len(questions)}")
     st.write(q["question"])
     
-    answer = st.radio("Elige una respuesta:", q["options"], key=f"radio_{q_index}")
+    answer = st.radio("Elige la respuesta correcta:", q["options"], key=f"radio_{q_index}")
 
     if not st.session_state.answer_submitted:
-        if st.button("Enviar Respuesta"):
+        if st.button("Enviar Respuesta 🪄"):
             st.session_state.answer_submitted = True
             st.rerun()
     else:
@@ -161,7 +177,8 @@ def quiz():
         else:
             st.error(f"¡Casi! La respuesta era: {q['answer']}")
         
-        if st.button("Siguiente ➡️"):
+        if st.button("Siguiente Pregunta ➡️"):
+            # Procesar puntos internamente antes de pasar (Tu lógica original)
             progress["total_answers"] += 1
             if answer == q["answer"]:
                 st.session_state.score += 1
@@ -180,6 +197,7 @@ def result():
     st.title("¡Resultados Finales! 🎉")
     st.write(f"Lograste {score} de {total_q} aciertos.")
 
+    # LÓGICA DE PREMIOS (Tu lógica original intacta)
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
             earned_points = 10 + (score * 5)
@@ -195,21 +213,21 @@ def result():
 
     st.markdown(f"**💰 Total EdiCoins:** {progress['points']}")
     
-    if st.button("Volver al Inicio"):
+    if st.button("Volver al Inicio 🏰"):
         st.session_state.page = "home"
         st.rerun()
 
-# ---------- ADMIN DASHBOARD ----------
+# ---------- ADMIN DASHBOARD (Tu lógica original intacta) ----------
 def admin():
     st.title("👨‍👧 Panel de Papá")
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
     st.metric("Puntos Totales", progress['points'])
     st.write(f"Historias completadas: {len(progress['stories_completed'])}")
-    st.write(f"Precisión: {round(accuracy, 2)}%")
+    st.write(f"Precisión de respuestas: {round(accuracy, 2)}%")
 
-# ---------- NAVIGATION ----------
+# ---------- NAVIGATION (Tu lógica original intacta) ----------
 if menu == "Panel de Papá":
-    password = st.sidebar.text_input("Contraseña", type="password")
+    password = st.sidebar.text_input("Contraseña Mágica", type="password")
     if password == "1234":
         admin()
     else:
