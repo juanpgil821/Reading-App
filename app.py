@@ -1,144 +1,65 @@
 import streamlit as st
 import json
-from stories import stories
+from stories import get_story  # tu función para obtener historias
 
-# ---------- LOAD PROGRESS ----------
-def load_progress():
+# --------------------------
+# 1️⃣ Cargar progreso
+# --------------------------
+try:
     with open("progress.json", "r") as f:
-        return json.load(f)
+        progress = json.load(f)
+except FileNotFoundError:
+    progress = {}
 
-def save_progress(data):
-    with open("progress.json", "w") as f:
-        json.dump(data, f, indent=4)
+user_name = "Edimar"
+# Inicializar si no existe
+if user_name not in progress:
+    progress[user_name] = {"edicoins": 0, "completed_stories": []}
+elif "edicoins" not in progress[user_name]:
+    progress[user_name]["edicoins"] = 0
+elif "completed_stories" not in progress[user_name]:
+    progress[user_name]["completed_stories"] = []
 
-progress = load_progress()
+user_coins = progress[user_name]["edicoins"]
 
-# ---------- SESSION STATE ----------
-if "page" not in st.session_state:
-    st.session_state.page = "home"
+# --------------------------
+# 2️⃣ Mostrar contador de Edicoins
+# --------------------------
+st.write(f"🪙 Edicoins: {user_coins}")
 
-if "current_story" not in st.session_state:
-    st.session_state.current_story = None
+# --------------------------
+# 3️⃣ Selección o carga de historia
+# --------------------------
+# Por simplicidad, tomamos story_1 como ejemplo
+story = get_story("story_1")  # debe devolver dict con keys: text, questions, id
+st.write(story["text"])
 
-if "score" not in st.session_state:
-    st.session_state.score = 0
-
-if "question_index" not in st.session_state:
-    st.session_state.question_index = 0
-
-# ---------- HOME ----------
-def home():
-    st.title(f"📚 Welcome, {progress['name']}!")
-
-    st.write(f"⭐ Points: {progress['points']}")
-    st.write(f"🔥 Streak: {progress['streak']} days")
-
-    st.subheader("Stories")
-
-    for story in stories:
-        if story["id"] in progress["stories_completed"]:
-            status = "✅ Completed"
+# --------------------------
+# 4️⃣ Mostrar preguntas y recibir respuestas
+# --------------------------
+correct_answers = 0
+for q in story["questions"]:
+    answer = st.text_input(q["question"], key=q["question"])
+    if st.button(f"Submit answer for '{q['question']}'", key=f"btn_{q['question']}"):
+        if answer.strip().lower() == q["answer"]:
+            st.success("Correct!")
+            correct_answers += 1
         else:
-            status = "➡️ New"
+            st.error("Try again!")
 
-        if st.button(f"{story['title']} - {status}"):
-            st.session_state.current_story = story
-            st.session_state.page = "reading"
-            st.session_state.score = 0
-            st.session_state.question_index = 0
+# --------------------------
+# 5️⃣ Dar Edicoins si todas correctas
+# --------------------------
+if correct_answers == len(story["questions"]):
+    if story["id"] not in progress[user_name]["completed_stories"]:
+        # Agregar historia completada
+        progress[user_name]["completed_stories"].append(story["id"])
+        # Sumar Edicoins
+        progress[user_name]["edicoins"] += 3  # por historia completada
+        user_coins = progress[user_name]["edicoins"]
+        st.balloons()  # 🎉 pequeño efecto de celebración
+        st.success(f"You earned 3 Edicoins! Total: {user_coins} 🪙")
 
-# ---------- READING ----------
-def reading():
-    story = st.session_state.current_story
-
-    st.title(story["title"])
-    st.write(story["text"])
-
-    if st.button("Start Quiz"):
-        st.session_state.page = "quiz"
-
-# ---------- QUIZ ----------
-def quiz():
-    story = st.session_state.current_story
-    q_index = st.session_state.question_index
-
-    if q_index < len(story["questions"]):
-        q = story["questions"][q_index]
-
-        st.subheader(q["question"])
-        answer = st.radio("Choose an answer:", q["options"])
-
-        if st.button("Submit"):
-            progress["total_answers"] += 1
-
-            if answer == q["answer"]:
-                st.success("Correct! 🎉")
-                st.session_state.score += 1
-                progress["correct_answers"] += 1
-            else:
-                st.error(f"Wrong! The correct answer was: {q['answer']}")
-
-            st.session_state.question_index += 1
-    else:
-        st.session_state.page = "result"
-
-# ---------- RESULT ----------
-def result():
-    story = st.session_state.current_story
-    total_q = len(story["questions"])
-    score = st.session_state.score
-
-    st.title("Results")
-
-    st.write(f"You got {score} out of {total_q}")
-
-    earned_points = 10 + (score * 5)
-    progress["points"] += earned_points
-
-    if story["id"] not in progress["stories_completed"]:
-        progress["stories_completed"].append(story["id"])
-
-    save_progress(progress)
-
-    if score == total_q:
-        st.success("🔥 Amazing! You're a reading star!")
-    else:
-        st.info("✨ Good job! Keep improving!")
-
-    if st.button("Back to Home"):
-        st.session_state.page = "home"
-
-# ---------- ADMIN DASHBOARD ----------
-def admin():
-    st.title("👨‍👧 Parent Dashboard")
-
-    accuracy = 0
-    if progress["total_answers"] > 0:
-        accuracy = (progress["correct_answers"] / progress["total_answers"]) * 100
-
-    st.write(f"Points: {progress['points']}")
-    st.write(f"Stories completed: {len(progress['stories_completed'])}")
-    st.write(f"Accuracy: {round(accuracy, 2)}%")
-
-# ---------- NAVIGATION ----------
-st.sidebar.title("Menu")
-
-menu = st.sidebar.radio("Go to", ["Home", "Parent Dashboard"])
-
-if menu == "Parent Dashboard":
-    password = st.sidebar.text_input("Enter password", type="password")
-
-    if password == "1234":
-        admin()
-    else:
-        st.sidebar.warning("Wrong password")
-
-else:
-    if st.session_state.page == "home":
-        home()
-    elif st.session_state.page == "reading":
-        reading()
-    elif st.session_state.page == "quiz":
-        quiz()
-    elif st.session_state.page == "result":
-        result()
+        # Guardar progreso
+        with open("progress.json", "w") as f:
+            json.dump(progress, f, indent=4)
