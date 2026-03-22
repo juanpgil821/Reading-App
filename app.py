@@ -3,13 +3,13 @@ import json
 from datetime import date, timedelta
 from stories import stories
 
-# ---------- CONFIGURACIÓN VISUAL MÁGICA (CSS) ----------
-st.set_page_config(page_title="El Castillo de Lectura", layout="centered")
+# ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
+st.set_page_config(page_title="The Reading Castle", layout="centered")
 
 st.markdown(
     f"""
     <style>
-    /* Fondo del Castillo Rosa */
+    /* Pink Castle Background */
     .stApp {{
         background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
         background-size: cover;
@@ -17,7 +17,7 @@ st.markdown(
         background-attachment: fixed;
     }}
 
-    /* Bloques de texto legibles (estilo nube/pergamino) */
+    /* Readable text blocks (cloud/parchment style) */
     .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -27,7 +27,7 @@ st.markdown(
         margin-bottom: 10px;
     }}
 
-    /* Botones Rosa Princesa */
+    /* Princess Pink Buttons */
     .stButton>button {{
         background-color: #FF69B4 !important;
         color: white !important;
@@ -43,7 +43,7 @@ st.markdown(
         background-color: #FF1493 !important;
     }}
 
-    /* Menú lateral Rosa Claro */
+    /* Light Pink Sidebar */
     section[data-testid="stSidebar"] {{
         background-color: rgba(255, 240, 245, 0.95);
     }}
@@ -59,7 +59,7 @@ def load_progress():
             return json.load(f)
     except FileNotFoundError:
         return {
-            "name": "Princesa",
+            "name": "Princess",
             "points": 0,
             "streak": 0,
             "last_read_date": "",
@@ -98,20 +98,20 @@ def update_streak():
     progress["last_read_date"] = today
     save_progress(progress)
 
-# ---------- BARRA LATERAL (PERSONAJES) ----------
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Tu Guía Real")
+# ---------- SIDEBAR (CHARACTERS) ----------
+st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
-st.sidebar.title("Menú Mágico")
-menu = st.sidebar.radio("Ir a:", ["Inicio", "Panel de Papá"])
+st.sidebar.title("Magical Menu")
+menu = st.sidebar.radio("Go to:", ["Home", "Parent Dashboard"])
 
 # ---------- HOME ----------
 def home():
-    st.title(f"✨ ¡Bienvenida, {progress['name']}! ✨")
+    st.title(f"✨ Welcome, {progress['name']}! ✨")
     col1, col2 = st.columns(2)
     col1.metric("💰 EdiCoins", progress['points'])
-    col2.metric("🔥 Racha", f"{progress['streak']} días")
+    col2.metric("🔥 Streak", f"{progress['streak']} days")
 
-    st.subheader("Tus Historias")
+    st.subheader("Your Stories")
     for story in stories:
         is_completed = story["id"] in progress["stories_completed"]
         label = f"{story['title']} {'✅' if is_completed else '⭐'}"
@@ -130,7 +130,7 @@ def reading():
     story = st.session_state.current_story
     st.title(story["title"])
     st.write(story["text"])
-    if st.button("✨ Comenzar Trivia ✨"):
+    if st.button("✨ Start Trivia ✨"):
         st.session_state.page = "quiz"
         st.rerun()
 
@@ -146,22 +146,22 @@ def quiz():
         return
 
     q = questions[q_index]
-    st.subheader(f"Pregunta {q_index + 1} de {len(questions)}")
+    st.subheader(f"Question {q_index + 1} of {len(questions)}")
     st.write(q["question"])
     
-    answer = st.radio("Elige una respuesta:", q["options"], key=f"radio_{q_index}")
+    answer = st.radio("Choose an answer:", q["options"], key=f"radio_{q_index}")
 
     if not st.session_state.answer_submitted:
-        if st.button("Enviar Respuesta"):
+        if st.button("Submit Answer"):
             st.session_state.answer_submitted = True
             st.rerun()
     else:
         if answer == q["answer"]:
-            st.success("¡Excelente! Es correcto. 🌟")
+            st.success("Excellent! That's correct. 🌟")
         else:
-            st.error(f"¡Casi! La respuesta era: {q['answer']}")
+            st.error(f"Almost! The answer was: {q['answer']}")
         
-        if st.button("Siguiente ➡️"):
+        if st.button("Next ➡️"):
             progress["total_answers"] += 1
             if answer == q["answer"]:
                 st.session_state.score += 1
@@ -177,46 +177,45 @@ def result():
     score = st.session_state.score
     total_q = len(story["questions"])
 
-    st.title("¡Resultados Finales! 🎉")
-    st.write(f"Lograste {score} de {total_q} aciertos.")
+    st.title("Final Results! 🎉")
+    st.write(f"You got {score} out of {total_q} correct.")
 
-    # LÓGICA DE PREMIOS MEJORADA
+    # REWARD LOGIC (10 for reading + 2 per correct answer)
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
-            # Cálculo: 10 por leer + (2 por cada acierto)
             earned_points = 10 + (score * 2)
             progress["points"] += earned_points
             progress["stories_completed"].append(story["id"])
             update_streak()
             st.balloons()
-            st.success(f"¡Has ganado {earned_points} EdiCoins! (10 por leer y {score * 2} por tus aciertos)")
+            st.success(f"You earned {earned_points} EdiCoins! (10 for reading and {score * 2} for your answers)")
         else:
-            st.warning("¡Esta historia ya la habías completado! Sigue practicando para ganar más en historias nuevas.")
+            st.warning("You already completed this story! Keep practicing to earn more in new stories.")
         
         save_progress(progress)
         st.session_state.reward_given = True
 
     st.markdown(f"**💰 Total EdiCoins:** {progress['points']}")
     
-    if st.button("Volver al Inicio"):
+    if st.button("Back to Home"):
         st.session_state.page = "home"
         st.rerun()
 
 # ---------- ADMIN DASHBOARD ----------
 def admin():
-    st.title("👨‍👧 Panel de Papá")
+    st.title("👨‍👧 Parent Dashboard")
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
-    st.metric("Puntos Totales", progress['points'])
-    st.write(f"Historias completadas: {len(progress['stories_completed'])}")
-    st.write(f"Precisión: {round(accuracy, 2)}%")
+    st.metric("Total Points", progress['points'])
+    st.write(f"Stories completed: {len(progress['stories_completed'])}")
+    st.write(f"Accuracy: {round(accuracy, 2)}%")
 
 # ---------- NAVIGATION ----------
-if menu == "Panel de Papá":
-    password = st.sidebar.text_input("Contraseña", type="password")
+if menu == "Parent Dashboard":
+    password = st.sidebar.text_input("Password", type="password")
     if password == "1234":
         admin()
     else:
-        st.sidebar.warning("Contraseña incorrecta")
+        st.sidebar.warning("Incorrect password")
 else:
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
