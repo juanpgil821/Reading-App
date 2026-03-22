@@ -180,15 +180,18 @@ def result():
     st.title("¡Resultados Finales! 🎉")
     st.write(f"Lograste {score} de {total_q} aciertos.")
 
+    # LÓGICA DE PREMIOS MEJORADA
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
-            earned_points = 10 + (score * 5)
+            # Cálculo: 10 por leer + (2 por cada acierto)
+            earned_points = 10 + (score * 2)
             progress["points"] += earned_points
             progress["stories_completed"].append(story["id"])
             update_streak()
             st.balloons()
+            st.success(f"¡Has ganado {earned_points} EdiCoins! (10 por leer y {score * 2} por tus aciertos)")
         else:
-            st.warning("¡Esta historia ya la habías completado! Sigue practicando para ganar más.")
+            st.warning("¡Esta historia ya la habías completado! Sigue practicando para ganar más en historias nuevas.")
         
         save_progress(progress)
         st.session_state.reward_given = True
