@@ -98,13 +98,16 @@ def update_streak():
     progress["last_read_date"] = today
     save_progress(progress)
 
-# ---------- SIDEBAR (CHARACTERS) ----------
+# ---------- SIDEBAR (CHARACTERS & NAVIGATION) ----------
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
 st.sidebar.title("Magical Menu")
-menu = st.sidebar.radio("Go to:", ["Home", "Parent Dashboard"])
 
-# ---------- HOME ----------
+# New Navigation including Edi-Mar-Ket
+menu = st.sidebar.radio("Go to:", ["Home", "Edi-Mar-Ket", "Parent Dashboard"])
+
+# ---------- PAGES ----------
+
 def home():
     st.title(f"✨ Welcome, {progress['name']}! ✨")
     col1, col2 = st.columns(2)
@@ -125,7 +128,14 @@ def home():
             st.session_state.reward_given = False
             st.rerun()
 
-# ---------- READING ----------
+def market():
+    st.title("🛍️ Edi-Mar-Ket")
+    st.write(f"### Current Balance: {progress['points']} EdiCoins")
+    st.write("---")
+    st.info("✨ Something magical is coming! ✨")
+    st.write("Soon you will be able to exchange your EdiCoins for real rewards here.")
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5X_R8G-e-kZ7A-q5oB8-E9Gj1n-O9O1q4w&s", width=300)
+
 def reading():
     story = st.session_state.current_story
     st.title(story["title"])
@@ -134,7 +144,6 @@ def reading():
         st.session_state.page = "quiz"
         st.rerun()
 
-# ---------- QUIZ ----------
 def quiz():
     story = st.session_state.current_story
     q_index = st.session_state.question_index
@@ -171,7 +180,6 @@ def quiz():
             st.session_state.answer_submitted = False
             st.rerun()
 
-# ---------- RESULT ----------
 def result():
     story = st.session_state.current_story
     score = st.session_state.score
@@ -180,7 +188,6 @@ def result():
     st.title("Final Results! 🎉")
     st.write(f"You got {score} out of {total_q} correct.")
 
-    # REWARD LOGIC (10 for reading + 2 per correct answer)
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
             earned_points = 10 + (score * 2)
@@ -201,7 +208,6 @@ def result():
         st.session_state.page = "home"
         st.rerun()
 
-# ---------- ADMIN DASHBOARD ----------
 def admin():
     st.title("👨‍👧 Parent Dashboard")
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
@@ -209,13 +215,15 @@ def admin():
     st.write(f"Stories completed: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
-# ---------- NAVIGATION ----------
+# ---------- NAVIGATION LOGIC ----------
 if menu == "Parent Dashboard":
     password = st.sidebar.text_input("Password", type="password")
     if password == "1234":
         admin()
     else:
         st.sidebar.warning("Incorrect password")
+elif menu == "Edi-Mar-Ket":
+    market()
 else:
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
