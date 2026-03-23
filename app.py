@@ -60,15 +60,21 @@ def load_progress():
     try:
         with open("progress.json", "r") as f:
             data = json.load(f)
-            # Aseguramos que existan las nuevas llaves para niveles
+            # Aseguramos que existan las llaves para niveles y escudos
             if "total_points_earned" not in data:
                 data["total_points_earned"] = data.get("points", 0)
+            if "last_level_seen" not in data:
+                data["last_level_seen"] = 1
+            if "streak_saver" not in data:
+                data["streak_saver"] = 0
             return data
     except FileNotFoundError:
         return {
             "name": "Princess",
             "points": 0,
-            "total_points_earned": 0, # Puntos totales para niveles
+            "total_points_earned": 0,
+            "last_level_seen": 1,
+            "streak_saver": 0, # Escudos para salvar racha
             "streak": 0,
             "last_read_date": "",
             "stories_completed": [],
@@ -95,15 +101,28 @@ if "reward_given" not in st.session_state: st.session_state.reward_given = False
 
 # ---------- LOGIC: UPDATE STREAK ----------
 def update_streak():
-    today = str(date.today())
-    yesterday = str(date.today() - timedelta(days=1))
+    today = date.today()
+    yesterday = today - timedelta(days=1)
+    last_date_str = progress.get("last_read_date", "")
     
-    if progress["last_read_date"] == yesterday:
+    # Si ya leyó hoy, no hacemos nada
+    if last_date_str == str(today):
+        return
+
+    # Si leyó ayer, la racha continúa
+    if last_date_str == str(yesterday):
         progress["streak"] += 1
-    elif progress["last_read_date"] != today:
-        progress["streak"] = 1
+    else:
+        # Lógica de Streak Saver: Si no leyó ayer y tiene escudos
+        if progress.get("streak_saver", 0) > 0:
+            progress["streak_saver"] -= 1
+            progress["streak"] += 1 # Protegemos la racha y sumamos el día de hoy
+            st.warning("🛡️ STREAK SAVED! You used a protective shield to keep your progress alive.")
+        else:
+            # Si no hay escudo, la racha vuelve a empezar en 1 (por la lectura actual)
+            progress["streak"] = 1
     
-    progress["last_read_date"] = today
+    progress["last_read_date"] = str(today)
     save_progress(progress)
 
 # ---------- SIDEBAR (CHARACTERS & NAVIGATION) ----------
@@ -124,6 +143,11 @@ def home():
     
     # Interfaz de Niveles (Barra de progreso)
     show_level_ui(progress)
+    
+    # Aviso de protección de racha
+    savers = progress.get("streak_saver", 0)
+    if savers > 0:
+        st.markdown(f"🛡️ **Protective Status:** You have {savers} Streak Saver(s) active.")
     
     col1, col2 = st.columns(2)
     col1.metric("💰 EdiCoins", progress['points'])
@@ -199,16 +223,16 @@ def result():
         if story["id"] not in progress["stories_completed"]:
             earned_points = 10 + (score * 2)
             
-            # ACTUALIZACIÓN DE PUNTOS (Gastrables y Totales para niveles)
+            # ACTUALIZACIÓN DE PUNTOS
             progress["points"] += earned_points
             progress["total_points_earned"] += earned_points
             
             progress["stories_completed"].append(story["id"])
-            update_streak()
+            update_streak() # Aquí es donde se activa el escudo si es necesario
             st.balloons()
             st.success(f"You earned {earned_points} EdiCoins! (10 for reading and {score * 2} for your answers)")
             
-            # Verificar si subió de nivel (Lógica de levels.py)
+            # Verificar ascenso de nivel
             check_level_up(progress)
         else:
             st.warning("You already completed this story! Keep practicing to earn more in new stories.")
@@ -227,6 +251,7 @@ def admin():
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
     st.metric("Spendable EdiCoins", progress['points'])
     st.metric("Lifetime XP (Level)", progress['total_points_earned'])
+    st.write(f"Shields (Streak Savers): {progress.get('streak_saver', 0)}")
     st.write(f"Stories completed: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
@@ -246,4 +271,3 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
- 
