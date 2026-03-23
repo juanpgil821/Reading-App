@@ -2,7 +2,6 @@ import streamlit as st
 import random
 
 # ---------- 1. CONFIGURACIÓN VISUAL DE TARJETAS (CSS) ----------
-# Este bloque de estilo unifica el diseño de cada producto
 def load_market_css():
     st.markdown(
         """
@@ -16,6 +15,7 @@ def load_market_css():
             margin-bottom: 15px;
             text-align: center;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            min-height: 150px;
         }
         
         /* Estilo para el icono y nombre del premio */
@@ -33,7 +33,7 @@ def load_market_css():
             margin-bottom: 10px;
         }
 
-        /* Hacemos que el botón de Streamlit se adapte al contenedor */
+        /* Botón adaptado */
         div.stButton > button {
             width: auto !important;
             padding: 5px 20px !important;
@@ -49,6 +49,7 @@ def load_market_css():
 # ---------- 2. LISTA DE PRODUCTOS ----------
 PRODUCTS = [
     {"id": "m1", "name": "20min Xtra-Screen", "price": 100, "icon": "📱"},
+    {"id": "m0", "name": "Streak Saver 🛡️", "price": 200, "icon": "🛡️"}, # Nuevo objeto
     {"id": "m2", "name": "1 hr Xtra-Screen", "price": 200, "icon": "⏳"},
     {"id": "m3", "name": "Mystery Box 🎁", "price": 300, "icon": "❓"},
     {"id": "m4", "name": "Choose Meal/Rest.", "price": 400, "icon": "🍕"},
@@ -61,9 +62,8 @@ PRODUCTS = [
 ]
 
 def open_mystery_box():
-    """Lógica para las probabilidades de la Mystery Box de 300 EdiCoins"""
-    roll = random.random() * 100  # De 0 a 100
-    
+    """Lógica para las probabilidades de la Mystery Box"""
+    roll = random.random() * 100
     if roll < 50:
         return "1 hr Xtra-Screen! ⏳"
     elif roll < 75:
@@ -77,19 +77,22 @@ def open_mystery_box():
 
 # ---------- 3. FUNCIÓN PRINCIPAL DE LA TIENDA ----------
 def show_market(progress, save_callback):
-    # Cargamos el CSS específico para las tarjetas
     load_market_css()
     
     st.title("🛍️ Edi-Mar-Ket")
     st.write(f"### Your Balance: {progress['points']} EdiCoins")
+    
+    # Mostrar escudos actuales si tiene
+    savers = progress.get("streak_saver", 0)
+    if savers > 0:
+        st.write(f"🛡️ **Protective Shields Active:** {savers}")
+        
     st.write("---")
 
-    # Mostramos los productos en una cuadrícula de 2 columnas
     cols = st.columns(2)
     
     for index, item in enumerate(PRODUCTS):
         with cols[index % 2]:
-            # --- INICIO DE LA TARJETA UNIFICADA (HTML/CSS) ---
             st.markdown(
                 f"""
                 <div class="product-card">
@@ -99,33 +102,36 @@ def show_market(progress, save_callback):
                 """,
                 unsafe_allow_html=True
             )
-            # --- FIN DE LA TARJETA UNIFICADA ---
             
-            # El botón de Streamlit se coloca justo debajo, pero el CSS lo estiliza
-            # para que parezca parte del mismo grupo visual.
             if st.button(f"Redeem", key=item['id']):
                 if progress['points'] >= item['price']:
                     # Descontar puntos
                     progress['points'] -= item['price']
                     
-                    # Lógica especial para la Mystery Box
+                    # Lógica según el objeto
                     if item['id'] == "m3":
                         prize = open_mystery_box()
                         st.balloons()
                         st.info(f"🎁 THE MYSTERY BOX REVEALS... \n\n **{prize}**")
                         st.warning("Take a screenshot and show it to Dad! 📸")
+                    
+                    elif item['id'] == "m0":
+                        # Lógica del Streak Saver
+                        progress["streak_saver"] = progress.get("streak_saver", 0) + 1
+                        st.balloons()
+                        st.success("🛡️ Streak Saver purchased! Your progress is now safer.")
+                    
                     else:
                         st.balloons()
                         st.success(f"Successfully redeemed: {item['name']}! 🌟")
                         st.info("Show this screen to Dad to claim your prize! 📸")
                     
-                    # Guardar el nuevo balance de puntos
+                    # Guardar cambios
                     save_callback(progress)
-                    # Forzar recarga para actualizar el balance visual
                     st.rerun()
                 else:
                     st.error("Not enough EdiCoins yet! Keep reading. 📚")
 
     st.write("---")
-    st.write("💡 *Tip: Remember to take a screenshot of your purchase!*")
+    st.write("💡 *Tip: The Streak Saver 🛡️ prevents your streak from resetting to 0 if you miss a day.*")
 
