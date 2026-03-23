@@ -3,6 +3,7 @@ import json
 from datetime import date, timedelta
 from stories import stories
 from market import show_market  # Importamos la lógica de la tienda
+from missions import show_missions  # Importamos la lógica de las insignias
 
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
@@ -104,8 +105,8 @@ st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9y
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
 st.sidebar.title("Magical Menu")
 
-# Navigation with Edi-Mar-Ket
-menu = st.sidebar.radio("Go to:", ["Home", "Edi-Mar-Ket", "Parent Dashboard"])
+# Navigation with Badges and Edi-Mar-Ket
+menu = st.sidebar.radio("Go to:", ["Home", "Badges", "Edi-Mar-Ket", "Parent Dashboard"])
 
 # ---------- PAGES ----------
 
@@ -215,11 +216,16 @@ if menu == "Parent Dashboard":
         admin()
     else:
         st.sidebar.warning("Incorrect password")
+elif menu == "Badges":
+    # Llamamos a la galería de trofeos de missions.py
+    show_missions(progress)
 elif menu == "Edi-Mar-Ket":
-    # Aquí llamamos a la función del archivo market.py
+    # Llamamos a la tienda de market.py
     show_market(progress, save_progress)
 else:
+    # Lógica de páginas internas (Home, Reading, Quiz, Result)
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
+
