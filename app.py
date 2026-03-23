@@ -2,8 +2,9 @@ import streamlit as st
 import json
 from datetime import date, timedelta
 from stories import stories
-from market import show_market  # Importamos la lógica de la tienda
-from missions import show_missions  # Importamos la lógica de las insignias
+from market import show_market
+from missions import show_missions
+from levels import show_level_ui, check_level_up, get_current_level
 
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
@@ -58,11 +59,16 @@ st.markdown(
 def load_progress():
     try:
         with open("progress.json", "r") as f:
-            return json.load(f)
+            data = json.load(f)
+            # Aseguramos que existan las nuevas llaves para niveles
+            if "total_points_earned" not in data:
+                data["total_points_earned"] = data.get("points", 0)
+            return data
     except FileNotFoundError:
         return {
             "name": "Princess",
             "points": 0,
+            "total_points_earned": 0, # Puntos totales para niveles
             "streak": 0,
             "last_read_date": "",
             "stories_completed": [],
@@ -103,15 +109,22 @@ def update_streak():
 # ---------- SIDEBAR (CHARACTERS & NAVIGATION) ----------
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
-st.sidebar.title("Magical Menu")
 
-# Navigation with Badges and Edi-Mar-Ket
+# Mostrar Nivel actual en el Sidebar
+current_level = get_current_level(progress["total_points_earned"])
+st.sidebar.markdown(f"### Rank: {current_level['icon']} {current_level['name']}")
+
+st.sidebar.title("Magical Menu")
 menu = st.sidebar.radio("Go to:", ["Home", "Badges", "Edi-Mar-Ket", "Parent Dashboard"])
 
 # ---------- PAGES ----------
 
 def home():
     st.title(f"✨ Welcome, {progress['name']}! ✨")
+    
+    # Interfaz de Niveles (Barra de progreso)
+    show_level_ui(progress)
+    
     col1, col2 = st.columns(2)
     col1.metric("💰 EdiCoins", progress['points'])
     col2.metric("🔥 Streak", f"{progress['streak']} days")
@@ -185,11 +198,18 @@ def result():
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
             earned_points = 10 + (score * 2)
+            
+            # ACTUALIZACIÓN DE PUNTOS (Gastrables y Totales para niveles)
             progress["points"] += earned_points
+            progress["total_points_earned"] += earned_points
+            
             progress["stories_completed"].append(story["id"])
             update_streak()
             st.balloons()
             st.success(f"You earned {earned_points} EdiCoins! (10 for reading and {score * 2} for your answers)")
+            
+            # Verificar si subió de nivel (Lógica de levels.py)
+            check_level_up(progress)
         else:
             st.warning("You already completed this story! Keep practicing to earn more in new stories.")
         
@@ -205,7 +225,8 @@ def result():
 def admin():
     st.title("👨‍👧 Parent Dashboard")
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
-    st.metric("Total Points", progress['points'])
+    st.metric("Spendable EdiCoins", progress['points'])
+    st.metric("Lifetime XP (Level)", progress['total_points_earned'])
     st.write(f"Stories completed: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
@@ -217,15 +238,12 @@ if menu == "Parent Dashboard":
     else:
         st.sidebar.warning("Incorrect password")
 elif menu == "Badges":
-    # Llamamos a la galería de trofeos de missions.py
     show_missions(progress)
 elif menu == "Edi-Mar-Ket":
-    # Llamamos a la tienda de market.py
     show_market(progress, save_progress)
 else:
-    # Lógica de páginas internas (Home, Reading, Quiz, Result)
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
-
+ 
