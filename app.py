@@ -2,6 +2,7 @@ import streamlit as st
 import json
 from datetime import date, timedelta
 from stories import stories
+from market import show_market  # Importamos la lógica de la tienda
 
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
@@ -103,7 +104,7 @@ st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9y
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
 st.sidebar.title("Magical Menu")
 
-# New Navigation including Edi-Mar-Ket
+# Navigation with Edi-Mar-Ket
 menu = st.sidebar.radio("Go to:", ["Home", "Edi-Mar-Ket", "Parent Dashboard"])
 
 # ---------- PAGES ----------
@@ -127,14 +128,6 @@ def home():
             st.session_state.answer_submitted = False
             st.session_state.reward_given = False
             st.rerun()
-
-def market():
-    st.title("🛍️ Edi-Mar-Ket")
-    st.write(f"### Current Balance: {progress['points']} EdiCoins")
-    st.write("---")
-    st.info("✨ Something magical is coming! ✨")
-    st.write("Soon you will be able to exchange your EdiCoins for real rewards here.")
-    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5X_R8G-e-kZ7A-q5oB8-E9Gj1n-O9O1q4w&s", width=300)
 
 def reading():
     story = st.session_state.current_story
@@ -223,7 +216,8 @@ if menu == "Parent Dashboard":
     else:
         st.sidebar.warning("Incorrect password")
 elif menu == "Edi-Mar-Ket":
-    market()
+    # Aquí llamamos a la función del archivo market.py
+    show_market(progress, save_progress)
 else:
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
