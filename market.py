@@ -1,12 +1,12 @@
 import streamlit as st
 import random
+import time
 
-# ---------- 1. CONFIGURACIÓN VISUAL DE TARJETAS (CSS) ----------
+# ---------- 1. CONFIGURACIÓN VISUAL (CSS IGUAL AL ANTERIOR) ----------
 def load_market_css():
     st.markdown(
         """
         <style>
-        /* Estilo para la tarjeta del producto */
         .product-card {
             background-color: rgba(255, 255, 255, 0.9);
             border: 2px solid #FFB6C1;
@@ -17,29 +17,20 @@ def load_market_css():
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             min-height: 150px;
         }
+        .product-name { color: #4B0082; font-size: 20px; font-weight: bold; margin-bottom: 5px; }
+        .product-price { color: #FF1493; font-size: 16px; margin-bottom: 10px; }
+        div.stButton > button { width: auto !important; padding: 5px 20px !important; font-size: 16px !important; margin: 0 auto !important; display: block !important; }
         
-        /* Estilo para el icono y nombre del premio */
-        .product-name {
-            color: #4B0082;
-            font-size: 20px;
+        /* Animación de parpadeo para la ruleta */
+        .slot-machine {
+            font-size: 30px;
             font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        /* Estilo para el precio */
-        .product-price {
             color: #FF1493;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        /* Botón adaptado */
-        div.stButton > button {
-            width: auto !important;
-            padding: 5px 20px !important;
-            font-size: 16px !important;
-            margin: 0 auto !important;
-            display: block !important;
+            text-align: center;
+            padding: 20px;
+            border: 4px dashed #FFD700;
+            border-radius: 20px;
+            background: white;
         }
         </style>
         """,
@@ -49,7 +40,7 @@ def load_market_css():
 # ---------- 2. LISTA DE PRODUCTOS ----------
 PRODUCTS = [
     {"id": "m1", "name": "20min Xtra-Screen", "price": 100, "icon": "📱"},
-    {"id": "m0", "name": "Streak Saver 🛡️", "price": 200, "icon": "🛡️"}, # Nuevo objeto
+    {"id": "m0", "name": "Streak Saver 🛡️", "price": 200, "icon": "🛡️"},
     {"id": "m2", "name": "1 hr Xtra-Screen", "price": 200, "icon": "⏳"},
     {"id": "m3", "name": "Mystery Box 🎁", "price": 300, "icon": "❓"},
     {"id": "m4", "name": "Choose Meal/Rest.", "price": 400, "icon": "🍕"},
@@ -61,77 +52,86 @@ PRODUCTS = [
     {"id": "m10", "name": "Park Day Adventure", "price": 1200, "icon": "🌳"},
 ]
 
-def open_mystery_box():
-    """Lógica para las probabilidades de la Mystery Box"""
+# ---------- 3. LÓGICA DE EVENTO MYSTERY BOX ----------
+def run_mystery_animation():
+    placeholder = st.empty()
+    possible_prizes = [
+        "1 hr Xtra-Screen ⏳", "Robux! 💸", "Cinema Night 🎬", 
+        "Mini Golf 🎳", "No-Limit Screen 🌙", "Mystery Item 🎁"
+    ]
+    
+    # Simulación de ruleta girando
+    for i in range(15):
+        prize_sample = random.choice(possible_prizes)
+        placeholder.markdown(f'<div class="slot-machine">🎲 Rolling: {prize_sample}</div>', unsafe_allow_html=True)
+        time.sleep(0.1 + (i * 0.02)) # Se va volviendo más lenta
+    
+    # Resultado final basado en probabilidades reales
     roll = random.random() * 100
     if roll < 50:
-        return "1 hr Xtra-Screen! ⏳"
+        final = "1 hr Xtra-Screen! ⏳"
+        almost = "Robux! 💸"
     elif roll < 75:
-        return "Robux! 💸"
+        final = "Robux! 💸"
+        almost = "No-Limit Screen Night! 🌙"
     elif roll < 90:
-        return "No-Limit Screen Night! 🌙"
+        final = "No-Limit Screen Night! 🌙"
+        almost = "Cinema Night! 🎬"
     elif roll < 98:
-        return "Cinema Night! 🎬"
+        final = "Cinema Night! 🎬"
+        almost = "Mini Golf / Bowling! 🎳"
     else:
-        return "Mini Golf / Bowling! 🎳"
+        final = "Mini Golf / Bowling! 🎳"
+        almost = "A Magic Wand! ✨"
 
-# ---------- 3. FUNCIÓN PRINCIPAL DE LA TIENDA ----------
+    placeholder.empty()
+    return final, almost
+
+# ---------- 4. FUNCIÓN PRINCIPAL ----------
 def show_market(progress, save_callback):
     load_market_css()
-    
     st.title("🛍️ Edi-Mar-Ket")
     st.write(f"### Your Balance: {progress['points']} EdiCoins")
     
-    # Mostrar escudos actuales si tiene
     savers = progress.get("streak_saver", 0)
     if savers > 0:
         st.write(f"🛡️ **Protective Shields Active:** {savers}")
         
     st.write("---")
-
     cols = st.columns(2)
     
     for index, item in enumerate(PRODUCTS):
         with cols[index % 2]:
-            st.markdown(
-                f"""
-                <div class="product-card">
-                    <div class="product-name">{item['icon']} {item['name']}</div>
-                    <div class="product-price">Price: {item['price']} EdiCoins</div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+            st.markdown(f'<div class="product-card"><div class="product-name">{item["icon"]} {item["name"]}</div><div class="product-price">Price: {item["price"]} EdiCoins</div></div>', unsafe_allow_html=True)
             
             if st.button(f"Redeem", key=item['id']):
                 if progress['points'] >= item['price']:
-                    # Descontar puntos
                     progress['points'] -= item['price']
                     
-                    # Lógica según el objeto
                     if item['id'] == "m3":
-                        prize = open_mystery_box()
+                        # --- EFECTO EVENTO CAJA MISTERIOSA ---
+                        prize, almost_prize = run_mystery_animation()
                         st.balloons()
-                        st.info(f"🎁 THE MYSTERY BOX REVEALS... \n\n **{prize}**")
-                        st.warning("Take a screenshot and show it to Dad! 📸")
+                        st.markdown(f"""
+                            <div style="text-align: center; background: #FFD700; padding: 20px; border-radius: 15px; border: 5px solid #FF1493;">
+                                <h2 style="color: #4B0082;">🎉 YOU WON:</h2>
+                                <h1 style="color: #FF1493;">{prize}</h1>
+                                <p style="color: #4B0082; font-weight: bold; margin-top: 10px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 10px;">
+                                    😲 SO CLOSE! You almost won: {almost_prize}
+                                </p>
+                            </div>
+                        """, unsafe_allow_html=True)
+                        st.warning("Take a screenshot for Dad! 📸")
                     
                     elif item['id'] == "m0":
-                        # Lógica del Streak Saver
                         progress["streak_saver"] = progress.get("streak_saver", 0) + 1
                         st.balloons()
-                        st.success("🛡️ Streak Saver purchased! Your progress is now safer.")
-                    
+                        st.success("🛡️ Streak Saver purchased!")
                     else:
                         st.balloons()
                         st.success(f"Successfully redeemed: {item['name']}! 🌟")
-                        st.info("Show this screen to Dad to claim your prize! 📸")
                     
-                    # Guardar cambios
                     save_callback(progress)
-                    st.rerun()
+                    # No hacemos rerun inmediato para que pueda ver la animación del premio
                 else:
                     st.error("Not enough EdiCoins yet! Keep reading. 📚")
-
-    st.write("---")
-    st.write("💡 *Tip: The Streak Saver 🛡️ prevents your streak from resetting to 0 if you miss a day.*")
-
