@@ -1,7 +1,5 @@
 import streamlit as st
 from datetime import date
-
-# ---------- 1. DEFINICIÓN DE BADGES (Configuración) ----------
 BADGES = [
     # --- STORIES ---
     {"id": "first_story", "name": "First Step", "icon": "🌱", "req": "Completed 1st story", "type": "stories", "goal": 1},
