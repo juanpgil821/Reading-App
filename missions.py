@@ -2,7 +2,6 @@ import streamlit as st
 from datetime import date
 
 # ---------- 1. DEFINICIÓN DE BADGES (Configuración) ----------
-# He añadido niveles intermedios y el badge de "5 en un día"
 BADGES = [
     # --- STORIES ---
     {"id": "first_story", "name": "First Step", "icon": "🌱", "req": "Completed 1st story", "type": "stories", "goal": 1},
@@ -38,7 +37,7 @@ def load_missions_css():
             text-align: center;
             margin-bottom: 15px;
             border: 2px solid #E0E0E0;
-            min-height: 140px;
+            min-height: 150px;
             transition: 0.3s;
         }
         .badge-unlocked {
@@ -52,8 +51,8 @@ def load_missions_css():
             filter: grayscale(80%);
         }
         .badge-icon { font-size: 45px; margin-bottom: 5px; }
-        .badge-title { font-weight: bold; color: #4B0082; font-size: 14px; }
-        .badge-req { font-size: 11px; color: #888; margin-top: 5px; }
+        .badge-title { font-weight: bold; color: #4B0082; font-size: 15px; }
+        .badge-req { font-size: 12px; color: #888; margin-top: 5px; }
         </style>
     """, unsafe_allow_html=True)
 
@@ -62,10 +61,7 @@ def show_missions(progress):
     st.title("🎖️ Royal Achievement Gallery")
     
     # 1. Lógica para el badge "Speed Reader" (Historias hoy)
-    # Buscamos cuántas historias se completaron con la fecha de hoy
     today_str = str(date.today())
-    # Asumiendo que guardaremos la cuenta diaria o la calcularemos del historial
-    # Por ahora, usaremos un valor seguro del progreso o lo calculamos:
     stories_today = progress.get("daily_reads", {}).get(today_str, 0)
 
     # 2. Cálculos de progreso real
@@ -86,14 +82,14 @@ def show_missions(progress):
     st.progress(unlocked_count / len(BADGES))
     st.write("---")
 
-    # 4. Mostrar Badges en rejilla (4 columnas para que quepan mejor los nuevos)
-    cols = st.columns(4)
+    # 4. Mostrar Badges en rejilla (3 columnas para mayor legibilidad)
+    cols = st.columns(3)
     for index, b in enumerate(BADGES):
         is_unlocked = stats[b["type"]] >= b["goal"]
         status_class = "badge-unlocked" if is_unlocked else "badge-locked"
         lock_icon = "" if is_unlocked else "🔒 "
         
-        with cols[index % 4]:
+        with cols[index % 3]:
             st.markdown(f"""
                 <div class="badge-card {status_class}">
                     <div class="badge-icon">{b['icon']}</div>
