@@ -523,7 +523,7 @@ You just need to start.""",
         ]
     },
     {
-        "id": "story_22",
+        "id": "story_23",
         "title": "The Friend Who Was There... Until She Wasn't",
         "category": "Realism",
         "value": "Discernment",
@@ -649,7 +649,7 @@ It makes space for the right ones.""",
         ]
     },
     {
-        "id": "story_23",
+        "id": "story_24",
         "title": "The Joke Everyone Laughed At",
         "category": "Realism",
         "value": "Courage",
@@ -796,7 +796,7 @@ But even a small voice can interrupt it.""",
         ]
     },
     {
-        "id": "story_24",
+        "id": "story_25",
         "title": "Fitting In",
         "category": "Realism",
         "value": "Self-Respect",
