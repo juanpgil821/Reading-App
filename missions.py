@@ -7,7 +7,7 @@ BADGES = [
     # --- STORIES ---
     {"id": "first_story", "name": "First Step", "icon": "🌱", "req": "Completed 1st story", "type": "stories", "goal": 1},
     {"id": "small_library", "name": "Small Library", "icon": "📚", "req": "10 stories completed", "type": "stories", "goal": 10},
-    {"id": "speed_reader", "name": "Speed Reader", "icon": "⚡", "req": "5 stories in one day!", "type": "daily_goal", "goal": 5},
+    {"id": "speed_reader", "name": "Speed Reader", "icon": "⚡", "req": "5 stories in one day!", "type": "daily_goal", "goal": 0},
     {"id": "avid_reader", "name": "Avid Reader", "icon": "📖", "req": "25 stories completed", "type": "stories", "goal": 25},
     {"id": "bookworm", "name": "Bookworm", "icon": "📙", "req": "50 stories completed", "type": "stories", "goal": 50},
     {"id": "master_reader", "name": "Master Reader", "icon": "🏰", "req": "100 stories completed", "type": "stories", "goal": 100},
