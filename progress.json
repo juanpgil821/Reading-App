@@ -1,9 +1,9 @@
 {
     "name": "Edimar",
-    "points": 60,
-    "streak": 3,
+    "points": 160,
+    "streak": 4,
     "last_read_date": "2026-03-21",
-    "stories_completed": ["story_1", "story_2", "story_3"],
-    "total_answers": 15,
-    "correct_answers": 15
+    "stories_completed": ["story_1", "story_2", "story_3", "story_4", "story_5", "story_6", "story_7", "story_8"],
+    "total_answers": 40,
+    "correct_answers": 40
 }
