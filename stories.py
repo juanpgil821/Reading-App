@@ -1,7 +1,8 @@
 stories = [
     {
-        "id": "story_1",
+        "id": "story_11",
         "title": "Edimar and the Crystal Axolotl",
+        "category": "Fantasy",
         "value": "Courage",
         "text": """Edimar was not a typical girl. She loved adventure more than rules.
 
@@ -69,8 +70,9 @@ Edimar smiled. Maybe being brave meant acting even when you're scared.""",
         ]
     },
     {
-        "id": "story_2",
+        "id": "story_12",
         "title": "Edimar and the Whispering Winds",
+        "category": "Fantasy",
         "value": "Listening",
         "text": """Early one morning, Edimar walked through the misty meadows near her village. The wind was unusually loud, carrying whispers she couldn't understand.
 
@@ -124,8 +126,9 @@ Edimar smiled, realizing that sometimes courage means paying attention and truly
         ]
     },
     {
-        "id": "story_3",
+        "id": "story_13",
         "title": "Edimar and the Hidden Waterfall",
+        "category": "Fantasy",
         "value": "Curiosity",
         "text": """One sunny afternoon, Edimar explored the forest she had never dared to enter before. Birds sang overhead, and a cool breeze whispered through the leaves.
 
@@ -175,8 +178,9 @@ Edimar smiled. She realized that exploring and asking questions opens paths to h
         ]
     },
     {
-        "id": "story_4",
+        "id": "story_14",
         "title": "Edimar and the Moonlight Garden",
+        "category": "Fantasy",
         "value": "Patience",
         "text": """At night, Edimar wandered into the village garden bathed in moonlight. Flowers glowed softly, and the air smelled sweet.
 
@@ -220,8 +224,9 @@ Edimar took a deep breath and smiled, understanding that some things require tim
         ]
     },
     {
-        "id": "story_5",
+        "id": "story_15",
         "title": "Edimar and the Lantern Festival",
+        "category": "Fantasy",
         "value": "Generosity",
         "text": """During the Lantern Festival, Edimar noticed a boy sitting alone near the riverbank, looking sad.
 
@@ -267,8 +272,9 @@ That night, she realized that sharing and generosity bring warmth to both giver 
         ]
     },
     {
-        "id": "story_6",
+        "id": "story_16",
         "title": "Edimar and the Starlight Map",
+        "category": "Fantasy",
         "value": "Curiosity",
         "text": """One night, Edimar discovered an ancient map under her bed. It glowed faintly, showing constellations she had never noticed before.
 
@@ -312,8 +318,9 @@ Edimar smiled, realizing curiosity opens doors to wisdom.""",
         ]
     },
     {
-        "id": "story_7",
+        "id": "story_17",
         "title": "Edimar and the Rainbow Bridge",
+        "category": "Fantasy",
         "value": "Kindness",
         "text": """After a heavy rain, Edimar noticed a rainbow forming across the valley. At the base of the rainbow, a group of small animals looked lost and frightened.
 
@@ -355,8 +362,9 @@ Edimar realized that small acts of kindness can have big effects on those around
         ]
     },
     {
-        "id": "story_8",
+        "id": "story_18",
         "title": "Edimar and the Singing Lake",
+        "category": "Fantasy",
         "value": "Harmony",
         "text": """Edimar wandered to a quiet lake early in the morning. The surface shimmered like glass, reflecting the rising sun.
 
@@ -396,5 +404,9 @@ Edimar felt a calm joy, realizing that harmony comes from understanding and pati
                 "answer": "By tracing patterns with her fingers"
             }
         ]
-    }
+    },
+
+
+
+    
 ]
