@@ -6,18 +6,21 @@ from market import show_market
 from missions import show_missions
 from levels import show_level_ui, check_level_up, get_current_level
 
-# ---------- CONFIGURACIÓN VISUAL (CSS) ----------
+# ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
 
 st.markdown(
     f"""
     <style>
+    /* Background */
     .stApp {{
         background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }}
+
+    /* Readable text blocks */
     .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -26,6 +29,8 @@ st.markdown(
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
     }}
+
+    /* Buttons Style */
     .stButton>button {{
         background-color: #FF69B4 !important;
         color: white !important;
@@ -40,15 +45,31 @@ st.markdown(
         transform: scale(1.03);
         background-color: #FF1493 !important;
     }}
-    section[data-testid="stSidebar"] {{
-        background-color: rgba(255, 240, 245, 0.95);
+
+    /* Tabs Styling */
+    .stTabs [data-baseweb="tab-list"] {{
+        gap: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 10px;
+        border-radius: 15px;
+    }}
+    .stTabs [data-baseweb="tab"] {{
+        height: 50px;
+        background-color: #FFF0F5;
+        border-radius: 10px;
+        color: #FF69B4;
+        font-weight: bold;
+    }}
+    .stTabs [aria-selected="true"] {{
+        background-color: #FFB6C1 !important;
+        color: white !important;
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# ---------- FUNCIONES DE PROGRESO ----------
+# ---------- LOAD/SAVE PROGRESS ----------
 def load_progress():
     try:
         with open("progress.json", "r") as f:
@@ -74,7 +95,7 @@ if "user_data" not in st.session_state:
 
 progress = st.session_state.user_data
 
-# ---------- ESTADOS DE SESIÓN ----------
+# ---------- SESSION STATES ----------
 if "page" not in st.session_state: st.session_state.page = "home"
 if "current_story" not in st.session_state: st.session_state.current_story = None
 if "score" not in st.session_state: st.session_state.score = 0
@@ -106,7 +127,7 @@ st.sidebar.markdown(f"### Rank: {current_level['icon']} {current_level['name']}"
 st.sidebar.title("Magical Menu")
 menu = st.sidebar.radio("Go to:", ["Home", "Badges", "Edi-Mar-Ket", "Parent Dashboard"])
 
-# ---------- PÁGINAS ----------
+# ---------- PAGES ----------
 
 def home():
     st.title(f"✨ Welcome, {progress['name']}! ✨")
@@ -116,25 +137,25 @@ def home():
     col1.metric("💰 EdiCoins", progress['points'])
     col2.metric("🔥 Streak", f"{progress['streak']} days")
 
-    st.subheader("Your Library")
+    st.subheader("Choose Your Adventure")
     
-    # NUEVO: Separación por categorías usando Tabs
-    tab1, tab2 = st.tabs(["✨ Fantasy & Magic", "📖 Life Lessons"])
+    # Categoría con Iconos y Colores (vía Tabs)
+    tab1, tab2 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories"])
     
     with tab1:
-        fantasy_stories = [s for s in stories if s.get("category") == "Fantasy"]
-        for story in fantasy_stories:
-            render_story_button(story)
+        st.markdown("### ✨ Magic & Adventure")
+        fan_stories = [s for s in stories if s.get("category") == "Fantasy"]
+        for s in fan_stories: render_story_card(s)
             
     with tab2:
-        realism_stories = [s for s in stories if s.get("category") == "Realism"]
-        for story in realism_stories:
-            render_story_button(story)
+        st.markdown("### 🏫 Life Lessons")
+        real_stories = [s for s in stories if s.get("category") == "Realism"]
+        for s in real_stories: render_story_card(s)
 
-def render_story_button(story):
+def render_story_card(story):
     is_completed = story["id"] in progress["stories_completed"]
-    label = f"{story['title']} {'✅' if is_completed else '⭐'}"
-    if st.button(label, key=story["id"]):
+    btn_label = f"{story['title']} {'✅' if is_completed else '⭐'}"
+    if st.button(btn_label, key=f"btn_{story['id']}"):
         st.session_state.current_story = story
         st.session_state.page = "reading"
         st.session_state.score = 0
@@ -146,6 +167,7 @@ def render_story_button(story):
 def reading():
     story = st.session_state.current_story
     st.title(story["title"])
+    st.markdown(f"**Value:** {story['value']}")
     st.write(story["text"])
     if st.button("✨ Start Trivia ✨"):
         st.session_state.page = "quiz"
@@ -165,40 +187,42 @@ def quiz():
     st.subheader(f"Question {q_index + 1} of {len(questions)}")
     st.write(f"### {q['question']}")
     
-    # LÓGICA DINÁMICA DE PREGUNTAS
+    # Dynamic logic based on question type
+    q_type = q.get("type", "multiple") 
     user_answer = None
-    q_type = q.get("type", "multiple") # Por defecto multiple si no existe
 
     if q_type == "multiple":
-        user_answer = st.radio("Choose an answer:", q["options"], key=f"q_{q_index}")
+        user_answer = st.radio("Pick one:", q["options"], key=f"quiz_{q_index}")
     elif q_type == "boolean":
-        user_answer = st.radio("Is this true?", ["True", "False"], key=f"q_{q_index}")
+        user_answer = st.radio("Is this true?", ["True", "False"], key=f"quiz_{q_index}")
     elif q_type == "thought":
-        user_answer = st.text_area("Write your thoughts here:", key=f"q_{q_index}")
+        user_answer = st.text_area("Write your thoughts here...", key=f"quiz_{q_index}")
 
     if not st.session_state.answer_submitted:
-        if st.button("Submit Answer"):
-            st.session_state.answer_submitted = True
-            st.rerun()
+        if st.button("Check Answer"):
+            if q_type == "thought" and not user_answer.strip():
+                st.warning("Please write something before submitting!")
+            else:
+                st.session_state.answer_submitted = True
+                st.rerun()
     else:
-        # Validación
+        # Check Answer logic
+        is_correct = False
         if q_type == "thought":
-            st.success("Thank you for sharing your thoughts! 💖")
+            st.success("Great reflection! Points earned. 🌸")
             is_correct = True
         else:
             if user_answer == q["answer"]:
-                st.success("Excellent! That's correct. 🌟")
+                st.success("Perfect! You got it right! 🌟")
                 is_correct = True
             else:
-                st.error(f"Almost! The correct answer was: {q['answer']}")
-                is_correct = False
+                st.error(f"Not quite! The answer was: {q['answer']}")
         
         if st.button("Next ➡️"):
             progress["total_answers"] += 1
             if is_correct:
                 st.session_state.score += 1
                 progress["correct_answers"] += 1
-            
             st.session_state.question_index += 1
             st.session_state.answer_submitted = False
             st.rerun()
@@ -208,12 +232,11 @@ def result():
     score = st.session_state.score
     total_q = len(story["questions"])
 
-    st.title("Final Results! 🎉")
-    st.write(f"You finished the story and got {score} out of {total_q} points.")
+    st.title("Well Done! 🎉")
+    st.write(f"You completed '{story['title']}' with {score}/{total_q} points!")
 
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
-            # 10 por leer + 2 por cada respuesta correcta/reflexión
             earned_points = 10 + (score * 2)
             progress["points"] += earned_points
             progress["total_points_earned"] += earned_points
@@ -223,7 +246,7 @@ def result():
             st.success(f"You earned {earned_points} EdiCoins!")
             check_level_up(progress)
         else:
-            st.warning("You already completed this story, but thanks for practicing!")
+            st.warning("You've already mastered this story!")
         
         save_progress(progress)
         st.session_state.reward_given = True
@@ -236,14 +259,14 @@ def admin():
     st.title("👨‍👧 Parent Dashboard")
     accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
     st.metric("Spendable EdiCoins", progress['points'])
-    st.write(f"Stories completed: {len(progress['stories_completed'])}")
+    st.write(f"Stories: {len(progress['stories_completed'])}")
     st.write(f"Accuracy: {round(accuracy, 2)}%")
 
-# ---------- LÓGICA DE NAVEGACIÓN ----------
+# ---------- NAVIGATION ----------
 if menu == "Parent Dashboard":
-    password = st.sidebar.text_input("Password", type="password")
-    if password == "1234": admin()
-    else: st.sidebar.warning("Incorrect password")
+    pwd = st.sidebar.text_input("Password", type="password")
+    if pwd == "1234": admin()
+    else: st.sidebar.warning("Restricted Area")
 elif menu == "Badges":
     show_missions(progress)
 elif menu == "Edi-Mar-Ket":
