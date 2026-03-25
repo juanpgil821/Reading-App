@@ -1056,8 +1056,8 @@ Aitana hugged her dragon and looked at the Crystal Chest, which was now empty bu
         }
     ]
 },
-    {
-    "id": "stories_33",
+{
+    "id": "story_33",
     "title": "Leo and the Garden of Growing Coins",
     "category": "Financial Literacy",
     "value": "Understanding how banks and interest work",
@@ -1122,7 +1122,7 @@ Standing at the top of his tower, Leo looked down at the Ever-Growing Garden Ban
         }
     ]
 },
-    {
+{
     "id": "story_34",
     "title": "Maya and the Great Royal Feast Budget",
     "category": "Financial Literacy",
@@ -1198,7 +1198,7 @@ Maya smiled. She had learned that a budget isn't a wall that stops you; it’s a
         }
     ]
 },
-    {
+{
     "id": "story_35,
     "title": "Nico and the Three Magic Jars",
     "category": "Financial Literacy",
