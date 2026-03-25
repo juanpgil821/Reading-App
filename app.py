@@ -64,13 +64,6 @@ st.markdown(
         background-color: #FFB6C1 !important;
         color: white !important;
     }}
-
-    /* Sidebar Styling (Transparencia para imágenes) */
-    [data-testid="stSidebar"] img {{
-        background-color: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-    }}
     </style>
     """,
     unsafe_allow_html=True
@@ -128,9 +121,9 @@ def update_streak():
     save_progress(progress)
 
 # ---------- SIDEBAR ----------
-# Imágenes actualizadas a PNG transparentes
-st.sidebar.image("https://img.pngio.com/download-png-disney-castle-transparent-png-transparent-library-disney-castle-png-840_860.png", caption="✨ Your Royal Guide")
-st.sidebar.image("https://cdn.pixabay.com/photo/2021/11/03/10/38/axolotl-6765373_1280.png", width=120)
+st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
+# IMAGEN DEL AXOLOTL (RESTAURADA)
+st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
 
 current_level = get_current_level(progress["total_points_earned"])
 st.sidebar.markdown(f"### Rank: {current_level['icon']} {current_level['name']}")
@@ -149,7 +142,7 @@ def home():
 
     st.subheader("Choose Your Adventure")
     
-    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono actualizado a 💰)
+    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono de bolsa de dinero para Money Master)
     tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
     
     with tab1:
