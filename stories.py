@@ -504,6 +504,74 @@ The Reading Castle was no longer just a building of stone; it became a beacon of
         }
     ]
 },
+{
+    "id": "story_110",
+    "title": "Edimar and the Whispering Echoes of Amber",
+    "category": "Fantasy",
+    "value": "The Power of Listening and Empathy",
+    "text": """
+The morning sun in the Kingdom of Serendipity didn't just rise; it danced. Its golden fingers reached into the high windows of the Reading Castle, waking Edimar from a dream of flying carpets and silver flutes. Edimar was not an ordinary resident of the castle. She was the 'Heart-Seeker,' a title given only to those who could hear the stories that others ignored—the rustle of the wind, the sigh of the old stones, and the rhythmic beat of the forest.
+
+One day, while Edimar was tending to the magical roses in the castle garden, a tiny, translucent bird with feathers like liquid glass landed on her shoulder. It didn't chirp; it echoed. The bird carried a fragment of a song from the Floating Isles of Amber, a place that drifted high above the Great Waterfall. The song sounded broken, filled with a sadness that made the flowers nearby droop their heads.
+
+'Something is wrong in the Sky Cities,' Edimar murmured. She knew she had to go. With her enchanted boots that could walk on air and her silver notebook, Edimar began her climb up the invisible stairs of the waterfall. 
+
+The air grew thin and sweet, smelling of cinnamon and ancient rain. When she reached the first Floating Isle, she found a land of orange grass and trees made of solid amber. But the city was silent. Usually, the Amber Isles were famous for their 'Singing Crystals,' stones that captured the happy memories of the world and played them back to keep the kingdom joyful. Now, the crystals were grey and cold.
+
+'The harmony is gone,' a voice crackled. Edimar turned to see an old Stone Giant, his body covered in moss and cracks. 'The Echo-Thief has swept through our streets, Edimar. He didn't steal our gold or our food; he stole our ability to listen to one another. Now, everyone speaks, but no one hears. Without listening, the crystals cannot glow.'
+
+Edimar looked around and saw the island's citizens—fairies, explorers, and scholars—all shouting at once, but their faces were lonely. They were talking over each other, their words clashing like broken glass. 
+
+'I can fix this,' Edimar said, though her voice was small against the noise. She sat in the center of the plaza and did something no one else was doing: she became perfectly still. She closed her eyes and began to use her Heart-Seeker gift. She didn't listen to the loud shouts; she listened for the heartbeat of the island itself. 
+
+Deep beneath the amber ground, she heard a rhythmic thrumming. It was the island crying out for balance. Edimar opened her silver notebook and began to write down the secret fears she sensed in the people around her. She wrote about the fairy who was afraid of flying, the scholar who felt he wasn't smart enough, and the giant who missed his home in the mountains.
+
+As she wrote, the words began to glow. She stood up and began to read the entries aloud. One by one, the citizens stopped shouting. They heard their own hidden feelings being spoken by Edimar. For the first time in weeks, they looked at each other and realized they weren't enemies; they were all just a little bit afraid and a little bit tired.
+
+'I didn't know you felt that way,' the fairy whispered to the scholar. 
+'I thought I was the only one,' the scholar replied.
+
+As empathy began to fill the plaza, the Singing Crystals started to pulse with light. A warm, golden glow spread from the center of the isle to the very edges of the clouds. The Echo-Thief, who was nothing more than a shadow born of misunderstanding, vanished into the bright light of connection. 
+
+The Stone Giant smiled, a sound like shifting gravel. 'You have a rare magic, Edimar. You don't use fire or ice; you use the bridge of the heart. You have reminded us that the greatest story isn't the one we tell, but the one we hear from our neighbor.'
+
+The crystals didn't just play old memories anymore; they began to play a new song—a song of friendship and shared dreams. Edimar felt the liquid-glass bird land back on her shoulder, its song now clear and bright. 
+
+She descended the invisible stairs as the twin moons began to rise. She knew that back at the Reading Castle, there would be more stories to find and more hearts to heal. Edimar realized that being a hero didn't always mean fighting monsters with a sword; sometimes, it meant having the courage to be quiet and the kindness to truly listen. 
+
+And so, the Legend of Edimar grew. Not as a warrior of war, but as the Weaver of Peace, the girl who knew that every soul carried a song worth hearing, if only someone were brave enough to listen to the silence.
+    """,
+    "questions": [
+        {
+            "question": "What was the 'Echo-Thief' actually made of?",
+            "options": ["Shadows of misunderstanding", "Stolen gold coins", "Black clouds and thunder"],
+            "answer": "Shadows of misunderstanding",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Edimar stop the noise in the plaza?",
+            "options": [
+                "She shouted louder than everyone else",
+                "She became still and listened with her heart",
+                "She used a magic bell to make everyone sleep"
+            ],
+            "answer": "She became still and listened with her heart",
+            "type": "multiple"
+        },
+        {
+            "question": "The Singing Crystals glowed again when the people started to listen to each other with empathy.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "Edimar learned that listening is a 'bridge of the heart.' Can you think of a time when someone really listened to you? How did it make you feel?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+
 # ---------- CATEGORÍA: REALISMO (Lecciones de Vida) ---------- #
     {
         "id": "story_21",
