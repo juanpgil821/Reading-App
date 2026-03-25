@@ -149,7 +149,7 @@ def home():
 
     st.subheader("Choose Your Adventure")
     
-    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono actualizado a Bolsa de Dinero 💰)
+    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono actualizado a 💰)
     tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
     
     with tab1:
@@ -293,4 +293,3 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
-
