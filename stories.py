@@ -996,5 +996,279 @@ That’s when Valeria understood something important: Money is not just about wh
         }
     ]
 },
+{
+    "id": "story_32",
+    "title": "Aitana and the Mystery of the Crystal Chest",
+    "category": "Financial Literacy",
+    "value": "The value of saving and patience",
+    "text": """
+Aitana lived in a small village where the flowers always seemed to glow under the afternoon sun. She was a curious girl with a collection of colorful stones and a notebook where she drew maps of imaginary treasures. One Tuesday afternoon, while walking through the market with her grandfather, she saw something that took her breath away: in the window of the toy shop sat a 'Mother-of-Pearl Scale Dragon.' It was an articulated figure that shimmered with a thousand colors and, according to legend, could change its hue if placed under the light of a full moon.
+
+'Oh, Grandpa! It’s the most beautiful thing I’ve ever seen!' Aitana exclaimed, pressing her nose against the glass. 'Can we buy it? Please?'
+Her grandfather adjusted his glasses and looked at the price tag. Then, he looked at Aitana with a wise, gentle smile.
+'It’s a very beautiful wish, Aitana. But to earn something that special, you first have to learn the secret of the Crystal Chest.'
+
+That same evening, Grandpa handed her a small chest made of transparent glass. It had no lock, only a thin slot at the top.
+'This is your Crystal Chest,' Grandpa said. 'This is where we will keep your EdiCoins. But there is a golden rule: before you put a coin inside, you must ask yourself two questions: "Is this something I need to live or to learn?" or "Is this a wish that can wait?"'
+
+At first, Aitana found it very difficult. On the first day, she passed by the bakery and saw strawberry candies that smelled like heaven. She reached into her pocket for her coins and was about to buy them. But then, she remembered the Pearl Dragon. She asked herself: 'Do I need these candies, or is this just a wish?' The candies would be gone in five minutes, but the dragon would be an adventure companion forever. Aitana decided to drop her coins into the Crystal Chest instead.
+
+Weeks passed. Aitana learned that **needs** were things like her school notebooks or the fresh fruit she loved for her afternoon snack. **Wishes** were things like the dragon or the candies. She began to write in her notebook how much she still needed to reach the dragon’s goal. Seeing the chest fill up little by little gave her a sense of pride she had never felt before.
+
+One day, a problem arose. Her favorite shoes tore at the sole. Aitana was sad because she knew she needed new shoes to run and play in the park.
+'Grandpa, can I use the coins from the chest for my shoes?' she asked, looking worried.
+'Aitana, shoes are a **need**,' Grandpa explained. 'But don’t worry, I will take care of the basic shoes. However, if you want those fancy ones with the flashing lights that you liked so much, those are an extra wish.'
+
+Aitana thought deeply. She looked at the flashing shoes in the catalog and then at her Crystal Chest. She sighed and made a decision: she would take the basic shoes from her grandfather and keep her savings for the Dragon. She understood that if she spent her savings on the lights for her shoes, the dragon would never make it to her room. She learned how to prioritize.
+
+Finally, the big day arrived. The Crystal Chest was so full that not even one more coin could fit. Aitana and her grandfather walked to the toy shop. When the clerk brought out the Mother-of-Pearl Scale Dragon and handed it to her, Aitana didn’t just feel happy because of the toy. She felt a special strength in her heart: the strength of discipline and the deep satisfaction of having achieved something on her own.
+
+'You did it, Aitana,' Grandpa said. 'You have mastered the art of waiting and the wisdom of choosing.'
+Aitana hugged her dragon and looked at the Crystal Chest, which was now empty but ready for a brand-new adventure. She knew that with patience and clarity, there was no treasure she couldn't reach.
+    """,
+    "questions": [
+        {
+            "question": "What was the name of the method Grandpa taught Aitana?",
+            "options": ["The Crystal Chest", "The Gold Bag", "The Treasure Map"],
+            "answer": "The Crystal Chest",
+            "type": "multiple"
+        },
+        {
+            "question": "According to the story, what is the main difference between a need and a wish?",
+            "options": [
+                "Needs are forever and wishes always break",
+                "Needs are important for living or learning; wishes can wait",
+                "There is no difference; you buy everything the same way"
+            ],
+            "answer": "Needs are important for living or learning; wishes can wait",
+            "type": "multiple"
+        },
+        {
+            "question": "Aitana decided not to buy the candies because she knew it was better to use that money for the Dragon.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What would you do if you had a Crystal Chest? What wish would you like to fulfill by saving?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_33",
+    "title": "Leo and the Garden of Growing Coins",
+    "category": "Financial Literacy",
+    "value": "Understanding how banks and interest work",
+    "text": """
+Leo was a boy who loved to build. In his backyard, he had a workshop filled with wooden blocks, old gears, and blueprints for the world’s tallest tower. To build his masterpiece, Leo needed special 'Golden Bolts' from the village hardware store. Every week, Leo earned EdiCoins by helping his neighbors sort their recycling and watering their plants. He kept his coins in a heavy woolen sock hidden under his bed.
+
+One morning, Leo pulled out his sock to count his progress. To his horror, the sock felt lighter. He poured the coins onto the floor and realized three were missing. He looked everywhere—under the rug, behind his desk, even inside his shoes. Then he saw a small hole in the corner of the sock. A tiny field mouse had nibbled through the wool and borrowed the coins to decorate its nest!
+
+'Grandpa, my savings aren't safe!' Leo cried. 'The mice are taking my Golden Bolts!'
+His grandfather knelt down and looked at the holey sock. 'A sock is a good place for a few coins, Leo, but when you have a big dream like your tower, you need the Great Garden Bank.'
+
+The next day, they walked to a magnificent building made of white stone and green glass. Above the door, it said: 'The Ever-Growing Garden Bank.' Inside, it didn't look like a normal office; it looked like a beautiful greenhouse. People weren't just handing over money; they were talking to 'Gardeners' in green suits.
+
+'Welcome, Leo,' said a Kind Gardener named Sarah. 'Would you like to plant your coins with us?'
+Leo looked confused. 'Plant them? I want to save them so I can buy my bolts.'
+Sarah smiled. 'That’s the secret of a bank, Leo. When you keep your coins in a sock, they just sit there. And as you saw, they can get lost or stolen. But when you put them in our bank, two magical things happen. First, they are locked in a vault where no mouse—and no thief—can ever reach them. Second, we pay you "Growth Seeds."'
+
+'Growth Seeds?' Leo asked, leaning in.
+'In the world of grown-ups, we call it **Interest**,' Sarah explained. 'Because you let the bank hold your money so we can help other people build their houses and shops, we thank you by adding a little bit extra to your pile every month. If you plant 100 coins today, and you leave them here to grow, next year you might have 105 coins without doing any extra work at all!'
+
+Leo’s eyes widened. 'So my money grows like a tree?'
+'Exactly,' said Grandpa. 'But there is a catch: you must be patient. If you pull the plant out of the ground every two minutes to check the roots, it will never grow. If you leave your coins in the bank and only take them out when you truly need them, the "Growth Seeds" will make your pile bigger and bigger.'
+
+Leo decided to try it. He handed over his bag of EdiCoins. Sarah gave him a small, sturdy book called a **Passbook**. It showed exactly how many coins he had deposited. Leo felt a weight lift off his shoulders. He didn't have to worry about mice, and he didn't have to worry about losing his sock. 
+
+Over the next few months, Leo kept working and adding to his bank account. Every time he went to the bank, Sarah would update his book. He saw his total going up, not just because of his hard work, but because of the Interest the bank was adding. 
+
+One afternoon, a big storm hit the village. Leo was worried about his workshop, but then he remembered his money. 'Grandpa, is the bank okay?'
+'The bank is built of stone, Leo. And even if a window broke, the bank has "Shield Insurance." Your money is protected by the kingdom’s laws. It’s the safest place in the world.'
+
+Finally, the day came when Leo’s passbook showed he had enough for the Golden Bolts. In fact, because he had been so patient, he had ten extra EdiCoins thanks to the Interest! He withdrew his money, bought the bolts, and built a tower so tall it could be seen from three villages away.
+
+Standing at the top of his tower, Leo looked down at the Ever-Growing Garden Bank. He realized that a bank wasn't just a building for money; it was a partner that helped his dreams grow faster while keeping them safe from the "mice" of the world.
+    """,
+    "questions": [
+        {
+            "question": "What happened to Leo's money when he kept it in a sock?",
+            "options": ["It grew more coins", "A mouse took some of it", "It turned into gold"],
+            "answer": "A mouse took some of it",
+            "type": "multiple"
+        },
+        {
+            "question": "What is 'Interest' in the story?",
+            "options": [
+                "A fee you pay to enter the bank",
+                "Extra coins the bank gives you for keeping your money there",
+                "The name of the bank's security guard"
+            ],
+            "answer": "Extra coins the bank gives you for keeping your money there",
+            "type": "multiple"
+        },
+        {
+            "question": "The bank is safer than a sock because it has vaults and protection laws.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "If you had a bank account, would you spend your money right away or wait for the 'Growth Seeds' to grow? Why?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_34",
+    "title": "Maya and the Great Royal Feast Budget",
+    "category": "Financial Literacy",
+    "value": "Learning how to plan and prioritize with a budget",
+    "text": """
+Maya was known throughout the Kingdom of Serendipity for her organization skills. While other children were losing their mittens, Maya had her colored pencils sorted by shade and her books arranged by height. One crisp October morning, the Queen’s Royal Messenger arrived at her door with a golden envelope. 
+
+'Maya,' the Messenger announced, 'the Queen has heard of your talents. She wants you to organize the "Great Autumn Feast" for the village. But there is a catch: the Kingdom's treasury is busy building a new bridge, so you only have a budget of 500 EdiCoins. You must make the party magical without spending a single coin more!'
+
+Maya felt a rush of excitement and a tiny bit of fear. 500 EdiCoins sounded like a lot, but she knew a Royal Feast needed many things: music, food, decorations, and perhaps even a firework show. She sat down at her wooden desk and took out a fresh piece of parchment. At the top, she wrote in big letters: **THE ROYAL BUDGET.**
+
+First, Maya visited the village baker, Mr. Crumb. 'I need a giant chocolate cake and 100 honey rolls,' she said. 
+'That will be 300 EdiCoins,' Mr. Crumb replied. 
+Maya bit her lip. If she spent 300 on bread and cake, she would only have 200 left for everything else. She looked at her list. She needed a band (150 coins), silk banners (100 coins), and the firework master (150 coins). 
+
+'300 + 150 + 100 + 150 = 700,' Maya whispered. 'Oh no. I am 200 coins over my budget!'
+
+Maya realized she had to make some tough choices. This was the heart of **Budgeting**: you cannot have everything, so you must choose what is most important. She sat on a bench in the plaza and watched the villagers. She noticed how much they loved to dance and how much they enjoyed sitting together.
+
+'The food is a **Need** for a feast,' Maya thought. 'But does the cake have to be giant and chocolate? Maybe we can have delicious apple pies made from the village orchard instead.'
+She went back to Mr. Crumb. 'What if we use the local apples and skip the chocolate?'
+'Well,' Mr. Crumb smiled, 'if you provide the apples, I can make enough pies and rolls for just 150 EdiCoins.'
+
+Maya cheered. She had just saved 150 coins! Now she had 350 EdiCoins left. 
+Next was the music. The Royal Symphony wanted 150 coins. But Maya knew a group of local fiddlers who played every evening by the fountain for fun. She approached them. 
+'Would you play for the feast if we provide the best seats and 80 EdiCoins?'
+'We would be honored!' the lead fiddler chirped. 
+
+Maya checked her parchment again. 
+Food: 150. Music: 80. Total so far: 230. 
+She still had 270 EdiCoins left! 
+
+Now came the decorations. The silk banners from the city were 100 coins. Maya looked at the autumn trees. The leaves were turning brilliant shades of gold, orange, and red. 
+'Why buy silk when nature is giving us gold for free?' she wondered. She organized the village children into a 'Decoration Squad.' They gathered the most beautiful leaves and pinecones, tying them together with simple twine. It cost her exactly 0 coins, and the plaza looked more magical than any silk banner could make it.
+
+Finally, Maya looked at her remaining 270 coins. She wanted the fireworks, which cost 150. She also wanted to buy a commemorative pin for every guest (120 coins). 
+'If I buy the pins and the fireworks, I will be at 500 exactly,' she noted. 'But what if something goes wrong? What if the rain ruins the pies and I need to buy more?'
+
+Grandpa always told her to keep an 'Emergency Fund.' Maya decided to skip the pins. 'The memories will be their gift,' she decided. She paid the firework master 150 coins and kept the remaining 120 EdiCoins in the Royal Treasury 'just in case.'
+
+The night of the feast was spectacular. The apple pies were warm and sweet, the fiddlers made everyone dance until their legs were tired, and the leaf decorations glowed under the moonlight. When the fireworks exploded in the sky, the Queen approached Maya.
+
+'Maya, the party is beautiful. And the Treasurer tells me you didn't spend the whole budget. You even saved some for the next celebration!'
+Maya smiled. She had learned that a budget isn't a wall that stops you; it’s a map that helps you find the smartest path to your goal. She realized that by being creative and prioritizing what people really loved—music and food—she could create a night no one would ever forget.
+    """,
+    "questions": [
+        {
+            "question": "What was Maya's total budget for the feast?",
+            "options": ["700 EdiCoins", "500 EdiCoins", "120 EdiCoins"],
+            "answer": "500 EdiCoins",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Maya save money on the decorations?",
+            "options": [
+                "She decided not to have any decorations",
+                "She used beautiful autumn leaves from nature for free",
+                "The Queen gave her the silk banners as a gift"
+            ],
+            "answer": "She used beautiful autumn leaves from nature for free",
+            "type": "multiple"
+        },
+        {
+            "question": "Maya kept 120 EdiCoins as an 'Emergency Fund' instead of buying pins.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "If you had to plan a party with a small budget, what is the one thing you would spend the most money on? Why?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_35,
+    "title": "Nico and the Three Magic Jars",
+    "category": "Financial Literacy",
+    "value": "The joy of giving and helping others",
+    "text": """
+Nico was a boy who loved to collect things. He had a collection of smooth river stones, a collection of dried wildflowers, and most importantly, a collection of shiny EdiCoins. Every Saturday, Nico did extra chores around the house. He swept the porch, matched all the stray socks in the laundry, and helped his mom pull weeds in the garden. For his hard work, he earned a small allowance of EdiCoins.
+
+One afternoon, Nico’s older sister, Elena, sat him down at the kitchen table. She placed three empty glass jars in front of him. 
+'Nico,' she said, 'you are getting very good at earning money. But if you keep all your coins in one big pile, it’s hard to know what they are for. Let’s try the Three Jar Rule.'
+
+She took a marker and labeled the first jar **SPEND**. 'This is for things you want now, like a new ball or a comic book.'
+She labeled the second jar **SAVE**. 'This is for big dreams that take time, like that telescope you’ve been eyeing.'
+Finally, she labeled the third jar **GIVE**. 
+
+Nico looked at the third jar. It was empty and felt a bit lonely. 'Give? Why would I give my hard-earned coins away?' he asked, hugging his coin pouch. 
+Elena smiled. 'Because Nico, we live in a village, not on an island. When someone’s roof leaks, or when the old library needs new books, we all help. Giving makes your heart feel as full as your wallet.'
+
+Nico wasn't sure. He liked his coins. But he decided to try it. For every ten coins he earned, he put five in Save, three in Spend, and two in Give. 
+
+A few weeks later, a heavy rainstorm hit the village. The next morning, Nico saw a sad sight at the village park. The 'Little Paws' animal shelter had been flooded. The wooden fences were broken, and the blankets for the puppies and kittens were soaked and ruined. The shelter manager, Ms. Halloway, was standing outside with a clipboard, looking worried.
+
+'We need 100 EdiCoins to buy new dry blankets and wood for the fence,' she told the neighbors gathered around. 
+
+Nico went home and looked at his jars. His Spend jar was almost full enough for a new kite. His Save jar was growing slowly toward the telescope. Then he looked at the Give jar. Over the weeks, those two coins at a time had added up. He poured the jar out and counted: 45 EdiCoins.
+
+He looked at his kite catalog, then he thought about the shivering puppies at the shelter. 
+'Elena,' Nico called out, 'is 45 coins enough to help?'
+'It’s a wonderful start, Nico,' she replied.
+
+Nico took his 45 coins to the park. He saw other neighbors arriving too. A baker brought 10 coins. A teacher brought 20. When Nico handed his 45 coins to Ms. Halloway, her eyes lit up. 
+'Nico! This is exactly what we needed to buy the new blankets today. You are a hero for the animals!'
+
+Nico spent the rest of the afternoon helping the neighbors dry off the puppies. As he held a small, warm puppy wrapped in a brand-new blanket—a blanket bought with his Give coins—he felt a strange, glowing warmth in his own chest. It felt even better than the day he bought his favorite toy.
+
+A month later, the Queen announced a special 'Community Medal.' She visited the village to thank everyone who helped the shelter. When she reached Nico, she knelt down.
+'I heard that a young man used his own savings to ensure the animals were warm,' the Queen said. 'That is the mark of a true leader.'
+
+Nico realized something important that day. Money wasn't just a way to get things for himself. It was like a superpower that could fix broken things and make sad people—and animals—happy again. He realized that the Give jar wasn't 'losing' money; it was 'investing' in kindness.
+
+From that day on, Nico never complained about the third jar. He realized that while the Spend jar gave him fun and the Save jar gave him dreams, the Give jar gave him something even better: the knowledge that he could make the world a little bit brighter, one EdiCoin at a time.
+    """,
+    "questions": [
+        {
+            "question": "What are the names of the three jars Elena taught Nico about?",
+            "options": ["Eat, Sleep, Play", "Spend, Save, Give", "Earning, Learning, Winning"],
+            "answer": "Spend, Save, Give",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Nico feel when he saw the puppy wrapped in the new blanket?",
+            "options": [
+                "He felt sad that he didn't have his coins",
+                "He felt a warm, happy glow in his chest",
+                "He felt bored and wanted to go home"
+            ],
+            "answer": "He felt a warm, happy glow in his chest",
+            "type": "multiple"
+        },
+        {
+            "question": "Nico decided to keep all his money for a telescope and didn't help the shelter.",
+            "options": ["True", "False"],
+            "answer": "False",
+            "type": "boolean"
+        },
+        {
+            "question": "If you had a 'Give' jar, what cause or organization would you want to help with your EdiCoins?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 
 ]
