@@ -446,6 +446,64 @@ Edimar felt a calm joy, realizing that harmony comes from understanding and pati
             }
         ]
     },
+    {
+    "id": "story_19",
+    "title": "Edimar and the Secret of the Star-Crystal",
+    "category": "Fantasy",
+    "value": "Courage and Self-Belief",
+    "text": """
+In the highest tower of the Reading Castle, where the clouds felt like soft pillows and the wind whispered ancient songs, lived a young girl named Edimar. She wasn’t just any girl; she was a Keeper of Stories. While others spent their days practicing sword fighting or baking honey cakes, Edimar spent her time in the Great Library, deciphering maps that led to places most people thought were only myths. She had a sharp mind and a heart that beat with the rhythm of adventure.
+
+One evening, while Edimar was reading by the light of a magical lantern, the sky suddenly turned a strange shade of violet. A shooting star, brighter than any she had ever seen, streaked across the horizon and landed with a soft *thud* in the Whispering Woods, just beyond the castle gates. Legend said that once every thousand years, a Star-Crystal fell to earth, carrying a message that could change the fate of the kingdom. But the crystal was guarded by the Shadow-Mist, a confusing fog that made travelers lose their way.
+
+'I have to find it,' Edimar whispered to herself. She didn't wait for the royal guards or the court wizards. She grabbed her enchanted satchel, her favorite book of riddles, and a compass that always pointed toward the truth. 
+
+As she entered the Whispering Woods, the trees began to lean in, their leaves rustling with secrets. The Shadow-Mist rose from the ground like grey ghosts, swirling around her ankles and trying to cloud her vision. Edimar felt a shiver of fear, but she remembered something her mentor had told her: 'Fear is just a story you tell yourself. You have the power to write a better one.'
+
+She reached into her satchel and pulled out a small, glowing quill. Using the air as her parchment, she began to write words of courage in the sky. The letters glowed with a golden light, cutting through the purple mist like a hot knife through butter. The more she wrote, the clearer the path became. She realized that the mist couldn't stop someone who knew exactly where they were going.
+
+Deep in the heart of the forest, she found a clearing where the grass sparkled like emerald dust. In the center sat the Star-Crystal, glowing with an intense, pulsing light. But it wasn't alone. A giant Axolotl with wings made of starlight—the Guardian of the Falling Heavens—stood over it. The creature looked at Edimar with eyes that held the wisdom of the galaxy.
+
+'To claim the message, you must answer the Riddle of the Soul,' the Guardian spoke, its voice sounding like chiming bells. 'Tell me, Edimar: What is the only thing that grows the more you share it, but disappears if you keep it only for yourself?'
+
+Edimar closed her eyes. she thought about the books she had read, the friends she had helped, and the EdiCoins she had placed in her 'Give' jar. She smiled, opened her eyes, and spoke clearly.
+
+'The answer is Knowledge and Love,' she said. 'If I learn a story and keep it in my head, it stays small. but if I tell it to the world, it grows in the hearts of everyone who hears it. The same is true for kindness.'
+
+The Guardian let out a hum of approval. The starlight wings expanded, and the Axolotl bowed its head. 'You are wise beyond your years, Edimar. You are truly the hero this kingdom needs.'
+
+The Star-Crystal floated into Edimar's hands. As she touched it, a vision filled her mind. She saw the Reading Castle expanding, with new libraries and gardens where children from every corner of the world came to learn and grow together. The message of the crystal was simple: *'The greatest magic is not found in wands or potions, but in the words we read and the courage we show when the world is dark.'*
+
+Edimar returned to the castle as the sun began to rise. She didn't ask for a parade or a golden crown. Instead, she went straight to her desk and began to write down her adventure. She knew that by sharing her story, she was making the magic of the Star-Crystal real for everyone. From that day on, whenever a child in the kingdom felt lost or afraid, they would look to the high tower and remember Edimar—the girl who turned mist into light with nothing more than her bravery and her books.
+
+The Reading Castle was no longer just a building of stone; it became a beacon of hope. And Edimar, the girl who once only read stories, had finally become the greatest story of them all.
+    """,
+    "questions": [
+        {
+            "question": "What did Edimar use to cut through the Shadow-Mist?",
+            "options": ["A silver sword", "A glowing quill and words of courage", "A magic whistle"],
+            "answer": "A glowing quill and words of courage",
+            "type": "multiple"
+        },
+        {
+            "question": "What was the answer to the Guardian's riddle?",
+            "options": ["Gold and jewels", "Knowledge and Love", "Stars and moonbeams"],
+            "answer": "Knowledge and Love",
+            "type": "multiple"
+        },
+        {
+            "question": "The Guardian of the Star-Crystal was a giant Axolotl with starlight wings.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "If you were Edimar, what 'words of courage' would you write to clear your path when you feel afraid?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 # ---------- CATEGORÍA: REALISMO (Lecciones de Vida) ---------- #
     {
         "id": "story_21",
