@@ -149,8 +149,8 @@ def home():
 
     st.subheader("Choose Your Adventure")
     
-    # NUEVA ESTRUCTURA DE 3 PESTAÑAS
-    tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "🪙 Money Master"])
+    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono actualizado a Bolsa de Dinero 💰)
+    tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
     
     with tab1:
         st.markdown("### ✨ Magic & Adventure")
@@ -166,7 +166,7 @@ def home():
         st.markdown("### 💰 Money Master")
         fin_stories = [s for s in stories if s.get("category") == "Financial Literacy"]
         if not fin_stories:
-            st.info("New stories coming soon! 🪙")
+            st.info("New stories coming soon! 💰")
         for s in fin_stories: render_story_card(s)
 
 def render_story_card(story):
@@ -293,3 +293,4 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
+
