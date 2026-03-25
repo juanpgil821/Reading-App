@@ -64,6 +64,13 @@ st.markdown(
         background-color: #FFB6C1 !important;
         color: white !important;
     }}
+
+    /* Sidebar Styling (Transparencia para imágenes) */
+    [data-testid="stSidebar"] img {{
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }}
     </style>
     """,
     unsafe_allow_html=True
@@ -121,9 +128,9 @@ def update_streak():
     save_progress(progress)
 
 # ---------- SIDEBAR ----------
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
-# IMAGEN DEL AXOLOTL (RESTAURADA)
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
+# Imágenes actualizadas a PNG transparentes
+st.sidebar.image("https://img.pngio.com/download-png-disney-castle-transparent-png-transparent-library-disney-castle-png-840_860.png", caption="✨ Your Royal Guide")
+st.sidebar.image("https://cdn.pixabay.com/photo/2021/11/03/10/38/axolotl-6765373_1280.png", width=120)
 
 current_level = get_current_level(progress["total_points_earned"])
 st.sidebar.markdown(f"### Rank: {current_level['icon']} {current_level['name']}")
@@ -142,8 +149,8 @@ def home():
 
     st.subheader("Choose Your Adventure")
     
-    # Categoría con Iconos y Colores
-    tab1, tab2 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories"])
+    # NUEVA ESTRUCTURA DE 3 PESTAÑAS
+    tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "🪙 Money Master"])
     
     with tab1:
         st.markdown("### ✨ Magic & Adventure")
@@ -154,6 +161,13 @@ def home():
         st.markdown("### 🏫 Life Lessons")
         real_stories = [s for s in stories if s.get("category") == "Realism"]
         for s in real_stories: render_story_card(s)
+
+    with tab3:
+        st.markdown("### 💰 Money Master")
+        fin_stories = [s for s in stories if s.get("category") == "Financial Literacy"]
+        if not fin_stories:
+            st.info("New stories coming soon! 🪙")
+        for s in fin_stories: render_story_card(s)
 
 def render_story_card(story):
     is_completed = story["id"] in progress["stories_completed"]
@@ -279,4 +293,3 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
-
