@@ -938,6 +938,64 @@ But it feels better the whole day.""",
                 "question": "Reflection: Valeria realized that 'fitting in' at the cost of being uncomfortable is just hiding. Have you ever felt pressure to do something just because 'everyone else' was doing it?"
             }
         ]
-    }
+    },
+
+    # ---------- CATEGORÍA: Financial Literacy (Money Master) ---------- #
+    {
+    "id": "story_31",
+    "title": "⚖️ Valeria’s Choice",
+    "category": "Financial Literacy",
+    "value": "Intentional Spending",
+    "text": """Valeria stared at the $20 bill in her hand. It wasn’t a lot of money. But it was hers. Her aunt had given it to her earlier that day, smiling. “You can spend it on whatever you want,” she said.
+
+Those words stayed in her mind: whatever you want. At first, it felt exciting. Freedom. On the way home, she was already thinking about what to buy. Snacks, maybe. Or something small from a store. Something fun.
+
+Later that afternoon, her friends started texting. “We’re going to the store,” one message said. “You coming?” Valeria replied: “Yeah.” At the store, everything looked more interesting than usual. Chips. Candy. Drinks. Small accessories near the counter. “This is so good,” one of her friends said, grabbing a snack. “You have to try it.” Another one picked up a drink. “I always get this.”
+
+Valeria walked slowly through the aisles, holding her $20. It didn’t feel like just money anymore. It felt like a choice. She could buy a few things now and enjoy the moment. Or she could save it for something else. But what? That was the problem. Spending now felt easy. Saving felt… unclear.
+
+“What are you getting?” her friend asked. Valeria picked up a bag of snacks and a drink. “Just this,” she said. They went to the register together. Her total was $8.75. She paid. For a moment, it felt good. She had something in her hands. Everyone else had something too. They walked outside, sat down, and started eating. But the moment passed quickly. Within minutes, the snacks were gone. The drink was finished. And just like that… the money was gone too.
+
+Valeria looked at the empty wrapper in her hands. “That was fast,” she thought. She still had some money left, but less than before. Later that night, she sat in her room scrolling on her phone. She saw something she had been wanting for a while. A small item. Not too expensive. Around $20. She paused. “If I hadn’t spent earlier… I could get this,” she thought. That’s when it clicked. Earlier, she hadn’t really made a decision. She had just followed the moment.
+
+The next few days, she paid more attention. Every time she wanted to buy something, she asked herself: “Do I really want this… or do I just want it right now?” Sometimes, the answer surprised her. One afternoon, she went to the store again with her friends. Same place. Same shelves. Same snacks. “This is so good,” one of them said again. Valeria picked it up. Then she paused. She remembered how it felt last time. The quick excitement. The fast ending.
+
+She looked at the price. Then at the $20 she had kept this time. “I’m good,” she said, putting it back. Her friend looked at her. “Really? It’s not even that expensive.” Valeria shrugged. “Yeah, but it adds up.” They laughed a little. “Okay, financial expert.” Valeria smiled slightly, but didn’t argue. She didn’t feel like explaining. Because something had changed. She wasn’t trying to impress anyone. She was just making a different decision.
+
+Weeks passed. She didn’t save every dollar perfectly. Sometimes she still bought small things. But she became more aware. More intentional. Eventually, she had enough. She bought the item she actually wanted. When it arrived, the feeling was different. It lasted longer. It meant more. Not because of the object itself… But because she had chosen it.
+
+That’s when Valeria understood something important: Money is not just about what you can buy. It’s about the choices you make. Spending gives you something now. Saving gives you options later. And learning the difference… changes everything.""",
+    "questions": [
+        {
+            "question": "How did Valeria feel after finishing the snacks she bought impulsively?",
+            "options": ["Proud of her purchase", "That it happened too fast and the money was gone", "Still hungry"],
+            "answer": "That it happened too fast and the money was gone",
+            "type": "multiple"
+        },
+        {
+            "question": "What important question did Valeria start asking herself before buying things?",
+            "options": ["Is this on sale?", "Do I really want this, or do I just want it right now?", "Do my friends like this?"],
+            "answer": "Do I really want this, or do I just want it right now?",
+            "type": "multiple"
+        },
+        {
+            "question": "What did Valeria realize about following her friends' spending habits?",
+            "options": ["It was the only way to be happy", "She was just following the moment instead of making a real decision", "Her friends were always right"],
+            "answer": "She was just following the moment instead of making a real decision",
+            "type": "multiple"
+        },
+        {
+            "question": "According to the story, what is the main difference between spending and saving?",
+            "options": ["Spending is fun, saving is boring", "Spending gives you things now; saving gives you options later", "There is no real difference"],
+            "answer": "Spending gives you things now; saving gives you options later",
+            "type": "multiple"
+        },
+        {
+            "question": "Valeria learned that 'money is about choices'. If you save your EdiCoins today instead of buying a small candy, what kind of 'options' could you have later?",
+            "type": "thought"
+        }
+    ]
+},
+
 
 ]
