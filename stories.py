@@ -1207,6 +1207,242 @@ As she cleaned her brushes, Elena realized that the frustration she felt earlier
         }
     ]
 },
+{
+    "id": "story_28",
+    "title": "The Unseen Goal",
+    "category": "Realism",
+    "value": "Support and Handling Envy",
+    "text": """
+The Saturday morning air was crisp and smelled of freshly cut grass. For Mateo and Lucas, Saturday meant one thing: soccer. They had been best friends since kindergarten, and they did everything together. They wore the same brand of cleats, practiced the same dribbling drills, and both dreamed of being the team captain one day.
+
+During the final tryouts for the regional tournament, the coach called everyone to the center of the field. Mateo’s heart was hammering against his ribs. He had practiced his power shots all summer until his toes were sore. He felt ready.
+
+'I can only pick one person for the specialized striker position,' Coach Miller said, checking his clipboard. 'Both Mateo and Lucas played a fantastic game today. But for this tournament, the spot goes to Lucas.'
+
+Mateo felt like the air had been sucked out of his lungs. He looked at Lucas, who was beaming with a mix of shock and joy. Lucas turned to Mateo, expecting a high-five, but Mateo was looking at his own muddy cleats. He managed a weak smile and a quick 'Congrats, man,' but inside, he felt a bitter, cold knot. It wasn't that he wanted Lucas to fail; he just wanted to win so badly himself.
+
+For the next week, things were different. At lunch, when Lucas talked about the new tactical plays he was learning, Mateo suddenly found his sandwich very interesting. When Lucas invited him to extra practice, Mateo made up an excuse about having too much history homework. The knot of envy was growing, making everything Lucas said sound like bragging, even when it wasn't.
+
+On Thursday, Mateo’s older sister, Sofia, found him kicking a ball repeatedly against the garage door. *Thump. Thump. Thump.*
+
+'You’re going to dent the door, Mateo,' Sofia said, leaning against her bike. 'And you’re going to miss the big game tomorrow if you keep moping.'
+
+'I’m not moping,' Mateo snapped. 'It’s just... Lucas is always talking about the team. It’s like he’s a different person now.'
+
+Sofia walked over and stopped the ball with her foot. 'He’s not a different person. He’s just happy. Imagine if you had won that spot. Would you want your best friend to disappear, or would you want him in the stands cheering for you?'
+
+Mateo went quiet. He realized he had been so focused on his own disappointment that he had left his friend alone in his biggest moment. He thought about all the times Lucas had cheered for him when he won the science fair or the spelling bee. 
+
+The next afternoon, the regional game was tied 1-1. There were only two minutes left on the clock. Lucas had the ball, sprinting down the sideline, but two defenders were closing in on him. He looked tired and frantic. 
+
+From the sidelines, Mateo stood up. He cupped his hands around his mouth and yelled as loud as he could: 'LUCAS! TO THE LEFT! YOU’VE GOT THIS!'
+
+Lucas heard his friend’s voice. He didn't look back, but his posture changed. He gained a sudden burst of energy, faked a pass to the right, and sent a beautiful, curving shot straight into the corner of the net. The whistle blew. They had won.
+
+After the game, Lucas ran straight to Mateo, ignoring the rest of the team for a second. 'I heard you, Mateo! I was about to lose the ball, but then I heard you and I knew I could do it.'
+
+Mateo felt the bitter knot in his chest finally dissolve. He realized that a friend’s success isn't a shadow over your own life; it’s a light you can choose to share. He hadn't won the trophy that day, but he had saved his friendship, and that felt like a much bigger victory. 
+    """,
+    "questions": [
+        {
+            "question": "How did Mateo feel when the coach chose Lucas for the striker position?",
+            "options": ["Excited for his friend", "Disappointed and envious", "Indifferent"],
+            "answer": "Disappointed and envious",
+            "type": "multiple"
+        },
+        {
+            "question": "What did Mateo do at lunch and after school to avoid Lucas?",
+            "options": [
+                "He invited him to play video games",
+                "He made excuses and focused on other things",
+                "He told Lucas he didn't want to be friends anymore"
+            ],
+            "answer": "He made excuses and focused on other things",
+            "type": "multiple"
+        },
+        {
+            "question": "Sofia helped Mateo realize that Lucas needed his support, just like Mateo would have if he had won.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What did Mateo do during the final minutes of the game?",
+            "options": [
+                "He left the stadium early",
+                "He cheered for the other team",
+                "He shouted words of encouragement to Lucas"
+            ],
+            "answer": "He shouted words of encouragement to Lucas",
+            "type": "multiple"
+        },
+        {
+            "question": "Have you ever felt jealous of a friend's success? What can you do to be a supportive friend even when you feel disappointed?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_29",
+    "title": "The Invisible Wall",
+    "category": "Realism",
+    "value": "Inclusion and Empathy",
+    "text": """
+The cafeteria was a sea of noise, a chaotic symphony of clattering trays, high-pitched laughter, and the smell of toasted cheese sandwiches. For Sofia, the cafeteria was a map she had already memorized. She knew exactly where the 'soccer kids' sat, where the 'art group' huddled over their sketchbooks, and where her own friends, Maya and Leo, waited for her every day at Table 12.
+
+But today, there was a glitch in the map. Sitting at the very end of Table 12, in a spot that was usually empty, was a boy Sofia didn't recognize. He had a shock of dark hair and was staring intensely at a plastic container of noodles. He didn't have a phone to look at, and he wasn't wearing the school’s colors. 
+
+'That's the new kid, David,' Maya whispered as Sofia sat down. 'He moved here from another city last week. He hasn't really said a word to anyone.'
+
+Sofia looked at David. He was sitting just three feet away, but it felt like there was an invisible wall between him and the rest of the table. Maya and Leo were busy debating the latest episode of their favorite show, and for a moment, Sofia joined in. But every time she laughed, she caught a glimpse of David out of the corner of her eye. He was eating slowly, his shoulders hunched as if he were trying to make himself smaller.
+
+She remembered her first day at a new summer camp two years ago. She remembered the heavy, sinking feeling in her stomach when she realized she didn't know the 'inside jokes' or the names of the people around her. It was a lonely kind of quiet, even in a room full of people.
+
+'Hey,' Sofia said, leaning across the gap. 
+
+Maya and Leo stopped talking. David looked up, his eyes wide and startled, as if he hadn't expected someone to break the silence. 
+
+'I'm Sofia,' she said with a small smile. 'Those noodles smell way better than the cafeteria pizza. Is that a special recipe?'
+
+David hesitated, his fork hovering mid-air. 'Oh, uh, thanks. It’s my grandmother’s recipe. It has sesame oil and ginger.'
+
+'Ginger? That sounds fancy,' Leo chimed in, moving his tray a few inches closer to David. 'I’m Leo. And this is Maya, the world’s most intense critic of animated movies.'
+
+Maya laughed and threw a grape at Leo. 'I’m not a critic, I’m an expert! Anyway, David, are you into movies, or are you more of a gamer?'
+
+Slowly, the invisible wall began to crumble. David started to talk—first in short sentences, then in longer stories. He told them about his old school, his collection of vintage comic books, and how nervous he had been that morning. By the time the bell rang for the next period, the four of them were walking together toward the hallway.
+
+As Sofia headed to science class, she felt a light, happy energy in her chest. She hadn't done anything heroic; she hadn't saved the world or won a trophy. She had simply asked a question and listened to the answer. She realized that sometimes, the most important thing you can do is notice when someone is standing on the other side of a wall and simply reach out a hand to pull them through. Table 12 wasn't just a place to eat anymore; it had become a place where a new story was beginning.
+    """,
+    "questions": [
+        {
+            "question": "What did Sofia notice was different about the cafeteria today?",
+            "options": ["The food was different", "There was a new student at their table", "The cafeteria was completely silent"],
+            "answer": "There was a new student at their table",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Sofia feel when she saw David sitting alone and quiet?",
+            "options": [
+                "She felt annoyed that he was in her spot",
+                "She remembered her own experience of feeling lonely",
+                "She didn't notice him at all"
+            ],
+            "answer": "She remembered her own experience of feeling lonely",
+            "type": "multiple"
+        },
+        {
+            "question": "What was the first thing Sofia said to David to start a conversation?",
+            "options": [
+                "She asked him about his old school",
+                "She asked him about his grandmother's noodle recipe",
+                "She asked him if he liked soccer"
+            ],
+            "answer": "She asked him about his grandmother's noodle recipe",
+            "type": "multiple"
+        },
+        {
+            "question": "By the end of lunch, David felt more included and part of the group.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "Think about your own school or community. Is there someone who might be feeling like there is an 'invisible wall' around them? What is one small thing you could do to make them feel welcome?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_210",
+    "title": "The Weight of a Secret",
+    "category": "Realism",
+    "value": "Integrity and Honesty",
+    "text": """
+The Friday afternoon sun streamed through the windows of the school’s media lab, lighting up the rows of brand-new tablets the school had just received. For Clara, the media lab was a sanctuary. She was the head of the 'Digital Creators' club, and today was the day they were supposed to finish the final edit of the school’s anniversary video.
+
+'Remember, everyone,' Mr. Vance said, standing by the door. 'These tablets are for schoolwork only. Handle them with care. I have to go to a brief faculty meeting, but I trust you to manage the lab for the next twenty minutes.'
+
+As soon as the door clicked shut, the room buzzed with excitement. Most students stayed on task, but Clara noticed her friend, Sam, looking around nervously. He pulled a small USB drive from his pocket. 
+
+'Check this out, Clara,' Sam whispered. 'It’s a beta version of that new racing game, "Turbo Drift 5." My brother got it early. If we plug it into the master tablet, we can test the graphics on this high-def screen!'
+
+'Sam, Mr. Vance said schoolwork only,' Clara reminded him, her eyes fixed on the video editing software. 
+
+'It’ll only take two minutes! Nobody will ever know,' Sam argued, already plugging the drive in. 
+
+Clara watched, torn. She wanted to see the game too, but she knew it was against the rules. Before she could say anything more, the tablet’s screen flickered. A bright red error message popped up, followed by a loud, high-pitched beep. Then, the screen went completely black. 
+
+The room went silent. Sam’s face turned as white as paper. He frantically pushed the power button, but nothing happened. He quickly pulled out the USB drive and hid it in his pocket just as they heard Mr. Vance’s footsteps in the hallway.
+
+'Quick, Clara, act like you were working on the other computer!' Sam hissed. 
+
+When Mr. Vance walked in, he noticed the dark tablet immediately. 'What happened here?' he asked, frowning as he tried to turn it on. 'This was working perfectly twenty minutes ago. Did anyone touch it or download anything?'
+
+Sam didn't hesitate. 'It just turned off by itself, Mr. Vance. Clara and I were over here finishing the video transitions. We didn't even notice until it beeped.'
+
+Mr. Vance sighed, looking disappointed. 'This is a huge setback. I’ll have to send it to the IT department, and we might lose the anniversary video. Since nobody knows what happened, I’ll have to assume it was a hardware glitch, but it means the lab will be closed for everyone until we find out why.'
+
+All afternoon, Clara felt a heavy, cold stone in her stomach. It was the weight of the secret. She looked at the other club members who were sad because their projects were now on hold. She looked at Sam, who seemed relieved that he hadn't been caught. 
+
+At 3:00 PM, as she was packing her bag, Clara realized that the silence felt like a lie she was telling with her whole body. She thought about the word 'Integrity' that was painted on the mural in the school hallway. Integrity wasn't about being perfect; it was about doing the right thing when no one was watching.
+
+She walked back to Mr. Vance’s office. Her heart was pounding so hard she could feel it in her throat. 
+
+'Mr. Vance?' she said, her voice trembling slightly. 'I need to tell you what happened in the lab. It wasn't a glitch.'
+
+She told him everything. She didn't try to make Sam look bad, but she didn't hide the truth either. She also admitted that she should have stopped him or reported it immediately. 
+
+Mr. Vance listened quietly. When she finished, he didn't yell. He actually looked relieved. 'Thank you for your honesty, Clara. Telling the truth when it’s difficult is a sign of true leadership. Because you spoke up, the IT team knows exactly which virus to look for, and they can probably save the video file after all.'
+
+The next Monday, Clara had to face Sam. He was angry at first, but when he realized that the video—and the lab—had been saved because of her, his anger turned into quiet respect. Clara learned that a secret might feel light at first, but honesty is the only thing that actually lets you breathe easy. She had lost a bit of her 'cool' reputation with Sam’s friends, but she had gained something much more valuable: a clear conscience and the trust of her teacher.
+    """,
+    "questions": [
+        {
+            "question": "Why did the tablet stop working in the media lab?",
+            "options": [
+                "It ran out of battery", 
+                "Sam plugged in a USB drive with an unauthorized game", 
+                "Mr. Vance turned it off by mistake"
+            ],
+            "answer": "Sam plugged in a USB drive with an unauthorized game",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Clara feel throughout the afternoon after Sam lied to the teacher?",
+            "options": [
+                "She felt happy that they didn't get in trouble", 
+                "She felt a heavy 'stone' in her stomach because of the secret", 
+                "She didn't care about the tablet at all"
+            ],
+            "answer": "She felt a heavy 'stone' in her stomach because of the secret",
+            "type": "multiple"
+        },
+        {
+            "question": "What was the positive consequence of Clara telling the truth?",
+            "options": [
+                "Sam got expelled from school", 
+                "The IT team could save the anniversary video because they knew the cause", 
+                "Mr. Vance gave her a gold medal"
+            ],
+            "answer": "The IT team could save the anniversary video because they knew the cause",
+            "type": "multiple"
+        },
+        {
+            "question": "Integrity means doing the right thing even when it's difficult and no one is watching.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "Have you ever been in a situation where telling the truth was scary? What helped you make the decision to be honest?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 
 
     # ---------- CATEGORÍA: Financial Literacy (Money Master) ---------- #
