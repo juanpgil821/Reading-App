@@ -1065,6 +1065,149 @@ But it feels better the whole day.""",
             }
         ]
     },
+    {{
+    "id": "story_26”,
+    "title": "The Glitch in the Team",
+    "category": "Realism",
+    "value": "Responsibility and Fairness",
+    "text": """
+The fluorescent lights of the classroom hummed as Mr. Harrison announced the most anticipated—and feared—project of the semester: The Great Invention Presentation. For Leo, this was a dream. He loved science, but for his best friend, Sam, it was just another thing standing between him and his video games.
+
+'You two will be a team, along with Maya,' Mr. Harrison said, pointing to the girl in the front row who was already opening her color-coded planner. 
+
+At first, the excitement was high. They met at the library on Monday. Maya had a list of ideas, Leo had the technical drawings, and Sam… Sam had a bag of chips. 'I’ll handle the digital slides,' Sam promised, leaning back in his chair. 'I’m an expert at graphics. It’ll look epic, trust me.'
+
+Leo and Maya spent the next three afternoons working hard. They stayed late to build the prototype of their 'Solar-Powered Backpack.' Leo’s fingers were sticky with glue, and Maya’s eyes were tired from researching battery capacities. Every time they messaged the group chat to ask Sam about the slides, he would reply with a thumbs-up emoji or a 'Cool, cool, I’m on it!'
+
+By Thursday, the presentation was only twenty-four hours away. Leo felt a knot in his stomach. 'Sam, can you send the file?' he texted. No reply. Two hours later, Sam finally called. 
+
+'Hey, man,' Sam’s voice sounded distracted. 'Listen, my internet went down, and then my cousin came over, and… well, the slides aren't quite done. But don't worry! I’ll finish them tonight. I promise.'
+
+Leo wanted to believe him, but his gut told him otherwise. He looked at Maya, who was pacing the room. 'He’s not going to do it, Leo,' she said firmly. 'We have two choices: we wait and hope he’s telling the truth, or we stay up late and do his work for him so we don't fail.'
+
+It felt unfair. Why should they do the work of three people while Sam played games? But Leo also knew their grade depended on those slides. They decided to wait until 8:00 PM. When 8:00 PM passed and Sam’s status on the chat still showed he was 'Away,' Leo and Maya started working. 
+
+It was 11:00 PM when they finally finished the slides. Leo was exhausted and a little bit angry. He felt like a 'glitch' had entered their team—someone who took the credit but didn't put in the effort.
+
+Friday morning arrived. Sam walked into the classroom looking relaxed. 'Hey guys! My computer crashed last night, so I couldn't send the file, but I can just wing the speech, right?' 
+
+Maya didn't smile. She handed him a printout of the slides they had made. 'We already finished them, Sam. We stayed up until midnight because we weren't sure you’d show up with anything.'
+
+Sam’s face turned red. He looked at the floor, then at the impressive prototype Leo was holding. For the first time, he looked truly embarrassed. The presentation went perfectly. Leo explained the science, Maya handled the data, and Sam, feeling the weight of his guilt, did his best to explain the marketing. They got an 'A.'
+
+After class, Sam approached them at the lockers. 'Look, I know I messed up,' he said quietly. 'I thought I could just slide by like I usually do. But seeing how hard you guys worked… I feel like a jerk. Next time, I want to actually help. Can I buy you guys lunch at the cafeteria today? It’s the least I can do.'
+
+Leo looked at Maya. She shrugged, a small smile returning to her face. 'Lunch is a start,' she said. 'But for the next project, you're the one in charge of the research, and we're checking your progress every single day.'
+
+Leo realized that being a good friend didn't mean letting someone slide by; it meant holding them accountable. Fairness wasn't just about everyone getting the same grade; it was about everyone earning it. As they walked to lunch, Leo felt the knot in his stomach finally disappear. The 'glitch' in the team was fixed, not with anger, but with honesty and a second chance.
+    """,
+    "questions": [
+        {
+            "question": "What was Sam's original job in the group project?",
+            "options": ["Building the prototype", "Creating the digital slides", "Doing the research"],
+            "answer": "Creating the digital slides",
+            "type": "multiple"
+        },
+        {
+            "question": "How did Leo and Maya feel when they realized Sam wasn't doing his work?",
+            "options": ["Happy to do extra work", "Angry and worried about their grade", "They didn't care"],
+            "answer": "Angry and worried about their grade",
+            "type": "multiple"
+        },
+        {
+            "question": "Leo and Maya decided to do Sam's work because they didn't want to fail the presentation.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What was the 'lesson' Sam learned at the end of the story?",
+            "options": [
+                "That games are more important than school",
+                "That he should find a different team",
+                "That fairness means everyone earns their grade through effort"
+            ],
+            "answer": "That fairness means everyone earns their grade through effort",
+            "type": "multiple"
+        },
+        {
+            "question": "Have you ever been in a situation where you had to do more than your share of work? How did you handle it?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+{
+    "id": "story_27",
+    "title": "The Unfinished Canvas",
+    "category": "Realism",
+    "value": "Perfectionism and Resilience",
+    "text": """
+The art room was Elena’s favorite place in the entire school. It smelled of wet clay, cedar pencils, and the faint, sweet scent of tempera paint. Every Tuesday, Ms. Gable would give the class a prompt, and Elena would dive in, her brush moving like a tiny dancer across the paper. But today was different. Today was the 'Self-Portrait' project, and Elena wanted it to be perfect.
+
+She looked at her reflection in the small plastic mirror on her desk. She wanted to capture the exact shade of her hazel eyes and the way her hair curled slightly at the ends. She started with a light pencil sketch, but after three minutes, she groaned and erased it. The chin was too pointy. She tried again. This time, the eyes were lopsided. 
+
+*Scrub, scrub, scrub.* The eraser was starting to wear thin, and the paper was becoming rough. Around her, the other students were already painting. Leo was making a self-portrait where he looked like a scientist, and Maya was using bright neon colors for her hair. They were laughing and messy, but Elena was stuck. 
+
+'Is everything okay, Elena?' Ms. Gable asked, leaning over her shoulder. 
+
+'It’s not right,' Elena whispered, her eyes stinging with frustration. 'I can’t get it to look like me. It looks like a potato with glasses. If I can't do it perfectly, I don't want to do it at all.'
+
+Ms. Gable pulled up a stool. 'Elena, did you know that underneath some of the most famous paintings in the world, there are hundreds of mistakes? Artists often paint over things they didn't like. The "perfect" version you see in museums is just the final layer of a very messy process.'
+
+Elena looked at her ruined paper. 'But I've already messed this one up.'
+
+'Then let’s use the mess,' Ms. Gable said. She handed Elena a fresh sheet of paper, but this time, she took away the eraser. 'I want you to paint without an eraser today. If you make a line you don't like, turn it into a shadow. If a drop of paint falls, turn it into a freckle. Perfection is a wall, Elena. It stops you from moving forward. Resilience is the bridge that gets you to the finish line.'
+
+Elena felt her heart racing. Painting without an eraser felt like walking a tightrope without a net. She started again. Her hand shook as she drew the outline of her face. She accidentally made her nose a bit too wide. Normally, she would have crumpled the paper and given up. Instead, she remembered Ms. Gable’s words. She used a darker shade of peach to add a shadow, making the nose look more realistic. 
+
+When she went to paint her eyes, a big glob of blue paint fell right on her cheek. Elena froze. Her first instinct was to cry. But then, she took a deep breath. She grabbed a thin brush and turned the blue blob into a butterfly-shaped hair clip tucked behind her ear. 
+
+By the end of the hour, Elena wasn't finished. Her portrait didn't look like a photograph. It was colorful, a bit messy, and one eye was still slightly higher than the other. But as she looked at it, she realized she liked it more than anything she had ever made. It looked alive. 
+
+Leo walked by and whistled. 'Whoa, Elena! That butterfly clip is awesome. How did you get it to look so bright?'
+
+'It was a mistake,' Elena said, smiling for the first time all day. 'But I decided to keep it.'
+
+As she cleaned her brushes, Elena realized that the frustration she felt earlier was gone. She hadn't reached perfection, but she had reached the end of the class with a painting she was proud of. She learned that a mistake isn't the end of a story; it’s just a plot twist. The 'Unfinished Canvas' wasn't a failure—it was a beautiful work in progress, just like she was.
+    """,
+    "questions": [
+        {
+            "question": "Why was Elena frustrated at the beginning of the story?",
+            "options": ["She forgot her art supplies", "She couldn't make her portrait look perfect", "She didn't like Ms. Gable"],
+            "answer": "She couldn't make her portrait look perfect",
+            "type": "multiple"
+        },
+        {
+            "question": "What did Ms. Gable take away from Elena to help her learn?",
+            "options": ["Her paintbrushes", "Her mirror", "Her eraser"],
+            "answer": "Her eraser",
+            "type": "multiple"
+        },
+        {
+            "question": "What did Elena do when a glob of blue paint fell on her portrait's cheek?",
+            "options": [
+                "She crumpled the paper and started over",
+                "She turned it into a butterfly hair clip",
+                "She stopped painting and went home"
+            ],
+            "answer": "She turned it into a butterfly hair clip",
+            "type": "multiple"
+        },
+        {
+            "question": "According to Ms. Gable, perfection is a wall, but resilience is a bridge.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "Think about a time you made a mistake. How could you have turned that 'mistake' into something positive or a learning moment?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+
 
     # ---------- CATEGORÍA: Financial Literacy (Money Master) ---------- #
     {
