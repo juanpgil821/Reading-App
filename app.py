@@ -21,24 +21,13 @@ st.markdown(
     }}
 
     /* Readable text blocks */
-    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"] {{
+    .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
         border-radius: 20px !important;
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
-    }}
-
-    /* Title Styling - Fixed for readability with Indigo color and white outline shadow */
-    h1, h2, h3 {{
-        background-color: rgba(255, 255, 255, 0.9) !important;
-        padding: 15px !important;
-        border-radius: 20px !important;
-        color: #4B0082 !important;
-        border: 2px solid #FFB6C1;
-        margin-bottom: 10px;
-        text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF !important;
     }}
 
     /* Buttons Style */
@@ -297,3 +286,4 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
+
