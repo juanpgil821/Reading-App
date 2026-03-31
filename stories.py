@@ -506,66 +506,67 @@ The Reading Castle was no longer just a building of stone; it became a beacon of
 },
 {
     "id": "story_110",
-    "title": "Edimar and the Whispering Echoes of Amber",
+    "title": "Edimar and the Library of Lost Shadows",
     "category": "Fantasy",
-    "value": "The Power of Listening and Empathy",
+    "value": "Curiosity and Facing Fears",
     "text": """
-The morning sun in the Kingdom of Serendipity didn't just rise; it danced. Its golden fingers reached into the high windows of the Reading Castle, waking Edimar from a dream of flying carpets and silver flutes. Edimar was not an ordinary resident of the castle. She was the 'Heart-Seeker,' a title given only to those who could hear the stories that others ignored—the rustle of the wind, the sigh of the old stones, and the rhythmic beat of the forest.
+The Midnight Wing of the Reading Castle was a place where even the bravest knights trod carefully. It wasn't because of dragons or traps, but because of the books themselves. These weren't ordinary books; they were 'Shadow Tomes,' volumes that held the memories and secrets of the ancient world. Edimar, with her glowing lantern and silver notebook, was the only one allowed to enter after the sun dipped below the horizon.
 
-One day, while Edimar was tending to the magical roses in the castle garden, a tiny, translucent bird with feathers like liquid glass landed on her shoulder. It didn't chirp; it echoed. The bird carried a fragment of a song from the Floating Isles of Amber, a place that drifted high above the Great Waterfall. The song sounded broken, filled with a sadness that made the flowers nearby droop their heads.
+One Tuesday evening, Edimar noticed a strange, violet light leaking from under a heavy oak door at the end of the hall. It was the Chamber of Forgotten Tales. As she pushed the door open, the air turned cool and smelled of old parchment and starlight. In the center of the room, a massive book was floating, its pages fluttering like the wings of a trapped bird. 
 
-'Something is wrong in the Sky Cities,' Edimar murmured. She knew she had to go. With her enchanted boots that could walk on air and her silver notebook, Edimar began her climb up the invisible stairs of the waterfall. 
+'The Book of Nightmares,' Edimar whispered. But as she drew closer, she realized it wasn't full of scary monsters. Instead, the pages were blank, and small, dark shapes—the Lost Shadows—were scurrying across the floor, trying to find a place to hide. 
 
-The air grew thin and sweet, smelling of cinnamon and ancient rain. When she reached the first Floating Isle, she found a land of orange grass and trees made of solid amber. But the city was silent. Usually, the Amber Isles were famous for their 'Singing Crystals,' stones that captured the happy memories of the world and played them back to keep the kingdom joyful. Now, the crystals were grey and cold.
+Suddenly, a Shadow shaped like a small, trembling kitten brushed against Edimar’s boot. It didn't feel cold; it felt lonely. 'Why are you out of your book?' she asked softly. To her surprise, the shadow let out a tiny, ink-colored spark. It wasn't a nightmare; it was a story that had been forgotten because it was too sad to tell.
 
-'The harmony is gone,' a voice crackled. Edimar turned to see an old Stone Giant, his body covered in moss and cracks. 'The Echo-Thief has swept through our streets, Edimar. He didn't steal our gold or our food; he stole our ability to listen to one another. Now, everyone speaks, but no one hears. Without listening, the crystals cannot glow.'
+Edimar realized the Library was losing its balance. When stories are forgotten, their shadows escape and wander the castle, growing darker and heavier with every passing hour. If she didn't help them return, the shadows would eventually cover the whole kingdom in a fog of sadness.
 
-Edimar looked around and saw the island's citizens—fairies, explorers, and scholars—all shouting at once, but their faces were lonely. They were talking over each other, their words clashing like broken glass. 
+With her lantern held high, Edimar began her mission. She didn't chase the shadows with a net. Instead, she sat on the floor and began to hum a soft melody she had learned from the Moon-Owls. One by one, the shadows stopped scurrying. The kitten-shadow curled up in the circle of her lantern's light. 
 
-'I can fix this,' Edimar said, though her voice was small against the noise. She sat in the center of the plaza and did something no one else was doing: she became perfectly still. She closed her eyes and began to use her Heart-Seeker gift. She didn't listen to the loud shouts; she listened for the heartbeat of the island itself. 
+'Every shadow was once a bright dream,' Edimar said to the room. 'You don't have to be afraid of the light. The light is what gives you your shape.'
 
-Deep beneath the amber ground, she heard a rhythmic thrumming. It was the island crying out for balance. Edimar opened her silver notebook and began to write down the secret fears she sensed in the people around her. She wrote about the fairy who was afraid of flying, the scholar who felt he wasn't smart enough, and the giant who missed his home in the mountains.
+She opened her silver notebook and asked the kitten-shadow to tell its story. As the shadow 'spoke' through ripples of darkness, Edimar wrote. It was a story about a brave little cat who had protected a sleeping child from a thunderstorm long ago. As Edimar captured the words, the shadow began to glow with a soft, silver light. It was no longer a lost shadow; it was a legend restored.
 
-As she wrote, the words began to glow. She stood up and began to read the entries aloud. One by one, the citizens stopped shouting. They heard their own hidden feelings being spoken by Edimar. For the first time in weeks, they looked at each other and realized they weren't enemies; they were all just a little bit afraid and a little bit tired.
+For hours, Edimar listened to the shadows of broken swords, faded roses, and silent flutes. She wrote about the knight who was afraid of the dark, and the rose that bloomed in the snow. With every story she finished, a shadow transformed into a shimmering illustration and flew back into the floating Book of Nightmares. 
 
-'I didn't know you felt that way,' the fairy whispered to the scholar. 
-'I thought I was the only one,' the scholar replied.
+The violet light in the room began to change into a warm, comforting amber. The heavy book finally settled onto its pedestal, its pages full of vibrant, glowing art. The 'Book of Nightmares' had been transformed into the 'Library of Brave Hearts.'
 
-As empathy began to fill the plaza, the Singing Crystals started to pulse with light. A warm, golden glow spread from the center of the isle to the very edges of the clouds. The Echo-Thief, who was nothing more than a shadow born of misunderstanding, vanished into the bright light of connection. 
+The Stone Giant, who watched over the castle gates, peered through the window. 'You have done it again, Edimar. You have turned fear into light. Many people run from shadows, but you invited them to sit and talk.'
 
-The Stone Giant smiled, a sound like shifting gravel. 'You have a rare magic, Edimar. You don't use fire or ice; you use the bridge of the heart. You have reminded us that the greatest story isn't the one we tell, but the one we hear from our neighbor.'
+Edimar closed her notebook, her fingers slightly stained with magical ink. She felt tired, but her heart was light. She realized that the scariest things in life are often just stories waiting for someone to listen to them. As she walked back to her room, the shadows of the castle walls didn't seem dark anymore; they seemed like friends, keeping watch over the Kingdom of Serendipity. 
 
-The crystals didn't just play old memories anymore; they began to play a new song—a song of friendship and shared dreams. Edimar felt the liquid-glass bird land back on her shoulder, its song now clear and bright. 
-
-She descended the invisible stairs as the twin moons began to rise. She knew that back at the Reading Castle, there would be more stories to find and more hearts to heal. Edimar realized that being a hero didn't always mean fighting monsters with a sword; sometimes, it meant having the courage to be quiet and the kindness to truly listen. 
-
-And so, the Legend of Edimar grew. Not as a warrior of war, but as the Weaver of Peace, the girl who knew that every soul carried a song worth hearing, if only someone were brave enough to listen to the silence.
+And so, Edimar learned that true courage isn't the absence of fear, but the curiosity to look into the darkness and find the beauty hidden within it. The Library of Lost Shadows was now a place of peace, all because one girl wasn't afraid to ask a shadow for its name.
     """,
     "questions": [
         {
-            "question": "What was the 'Echo-Thief' actually made of?",
-            "options": ["Shadows of misunderstanding", "Stolen gold coins", "Black clouds and thunder"],
-            "answer": "Shadows of misunderstanding",
+            "question": "What was unusual about the 'Shadow Tomes' in the library?",
+            "options": ["They were made of solid gold", "They held memories and secrets of the ancient world", "They flew away if you tried to read them"],
+            "answer": "They held memories and secrets of the ancient world",
             "type": "multiple"
         },
         {
-            "question": "How did Edimar stop the noise in the plaza?",
+            "question": "What happened to the 'Lost Shadows' when Edimar wrote their stories in her notebook?",
             "options": [
-                "She shouted louder than everyone else",
-                "She became still and listened with her heart",
-                "She used a magic bell to make everyone sleep"
+                "They vanished forever",
+                "They turned into shimmering illustrations and returned to the book",
+                "They became bigger and scarier"
             ],
-            "answer": "She became still and listened with her heart",
+            "answer": "They turned into shimmering illustrations and returned to the book",
             "type": "multiple"
         },
         {
-            "question": "The Singing Crystals glowed again when the people started to listen to each other with empathy.",
+            "question": "Edimar discovered that the kitten-shadow was actually a nightmare sent to haunt the castle.",
             "options": ["True", "False"],
-            "answer": "True",
+            "answer": "False",
             "type": "boolean"
         },
         {
-            "question": "Edimar learned that listening is a 'bridge of the heart.' Can you think of a time when someone really listened to you? How did it make you feel?",
+            "question": "What was the final name of the book that Edimar restored?",
+            "options": ["The Book of Monsters", "The Library of Brave Hearts", "The Violet Secret"],
+            "answer": "The Library of Brave Hearts",
+            "type": "multiple"
+        },
+        {
+            "question": "Edimar says that 'every shadow was once a bright dream.' What do you think this means? Can something that seems scary actually have a good story behind it?",
             "answer": "",
             "type": "thought"
         }
