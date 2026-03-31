@@ -14,7 +14,7 @@ st.markdown(
     <style>
     /* Background - El Castillo restaurado */
     .stApp {{
-        background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
+        background-image: url("https://www.freepik.es/fotos-vectores-gratis/castillo-princesa-infantil");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
