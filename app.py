@@ -20,7 +20,7 @@ st.markdown(
         background-attachment: fixed;
     }}
 
-    /* Readable text blocks - FONT SIZE INCREASED BY 2PT */
+    /* Readable text blocks */
     .stMarkdown, p, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -28,12 +28,18 @@ st.markdown(
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
-        font-size: 20px !important; 
     }}
 
-    h1 {{ font-size: 34px !important; }}
-    h2 {{ font-size: 30px !important; }}
-    h3 {{ font-size: 26px !important; }}
+    /* Title Styling - Fixed for readability with Indigo color and white outline shadow */
+    h1, h2, h3 {{
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        padding: 15px !important;
+        border-radius: 20px !important;
+        color: #4B0082 !important;
+        border: 2px solid #FFB6C1;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF !important;
+    }}
 
     /* Buttons Style */
     .stButton>button {{
@@ -41,7 +47,7 @@ st.markdown(
         color: white !important;
         border-radius: 25px !important;
         border: 2px solid #FF1493 !important;
-        font-size: 20px !important; /* Increased font */
+        font-size: 18px !important;
         font-weight: bold !important;
         width: 100%;
         transition: 0.3s;
@@ -59,12 +65,11 @@ st.markdown(
         border-radius: 15px;
     }}
     .stTabs [data-baseweb="tab"] {{
-        height: 60px; /* Increased height for bigger text */
+        height: 50px;
         background-color: #FFF0F5;
         border-radius: 10px;
         color: #FF69B4;
         font-weight: bold;
-        font-size: 18px !important;
     }}
     .stTabs [aria-selected="true"] {{
         background-color: #FFB6C1 !important;
@@ -292,4 +297,3 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
-
