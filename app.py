@@ -12,7 +12,7 @@ st.set_page_config(page_title="The Reading Castle", layout="centered")
 st.markdown(
     f"""
     <style>
-    /* Background */
+    /* Background - El Castillo restaurado */
     .stApp {{
         background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
         background-size: cover;
@@ -20,14 +20,25 @@ st.markdown(
         background-attachment: fixed;
     }}
 
-    /* Readable text blocks */
-    .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
+    /* Bloques de texto con transparencia para ver el fondo */
+    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
         border-radius: 20px !important;
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
+    }}
+
+    /* Títulos Morados con contorno Blanco (Para máxima legibilidad) */
+    h1, h2, h3 {{
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        padding: 15px !important;
+        border-radius: 20px !important;
+        color: #4B0082 !important;
+        border: 2px solid #FFB6C1;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 2px -2px 0px #FFFFFF, -2px 2px 0px #FFFFFF !important;
     }}
 
     /* Buttons Style */
@@ -78,7 +89,7 @@ def load_progress():
             if "last_level_seen" not in data: data["last_level_seen"] = 1
             if "streak_saver" not in data: data["streak_saver"] = 0
             return data
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         return {
             "name": "Princess", "points": 0, "total_points_earned": 0,
             "last_level_seen": 1, "streak_saver": 0, "streak": 0,
@@ -122,7 +133,6 @@ def update_streak():
 
 # ---------- SIDEBAR ----------
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc_Qp9yWtTxWjpE0NaMiPh2SgWSSwZEp1zw&s", caption="✨ Your Royal Guide")
-# IMAGEN DEL AXOLOTL (RESTAURADA)
 st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
 
 current_level = get_current_level(progress["total_points_earned"])
@@ -142,7 +152,6 @@ def home():
 
     st.subheader("Choose Your Adventure")
     
-    # NUEVA ESTRUCTURA DE 3 PESTAÑAS (Icono de bolsa de dinero para Money Master)
     tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
     
     with tab1:
@@ -286,4 +295,3 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
-
