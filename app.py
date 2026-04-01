@@ -9,39 +9,37 @@ from levels import show_level_ui, check_level_up, get_current_level
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
 
-# He limpiado los selectores para evitar que el fondo blanco pise al fondo del castillo
+# CAMBIO CRÍTICO: Nueva URL de imagen estable y limpieza de selectores de fondo
 st.markdown(
-    f"""
+    """
     <style>
-    /* 1. Fondo Global: Prioridad máxima */
-    .stApp {{
-        background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp") !important;
+    /* 1. Fondo Global: Forzamos la imagen con !important y una URL estable */
+    .stApp {
+        background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop") !important;
         background-size: cover !important;
         background-position: center !important;
         background-attachment: fixed !important;
-    }}
+    }
 
-    /* 2. Contenedores de texto: Solo afectamos al contenido, no al fondo de la app */
-    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {{
+    /* 2. Bloques de texto: Separados para no "tapar" el fondo de la app */
+    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
         border-radius: 20px !important;
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
-    }}
+    }
 
-    /* 3. Títulos: Los mantenemos limpios para que no bloqueen la capa del fondo */
-    h1, h2, h3 {{
+    /* 3. Títulos: Solo color y sombra para no generar bloques negros */
+    h1, h2, h3 {
         color: #4B0082 !important;
-        text-shadow: 1px 1px 2px white;
-        background-color: rgba(255, 255, 255, 0.5) !important;
-        padding: 10px !important;
-        border-radius: 15px !important;
-    }}
+        text-shadow: 2px 2px 4px white !important;
+        background: none !important;
+    }
 
-    /* Buttons Style */
-    .stButton>button {{
+    /* Estilo de Botones */
+    .stButton>button {
         background-color: #FF69B4 !important;
         color: white !important;
         border-radius: 25px !important;
@@ -50,30 +48,14 @@ st.markdown(
         font-weight: bold !important;
         width: 100%;
         transition: 0.3s;
-    }}
-    .stButton>button:hover {{
-        transform: scale(1.03);
-        background-color: #FF1493 !important;
-    }}
+    }
 
-    /* Tabs Styling */
-    .stTabs [data-baseweb="tab-list"] {{
-        gap: 10px;
+    /* Pestañas */
+    .stTabs [data-baseweb="tab-list"] {
         background-color: rgba(255, 255, 255, 0.7);
         padding: 10px;
         border-radius: 15px;
-    }}
-    .stTabs [data-baseweb="tab"] {{
-        height: 50px;
-        background-color: #FFF0F5;
-        border-radius: 10px;
-        color: #FF69B4;
-        font-weight: bold;
-    }}
-    .stTabs [aria-selected="true"] {{
-        background-color: #FFB6C1 !important;
-        color: white !important;
-    }}
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -124,7 +106,7 @@ def update_streak():
         if progress.get("streak_saver", 0) > 0:
             progress["streak_saver"] -= 1
             progress["streak"] += 1
-            st.warning("🛡️ STREAK SAVED! You used a protective shield.")
+            st.warning("🛡️ STREAK SAVED!")
         else:
             progress["streak"] = 1
     progress["last_read_date"] = str(today)
@@ -140,46 +122,33 @@ st.sidebar.title("Magical Menu")
 menu = st.sidebar.radio("Go to:", ["Home", "Badges", "Edi-Mar-Ket", "Parent Dashboard"])
 
 # ---------- PAGES ----------
-
 def home():
     st.title(f"✨ Welcome, {progress['name']}! ✨")
     show_level_ui(progress)
-    
     col1, col2 = st.columns(2)
     col1.metric("💰 EdiCoins", progress['points'])
     col2.metric("🔥 Streak", f"{progress['streak']} days")
-
     st.subheader("Choose Your Adventure")
-    
     tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
     
     with tab1:
         st.markdown("### ✨ Magic & Adventure")
-        fan_stories = [s for s in stories if s.get("category") == "Fantasy"]
-        for s in fan_stories: render_story_card(s)
-            
+        for s in [s for s in stories if s.get("category") == "Fantasy"]: render_story_card(s)
     with tab2:
         st.markdown("### 🏫 Life Lessons")
-        real_stories = [s for s in stories if s.get("category") == "Realism"]
-        for s in real_stories: render_story_card(s)
-
+        for s in [s for s in stories if s.get("category") == "Realism"]: render_story_card(s)
     with tab3:
         st.markdown("### 💰 Money Master")
-        fin_stories = [s for s in stories if s.get("category") == "Financial Literacy"]
-        if not fin_stories:
-            st.info("New stories coming soon! 💰")
-        for s in fin_stories: render_story_card(s)
+        fin = [s for s in stories if s.get("category") == "Financial Literacy"]
+        if not fin: st.info("New stories coming soon! 💰")
+        for s in fin: render_story_card(s)
 
 def render_story_card(story):
     is_completed = story["id"] in progress["stories_completed"]
-    btn_label = f"{story['title']} {'✅' if is_completed else '⭐'}"
-    if st.button(btn_label, key=f"btn_{story['id']}"):
-        st.session_state.current_story = story
-        st.session_state.page = "reading"
-        st.session_state.score = 0
-        st.session_state.question_index = 0
-        st.session_state.answer_submitted = False
-        st.session_state.reward_given = False
+    if st.button(f"{story['title']} {'✅' if is_completed else '⭐'}", key=f"btn_{story['id']}"):
+        st.session_state.current_story, st.session_state.page = story, "reading"
+        st.session_state.score, st.session_state.question_index = 0, 0
+        st.session_state.answer_submitted, st.session_state.reward_given = False, False
         st.rerun()
 
 def reading():
@@ -195,48 +164,24 @@ def quiz():
     story = st.session_state.current_story
     q_index = st.session_state.question_index
     questions = story["questions"]
-
     if q_index >= len(questions):
         st.session_state.page = "result"
         st.rerun()
         return
-
     q = questions[q_index]
     st.subheader(f"Question {q_index + 1} of {len(questions)}")
     st.write(f"### {q['question']}")
-    
-    q_type = q.get("type", "multiple") 
-    user_answer = None
-
-    if q_type == "multiple":
-        user_answer = st.radio("Pick one:", q["options"], key=f"quiz_{q_index}")
-    elif q_type == "boolean":
-        user_answer = st.radio("Is this true?", ["True", "False"], key=f"quiz_{q_index}")
-    elif q_type == "thought":
-        user_answer = st.text_area("Write your thoughts here...", key=f"quiz_{q_index}")
-
+    user_answer = st.radio("Pick one:", q["options"] if q.get("type")=="multiple" else ["True", "False"], key=f"q_{q_index}")
     if not st.session_state.answer_submitted:
         if st.button("Check Answer"):
-            if q_type == "thought" and not user_answer.strip():
-                st.warning("Please write something before submitting!")
-            else:
-                st.session_state.answer_submitted = True
-                st.rerun()
+            st.session_state.answer_submitted = True
+            st.rerun()
     else:
-        is_correct = False
-        if q_type == "thought":
-            st.success("Great reflection! Points earned. 🌸")
-            is_correct = True
-        else:
-            if user_answer == q["answer"]:
-                st.success("Perfect! You got it right! 🌟")
-                is_correct = True
-            else:
-                st.error(f"Not quite! The answer was: {q['answer']}")
-        
+        if user_answer == q["answer"]: st.success("Perfect! 🌟")
+        else: st.error(f"Not quite! Answer: {q['answer']}")
         if st.button("Next ➡️"):
             progress["total_answers"] += 1
-            if is_correct:
+            if user_answer == q["answer"]:
                 st.session_state.score += 1
                 progress["correct_answers"] += 1
             st.session_state.question_index += 1
@@ -244,51 +189,38 @@ def quiz():
             st.rerun()
 
 def result():
-    story = st.session_state.current_story
-    score = st.session_state.score
+    story, score = st.session_state.current_story, st.session_state.score
     total_q = len(story["questions"])
-
     st.title("Well Done! 🎉")
-    st.write(f"You completed '{story['title']}' with {score}/{total_q} points!")
-
+    st.write(f"Points: {score}/{total_q}")
     if not st.session_state.reward_given:
         if story["id"] not in progress["stories_completed"]:
-            earned_points = 10 + (score * 2)
-            progress["points"] += earned_points
-            progress["total_points_earned"] += earned_points
+            earned = 10 + (score * 2)
+            progress["points"] += earned
+            progress["total_points_earned"] += earned
             progress["stories_completed"].append(story["id"])
             update_streak()
             st.balloons()
-            st.success(f"You earned {earned_points} EdiCoins!")
+            st.success(f"Earned {earned} EdiCoins!")
             check_level_up(progress)
-        else:
-            st.warning("You've already mastered this story!")
-        
         save_progress(progress)
         st.session_state.reward_given = True
-
     if st.button("Back to Home"):
         st.session_state.page = "home"
         st.rerun()
 
 def admin():
     st.title("👨‍👧 Parent Dashboard")
-    accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
-    st.metric("Spendable EdiCoins", progress['points'])
-    st.metric("Lifetime XP (Level)", progress['total_points_earned'])
-    st.write(f"Shields (Streak Savers): {progress.get('streak_saver', 0)}")
-    st.write(f"Stories completed: {len(progress['stories_completed'])}")
-    st.write(f"Accuracy: {round(accuracy, 2)}%")
+    acc = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
+    st.metric("EdiCoins", progress['points'])
+    st.write(f"Accuracy: {round(acc, 2)}%")
 
 # ---------- NAVIGATION ----------
 if menu == "Parent Dashboard":
-    pwd = st.sidebar.text_input("Password", type="password")
-    if pwd == "1234": admin()
+    if st.sidebar.text_input("Password", type="password") == "1234": admin()
     else: st.sidebar.warning("Restricted Area")
-elif menu == "Badges":
-    show_missions(progress)
-elif menu == "Edi-Mar-Ket":
-    show_market(progress, save_progress)
+elif menu == "Badges": show_missions(progress)
+elif menu == "Edi-Mar-Ket": show_market(progress, save_progress)
 else:
     if st.session_state.page == "home": home()
     elif st.session_state.page == "reading": reading()
