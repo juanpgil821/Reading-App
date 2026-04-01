@@ -12,33 +12,22 @@ st.set_page_config(page_title="The Reading Castle", layout="centered")
 st.markdown(
     f"""
     <style>
-    /* Background - El Castillo restaurado */
+    /* Background */
     .stApp {{
-        background-image: url("https://www.freepik.es/fotos-vectores-gratis/castillo-princesa-infantil");
+        background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }}
 
-    /* Bloques de texto con transparencia para ver el fondo */
-    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {{
+    /* Readable text blocks */
+    .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
         border-radius: 20px !important;
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
-    }}
-
-    /* Títulos Morados con contorno Blanco (Para máxima legibilidad) */
-    h1, h2, h3 {{
-        background-color: rgba(255, 255, 255, 0.9) !important;
-        padding: 15px !important;
-        border-radius: 20px !important;
-        color: #4B0082 !important;
-        border: 2px solid #FFB6C1;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 0px #FFFFFF, -2px -2px 0px #FFFFFF, 2px -2px 0px #FFFFFF, -2px 2px 0px #FFFFFF !important;
     }}
 
     /* Buttons Style */
@@ -89,7 +78,7 @@ def load_progress():
             if "last_level_seen" not in data: data["last_level_seen"] = 1
             if "streak_saver" not in data: data["streak_saver"] = 0
             return data
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         return {
             "name": "Princess", "points": 0, "total_points_earned": 0,
             "last_level_seen": 1, "streak_saver": 0, "streak": 0,
