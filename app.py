@@ -113,9 +113,7 @@ def update_streak():
     save_progress(progress)
 
 # ---------- SIDEBAR ----------
-st.sidebar.image("edimar_avatar.jpg", caption="✨ Your Royal Guide")
-st.sidebar.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSn8LZwdDg8oDeke6JTT0i9yjpW4nNRLMq0Q&s", width=120)
-
+st.sidebar.image("edimar_avatar.jpg")
 current_level = get_current_level(progress["total_points_earned"])
 st.sidebar.markdown(f"### Rank: {current_level['icon']} {current_level['name']}")
 st.sidebar.title("Magical Menu")
