@@ -9,25 +9,35 @@ from levels import show_level_ui, check_level_up, get_current_level
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
 
+# He limpiado los selectores para evitar que el fondo blanco pise al fondo del castillo
 st.markdown(
     f"""
     <style>
-    /* Background */
+    /* 1. Fondo Global: Prioridad máxima */
     .stApp {{
-        background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+        background-image: url("https://icon2.cleanpng.com/lnd/20240424/yql/transparent-disney-castle-pink-disney-castle-on-rocky-outcropping-by-water66288f03215b63.27749470.webp") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
     }}
 
-    /* Readable text blocks */
-    .stMarkdown, p, h1, h2, h3, .stMetric, [data-testid="stMetricValue"] {{
+    /* 2. Contenedores de texto: Solo afectamos al contenido, no al fondo de la app */
+    .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {{
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
         border-radius: 20px !important;
         color: #4B0082 !important;
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
+    }}
+
+    /* 3. Títulos: Los mantenemos limpios para que no bloqueen la capa del fondo */
+    h1, h2, h3 {{
+        color: #4B0082 !important;
+        text-shadow: 1px 1px 2px white;
+        background-color: rgba(255, 255, 255, 0.5) !important;
+        padding: 10px !important;
+        border-radius: 15px !important;
     }}
 
     /* Buttons Style */
@@ -78,7 +88,7 @@ def load_progress():
             if "last_level_seen" not in data: data["last_level_seen"] = 1
             if "streak_saver" not in data: data["streak_saver"] = 0
             return data
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         return {
             "name": "Princess", "points": 0, "total_points_earned": 0,
             "last_level_seen": 1, "streak_saver": 0, "streak": 0,
