@@ -1775,7 +1775,65 @@ From that day on, Nico never complained about the third jar. He realized that wh
             "type": "thought"
         }
     ]
-}
+},
+    {
+    "id": "story_36",
+    "title": "Arkad and the Five Laws of Gold",
+    "category": "Financial Literacy",
+    "value": "Ancient Wisdom for Wealth and Protection",
+    "text": """
+In the ancient and magnificent city of Babylon, the richest man of all was named Arkad. One day, his son Nomasir was ready to leave home to seek his own fortune. Arkad gave his son two things: a bag of gold and a clay tablet carved with five laws. 'If you use the gold without the laws, it will be gone soon,' Arkad warned. 'But if you follow the laws, even a little gold will grow into a mountain.'
+
+Nomasir traveled to the city of Nineveh. At first, he was careless. He lost much of his gold by betting on horses that didn't win and buying expensive things he didn't need. When he was almost poor, he finally sat down to read his father’s clay tablet. These were the **Five Laws of Gold**:
+
+**The First Law:** Gold comes gladly to the person who saves at least one-tenth of their earnings. Arkad taught that you must pay yourself first. If you earn ten coins, one belongs to your future and must not be spent.
+
+**The Second Law:** Gold works hard for the wise owner. Just like a field of grain grows from a few seeds, your saved coins can grow if you put them to work in a good business. Money that is 'working' creates more money.
+
+**The Third Law:** Gold clings to the protection of the cautious owner. This law says you should only invest your money with people who actually know what they are doing. If you want to invest in gold, ask a gold merchant, not a brickmaker.
+
+**The Fourth Law:** Gold slips away from the person who invests in things they do not understand. Many people lose their money because they try to do things that sound easy but are actually very risky. If you don't understand the business, keep your gold safe.
+
+**The Fifth Law:** Gold flees the person who tries to make 'magic' profits. Arkad warned against people who promise you will become rich overnight or who offer impossible deals. Wealth is built slowly with patience and good choices.
+
+Nomasir realized his mistakes. He stopped gambling and started working hard. He saved his coins and only invested them with wise men he trusted. Years later, he returned to Babylon. He didn't just bring back the bag of gold his father gave him; he brought back three bags! He proved to Arkad that the wisdom on the clay tablet was worth far more than the gold itself. Arkad was proud, for Nomasir had learned that wealth is not just what you have, but what you know how to keep.
+    """,
+    "questions": [
+        {
+            "question": "According to the First Law, how much of your money should you save for yourself?",
+            "options": ["Everything you earn", "At least one-tenth (1/10)", "Nothing, spend it all"],
+            "answer": "At least one-tenth (1/10)",
+            "type": "multiple"
+        },
+        {
+            "question": "The Third Law says you should ask for advice from people who are experts in their work.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What happens if you invest in a business you don't understand, according to the Fourth Law?",
+            "options": [
+                "You become a king",
+                "The gold slips away and is lost",
+                "The gold doubles instantly"
+            ],
+            "answer": "The gold slips away and is lost",
+            "type": "multiple"
+        },
+        {
+            "question": "In the story, what did Nomasir find more valuable than the bag of gold?",
+            "options": ["His horse", "The clay tablet with the Five Laws", "A new house in Nineveh"],
+            "answer": "The clay tablet with the Five Laws",
+            "type": "multiple"
+        },
+        {
+            "question": "The Fifth Law says wealth is built with patience. Can you name one thing you are saving for or working toward that takes time?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 
 
 ]
