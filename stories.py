@@ -1778,6 +1778,79 @@ From that day on, Nico never complained about the third jar. He realized that wh
 },
     {
     "id": "story_36",
+    "title": "Arkad and the Seven Cures for a Lean Purse",
+    "category": "Financial Literacy",
+    "value": "Disciplined Saving and Wealth Building",
+    "text": """
+The city of Babylon was the wealthiest in the world, yet many of its citizens struggled with empty purses. King Sargon, wanting his people to be prosperous, asked Arkad, the richest man in Babylon, to teach a class of one hundred men how to build wealth. Arkad stood before them and said, 'A lean purse is a disease, but there are seven cures to make it fat and heavy with gold.'
+
+For seven days, Arkad taught one 'cure' each morning. These are the **Seven Cures for a Lean Purse**:
+
+**The First Cure: Start thy purse to fattening.**
+Arkad asked a basket-maker, 'If you put ten eggs in a basket every morning and take out only nine every evening, what will happen?' The man replied, 'Eventually, the basket will overflow.' Arkad smiled. 'The same is true for your purse. For every ten coins you put in, take out only nine to spend. Your purse will begin to fatten at once.'
+
+**The Second Cure: Control thy expenditures.**
+Many men complained they didn't have enough to save. Arkad explained that 'necessary expenses' always grow to equal our income unless we protest. Do not confuse your *wants* with your *needs*. Study your habits and cut out the spending that doesn't bring true happiness so you have money for the first cure.
+
+**The Third Cure: Make thy gold multiply.**
+A fat purse is a good start, but the gold itself must work. Arkad told them that every coin saved is like a servant that can produce children (interest), and those children can produce more children. Invest your savings so they grow even while you sleep.
+
+**The Fourth Cure: Guard thy treasures from loss.**
+The first dynamic of wealth is security. Before you invest, study the risks. Do not be misled by your own romantic desires to make money fast. Guard your treasure by only investing where your principal is safe and where you can reclaim it if needed. Seek advice from those experienced in handling gold.
+
+**The Fifth Cure: Make of thy dwelling a profitable investment.**
+Arkad encouraged every man to own his own home. When a family has their own house and a place for children to play, their hearts are glad and they work with more confidence. Owning your home reduces the cost of living and allows more of your money to stay in your purse.
+
+**The Sixth Cure: Insure a future income.**
+No person stays young forever. You must provide for the days when you are no longer able to work and for the protection of your family if you are gone. Buy small properties or make investments that will grow over many years so you are never a burden to others.
+
+**The Seventh Cure: Increase thy ability to earn.**
+This is the most important cure. To earn more, you must learn more. A man who seeks to learn more of his craft will be richly rewarded. Cultivate your own powers, study and become wiser, and act with self-respect. The more wisdom you have, the more gold you will be able to attract.
+
+After seven days, Arkad looked at the hundred men. 'Go forth,' he said, 'and practice these truths. Do not just listen; act. Fill your purses, and teach others to do the same, so that Babylon may remain the wealthiest city in the world.'
+    """,
+    "questions": [
+        {
+            "question": "In the First Cure, how many coins should you spend out of every ten you put in your purse?",
+            "options": ["Ten coins", "Nine coins", "Five coins"],
+            "answer": "Nine coins",
+            "type": "multiple"
+        },
+        {
+            "question": "The Second Cure says that our 'necessary expenses' will always grow to meet our income if we aren't careful.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What is the Third Cure about?",
+            "options": [
+                "Hiding your money under a rock",
+                "Making your money 'work' and multiply through interest",
+                "Giving all your money to the King"
+            ],
+            "answer": "Making your money 'work' and multiply through interest",
+            "type": "multiple"
+        },
+        {
+            "question": "According to the Seventh Cure, what is the best way to increase your ability to earn more gold?",
+            "options": [
+                "Waiting for luck",
+                "Learning more and becoming better at your skills",
+                "Asking Arkad for a gift"
+            ],
+            "answer": "Learning more and becoming better at your skills",
+            "type": "multiple"
+        },
+        {
+            "question": "Arkad says that owning your own home (Fifth Cure) makes a person work with more confidence. Why do you think having a home of your own makes people feel happy and secure?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+    {
+    "id": "story_37",
     "title": "Arkad and the Five Laws of Gold",
     "category": "Financial Literacy",
     "value": "Ancient Wisdom for Wealth and Protection",
