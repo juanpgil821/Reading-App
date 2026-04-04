@@ -1319,7 +1319,7 @@ As Sofia headed to science class, she felt a light, happy energy in her chest. S
     "questions": [
         {
             "question": "What did Sofia notice was different about the cafeteria today?",
-            "options": ["The food was different", "There was a new student at their table", "The cafeteria was completely silent"],
+            "options": ["There was a new student at their table", "The food was different", "The cafeteria was completely silent"],
             "answer": "There was a new student at their table",
             "type": "multiple"
         },
@@ -1327,8 +1327,8 @@ As Sofia headed to science class, she felt a light, happy energy in her chest. S
             "question": "How did Sofia feel when she saw David sitting alone and quiet?",
             "options": [
                 "She felt annoyed that he was in her spot",
-                "She remembered her own experience of feeling lonely",
-                "She didn't notice him at all"
+                "She didn't notice him at all",
+                "She remembered her own experience of feeling lonely"
             ],
             "answer": "She remembered her own experience of feeling lonely",
             "type": "multiple"
@@ -1337,8 +1337,8 @@ As Sofia headed to science class, she felt a light, happy energy in her chest. S
             "question": "What was the first thing Sofia said to David to start a conversation?",
             "options": [
                 "She asked him about his old school",
-                "She asked him about his grandmother's noodle recipe",
-                "She asked him if he liked soccer"
+                "She asked him if he liked soccer",
+                "She asked him about his grandmother's noodle recipe"
             ],
             "answer": "She asked him about his grandmother's noodle recipe",
             "type": "multiple"
@@ -1403,9 +1403,9 @@ The next Monday, Clara had to face Sam. He was angry at first, but when he reali
     "questions": [
         {
             "question": "Why did the tablet stop working in the media lab?",
-            "options": [
-                "It ran out of battery", 
-                "Sam plugged in a USB drive with an unauthorized game", 
+            "options": [ 
+                "Sam plugged in a USB drive with an unauthorized game",
+                "It ran out of battery",
                 "Mr. Vance turned it off by mistake"
             ],
             "answer": "Sam plugged in a USB drive with an unauthorized game",
@@ -1423,9 +1423,9 @@ The next Monday, Clara had to face Sam. He was angry at first, but when he reali
         },
         {
             "question": "What was the positive consequence of Clara telling the truth?",
-            "options": [
-                "Sam got expelled from school", 
-                "The IT team could save the anniversary video because they knew the cause", 
+            "options": [ 
+                "The IT team could save the anniversary video because they knew the cause",
+                "Sam got expelled from school",
                 "Mr. Vance gave her a gold medal"
             ],
             "answer": "The IT team could save the anniversary video because they knew the cause",
