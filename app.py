@@ -9,19 +9,15 @@ from levels import show_level_ui, check_level_up, get_current_level
 # ---------- MAGICAL VISUAL CONFIGURATION (CSS) ----------
 st.set_page_config(page_title="The Reading Castle", layout="centered")
 
-# CAMBIO CRÍTICO: Nueva URL de imagen estable y limpieza de selectores de fondo
 st.markdown(
     """
     <style>
-    /* 1. Fondo Global: Forzamos la imagen con !important y una URL estable */
     .stApp {
         background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000&auto=format&fit=crop") !important;
         background-size: cover !important;
         background-position: center !important;
         background-attachment: fixed !important;
     }
-
-    /* 2. Bloques de texto: Separados para no "tapar" el fondo de la app */
     .stMarkdown, p, .stMetric, [data-testid="stMetricValue"], .stTextArea {
         background-color: rgba(255, 255, 255, 0.9) !important;
         padding: 15px !important;
@@ -30,15 +26,11 @@ st.markdown(
         border: 2px solid #FFB6C1;
         margin-bottom: 10px;
     }
-
-    /* 3. Títulos: Solo color y sombra para no generar bloques negros */
     h1, h2, h3 {
         color: #4B0082 !important;
         text-shadow: 2px 2px 4px white !important;
         background: none !important;
     }
-
-    /* Estilo de Botones */
     .stButton>button {
         background-color: #FF69B4 !important;
         color: white !important;
@@ -49,8 +41,6 @@ st.markdown(
         width: 100%;
         transition: 0.3s;
     }
-
-    /* Pestañas */
     .stTabs [data-baseweb="tab-list"] {
         background-color: rgba(255, 255, 255, 0.7);
         padding: 10px;
@@ -72,7 +62,7 @@ def load_progress():
             return data
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "name": "Princess", "points": 0, "total_points_earned": 0,
+            "name": "Edimar", "points": 0, "total_points_earned": 0,
             "last_level_seen": 1, "streak_saver": 0, "streak": 0,
             "last_read_date": "", "stories_completed": [],
             "total_answers": 0, "correct_answers": 0
@@ -99,16 +89,20 @@ def update_streak():
     today = date.today()
     yesterday = today - timedelta(days=1)
     last_date_str = progress.get("last_read_date", "")
-    if last_date_str == str(today): return
+    
+    if last_date_str == str(today): 
+        return
+        
     if last_date_str == str(yesterday):
         progress["streak"] += 1
     else:
         if progress.get("streak_saver", 0) > 0:
             progress["streak_saver"] -= 1
             progress["streak"] += 1
-            st.warning("🛡️ STREAK SAVED!")
+            st.warning("🛡️ STREAK SAVED! An Edi-Shield was used.")
         else:
             progress["streak"] = 1
+            
     progress["last_read_date"] = str(today)
     save_progress(progress)
 
@@ -162,24 +156,50 @@ def quiz():
     story = st.session_state.current_story
     q_index = st.session_state.question_index
     questions = story["questions"]
+    
     if q_index >= len(questions):
         st.session_state.page = "result"
         st.rerun()
         return
+        
     q = questions[q_index]
     st.subheader(f"Question {q_index + 1} of {len(questions)}")
     st.write(f"### {q['question']}")
-    user_answer = st.radio("Pick one:", q["options"] if q.get("type")=="multiple" else ["True", "False"], key=f"q_{q_index}")
+    
+    # --- CORRECCIÓN AQUÍ: Detección de tipo de pregunta ---
+    q_type = q.get("type", "multiple")
+    user_answer = None
+
+    if q_type == "thought":
+        user_answer = st.text_area("Write your thoughts here...", key=f"q_{q_index}")
+    elif q_type == "boolean":
+        user_answer = st.radio("Pick one:", ["True", "False"], key=f"q_{q_index}")
+    else: # multiple
+        user_answer = st.radio("Pick one:", q["options"], key=f"q_{q_index}")
+    # -----------------------------------------------------
+
     if not st.session_state.answer_submitted:
         if st.button("Check Answer"):
-            st.session_state.answer_submitted = True
-            st.rerun()
+            if q_type == "thought" and not user_answer.strip():
+                st.warning("Please share your thoughts before proceeding! ✍️")
+            else:
+                st.session_state.answer_submitted = True
+                st.rerun()
     else:
-        if user_answer == q["answer"]: st.success("Perfect! 🌟")
-        else: st.error(f"Not quite! Answer: {q['answer']}")
+        is_correct = False
+        if q_type == "thought":
+            st.success("Wonderful reflection! 🌟")
+            is_correct = True
+        else:
+            if user_answer == q["answer"]:
+                st.success("Perfect! 🌟")
+                is_correct = True
+            else:
+                st.error(f"Not quite! The correct answer was: {q['answer']}")
+        
         if st.button("Next ➡️"):
             progress["total_answers"] += 1
-            if user_answer == q["answer"]:
+            if is_correct:
                 st.session_state.score += 1
                 progress["correct_answers"] += 1
             st.session_state.question_index += 1
@@ -224,3 +244,4 @@ else:
     elif st.session_state.page == "reading": reading()
     elif st.session_state.page == "quiz": quiz()
     elif st.session_state.page == "result": result()
+
