@@ -166,7 +166,6 @@ def quiz():
     st.subheader(f"Question {q_index + 1} of {len(questions)}")
     st.write(f"### {q['question']}")
     
-    # --- CORRECCIÓN AQUÍ: Detección de tipo de pregunta ---
     q_type = q.get("type", "multiple")
     user_answer = None
 
@@ -176,7 +175,6 @@ def quiz():
         user_answer = st.radio("Pick one:", ["True", "False"], key=f"q_{q_index}")
     else: # multiple
         user_answer = st.radio("Pick one:", q["options"], key=f"q_{q_index}")
-    # -----------------------------------------------------
 
     if not st.session_state.answer_submitted:
         if st.button("Check Answer"):
@@ -229,9 +227,37 @@ def result():
 
 def admin():
     st.title("👨‍👧 Parent Dashboard")
-    acc = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
-    st.metric("EdiCoins", progress['points'])
-    st.write(f"Accuracy: {round(acc, 2)}%")
+    st.write("Monitor Edimar's magical progress here.")
+    
+    # Cálculos de métricas
+    accuracy = (progress["correct_answers"] / progress["total_answers"] * 100) if progress["total_answers"] > 0 else 0
+    stories_count = len(progress['stories_completed'])
+    total_available = len(stories)
+    
+    # Fila 1: Finanzas y XP
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("Spendable EdiCoins", f"{progress['points']} 💰")
+    with col2:
+        st.metric("Total XP (Lifetime)", f"{progress['total_points_earned']} XP")
+        
+    # Fila 2: Educación
+    col3, col4 = st.columns(2)
+    with col3:
+        st.metric("Reading Accuracy", f"{round(accuracy, 1)}%")
+    with col4:
+        st.metric("Total Answers", progress['total_answers'])
+        
+    # Fila 3: Consistencia y Avance
+    col5, col6 = st.columns(2)
+    with col5:
+        st.metric("Current Streak", f"{progress['streak']} Days 🔥")
+    with col6:
+        st.metric("Streak Savers", f"{progress.get('streak_saver', 0)} 🛡️")
+        
+    # Barra de Progreso General
+    st.write(f"### Library Progress: {stories_count} / {total_available} stories")
+    st.progress(stories_count / total_available if total_available > 0 else 0)
 
 # ---------- NAVIGATION ----------
 if menu == "Parent Dashboard":
