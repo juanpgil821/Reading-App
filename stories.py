@@ -1926,7 +1926,7 @@ Today, Warren lives in the same house he bought many years ago and still loves w
     "questions": [
         {
             "question": "What did young Warren do with the profit from selling Coca-Cola bottles?",
-            "options": ["He bought toys", "He saved it to grow his business", "He gave it away"],
+            "options": ["He bought toys", "He gave it away", "He saved it to grow his business"],
             "answer": "He saved it to grow his business",
             "type": "multiple"
         },
@@ -1944,12 +1944,69 @@ Today, Warren lives in the same house he bought many years ago and still loves w
         },
         {
             "question": "According to Warren's philosophy, how should we think about our investments and plans?",
-            "options": ["Thinking only about tomorrow", "Thinking about the long-term (years, not days)", "Looking for shortcuts to get rich fast"],
+            "options": ["Thinking only about tomorrow", "Looking for shortcuts to get rich fast", "Thinking about the long-term (years, not days)"],
             "answer": "Thinking about the long-term (years, not days)",
             "type": "multiple"
         },
         {
             "question": "Warren says the best investment is in yourself. What is one skill or subject you would like to learn more about this year to 'invest' in your future?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+    {
+    "id": "story_39",
+    "title": "Benjamin Franklin: The Secret of the Penny",
+    "category": "Financial Literacy",
+    "value": "Frugality, and the Value of Time",
+    "text": """
+Before he was a famous inventor or a founding father, Benjamin Franklin was a printer's apprentice who loved to read and learn. He realized that many people were poor not because they didn't work, but because they didn't know how to manage their small coins and their precious time. He decided to write down his wisdom in a famous book called 'Poor Richard's Almanack.'
+
+Benjamin had a famous saying: 'A penny saved is a penny earned.' He taught people that if you save one small coin today, it is like you worked to earn another one without any extra effort. He believed that small expenses are the most dangerous. He used to say, 'Beware of little expenses; a small leak will sink a great ship.' This means that spending just a few EdiCoins every day on things you don't need can eventually make you lose all your treasure.
+
+But Benjamin didn't just care about coins; he cared about time. He said, 'Time is money.' To him, wasting an hour of your day playing when you should be learning was the same as taking money out of your purse and throwing it into the river. He believed that being 'industrious'—which means working hard and with focus—was the only real way to reach your dreams.
+
+He also taught about the danger of debt. Benjamin said, 'He that goes a-borrowing goes a-sorrowing.' He wanted people to be free and independent. If you owe money to someone else, you are not the master of your own life. 
+
+Benjamin Franklin lived a long and successful life because he followed his own advice. He was never too proud to work hard, and he was never too rich to stop being careful with his pennies. He proved that with a little discipline, a clear mind, and a lot of hard work, anyone can build a life of freedom and abundance.
+    """,
+    "questions": [
+        {
+            "question": "What did Benjamin Franklin mean when he said 'A small leak will sink a great ship'?",
+            "options": [
+                "Small, unnecessary expenses can ruin your savings",
+                "Boats are dangerous",  
+                "You should only travel by land"
+            ],
+            "answer": "Small, unnecessary expenses can ruin your savings",
+            "type": "multiple"
+        },
+        {
+            "question": "According to the story, Benjamin Franklin believed that 'Time is money.'",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What is the word Benjamin used to describe working hard and with focus?",
+            "options": ["Laziness", "Industrious", "Luck"],
+            "answer": "Industrious",
+            "type": "multiple"
+        },
+        {
+            "question": "What happens to people who borrow money and fall into debt, according to Benjamin?",
+            "options": [
+                "They become the masters of their lives",
+                "They get rich faster",
+                "They 'go a-sorrowing' (become unhappy and lose freedom)" 
+                
+            ],
+            "answer": "They 'go a-sorrowing' (become unhappy and lose freedom)",
+            "type": "multiple"
+        },
+        {
+            "question": "Benjamin said that saving a penny is like earning one. If you could save a small amount of money every single day, what 'great ship' or big dream would you like to build in the future?",
             "answer": "",
             "type": "thought"
         }
