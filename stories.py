@@ -2012,5 +2012,51 @@ Benjamin Franklin lived a long and successful life because he followed his own a
         }
     ]
 },
+    {
+    "id": "story_310",
+    "title": "Jeff Bezos: The King of the 'Day 1' Mentality",
+    "category": "Financial Literacy",
+    "value": "Innovation and Customer Obsession",
+    "text": """
+Before he became the founder of Amazon, Jeff Bezos was a man with a steady job who noticed something incredible: the internet was growing faster than anything in history. While others just watched it happen, Jeff decided to take a 'leap of faith.' He quit his job and started a bookstore in his garage. He didn't have a big building or fancy shelves; he only had a desk made from an old door and a big dream.
+
+Jeff had a secret rule that he called the 'Day 1 Mentality.' He believed that you should always act as if it is the very first day of your business—full of energy, curiosity, and a desire to make things better. To Jeff, 'Day 2' meant becoming lazy or stopping to learn. He taught his team that if they focused entirely on making the customer happy, the success would follow naturally.
+
+Another great lesson from Jeff is the 'Regret Minimization Framework.' When he was deciding whether to start his company, he imagined himself at 80 years old. He knew that at 80, he wouldn't regret trying and failing, but he would definitely regret *never trying at all*. This gave him the courage to be a pioneer and build a store that eventually sold everything from books to spaceships.
+
+Jeff Bezos reminds us that being 'stubborn on the vision but flexible on the details' is the key to winning. He was stubborn about his goal to build the most customer-centric company on Earth, but he was willing to try new things and fail many times to get there. His story shows us that with a great idea, a focus on helping others, and a 'Day 1' heart, you can turn a small garage into a kingdom that changes the world.
+    """,
+    "questions": [
+        {
+            "question": "What was Jeff Bezos's first business in his garage?",
+            "options": ["An online bookstore", "A toy store", "A spaceship factory"],
+            "answer": "An online bookstore",
+            "type": "multiple"
+        },
+        {
+            "question": "The 'Day 1 Mentality' means always acting with the same energy and curiosity as the very first day.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What did Jeff call the rule about imagining himself at 80 years old to make brave choices?",
+            "options": ["The Money Rule", "The Garage Law", "The Regret Minimization Framework"],
+            "answer": "The Regret Minimization Framework",
+            "type": "multiple"
+        },
+        {
+            "question": "According to Jeff, what is the most important thing a business should focus on to be successful?",
+            "options": ["Focusing on the competition", "Making the customer happy", "Having the fanciest desk"],
+            "answer": "Making the customer happy",
+            "type": "multiple"
+        },
+        {
+            "question": "Jeff started with a desk made from an old door. If you had to start a small business today using only things you already have in your room or house, what would you sell or create?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 
 ]
