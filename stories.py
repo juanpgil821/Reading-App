@@ -1907,6 +1907,53 @@ Nomasir realized his mistakes. He stopped gambling and started working hard. He 
         }
     ]
 },
+    {
+    "id": "story_38",
+    "title": "Warren Buffett: The Oracle of Omaha",
+    "category": "Financial Literacy",
+    "value": "Integrity and Long-Term Thinking",
+    "text": """
+Long before he was one of the richest men in the world, Warren Buffett was just a boy in Omaha with a very curious mind. While other children were only thinking about playing, Warren was fascinated by numbers and how they could grow. 
 
+At age six, he started his first business. He bought a six-pack of Coca-Cola for 25 cents and sold each bottle for 5 cents, making a 5-cent profit. He didn't spend that profit on candy; he saved it to buy more. He also delivered newspapers and sold chewing gum door-to-door. Warren wasn't just working for money; he was learning the 'Third Law of Babylon' without even knowing it: making his gold multiply.
+
+As he grew, Warren discovered a secret called 'Compound Interest.' He compared it to a snowball rolling down a hill—at first it is small, but if the hill is long enough, the snowball becomes giant. To Warren, the 'hill' was time. He realized that if you invest in good companies and wait for many, many years, you don't need to be lucky; you just need to be patient.
+
+But Warren had another rule even more important than patience: **Integrity**. He always said, 'It takes 20 years to build a reputation and five minutes to ruin it.' He only invested in businesses he understood and with people he trusted. Even when everyone else was rushing to make 'magic' profits (the Fifth Law), Warren stayed calm and followed his own long-term plan.
+
+Today, Warren lives in the same house he bought many years ago and still loves what he does. He didn't become rich by tricking people or finding a shortcut; he became the 'Oracle of Omaha' by being honest, working hard, and thinking in years, not in days. His life teaches us that the best investment you can make is in your own character and your own knowledge.
+    """,
+    "questions": [
+        {
+            "question": "What did young Warren do with the profit from selling Coca-Cola bottles?",
+            "options": ["He bought toys", "He saved it to grow his business", "He gave it away"],
+            "answer": "He saved it to grow his business",
+            "type": "multiple"
+        },
+        {
+            "question": "Warren Buffett compares investing to a 'snowball' because it starts small but grows very large over time.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "What does Warren say is the most important thing to protect, which takes 20 years to build?",
+            "options": ["His car", "His house", "His reputation (Integrity)"],
+            "answer": "His reputation (Integrity)",
+            "type": "multiple"
+        },
+        {
+            "question": "According to Warren's philosophy, how should we think about our investments and plans?",
+            "options": ["Thinking only about tomorrow", "Thinking about the long-term (years, not days)", "Looking for shortcuts to get rich fast"],
+            "answer": "Thinking about the long-term (years, not days)",
+            "type": "multiple"
+        },
+        {
+            "question": "Warren says the best investment is in yourself. What is one skill or subject you would like to learn more about this year to 'invest' in your future?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
 
 ]
