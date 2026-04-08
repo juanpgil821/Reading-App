@@ -121,7 +121,7 @@ def home():
     col1.metric("💰 EdiCoins", progress['points'])
     col2.metric("🔥 Streak", f"{progress['streak']} days")
     st.subheader("Choose Your Adventure")
-    tab1, tab2, tab3 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master"])
+    tab1, tab2, tab3, tab4 = st.tabs(["🦄 Fantasy World", "📱 Real Life Stories", "💰 Money Master", "👨‍👩‍👧 Family"])
     
     with tab1:
         st.markdown("### ✨ Magic & Adventure")
@@ -134,6 +134,10 @@ def home():
         fin = [s for s in stories if s.get("category") == "Financial Literacy"]
         if not fin: st.info("New stories coming soon! 💰")
         for s in fin: render_story_card(s)
+    with tab4:
+        st.markdown("### 👨‍👩‍👧 Our Family Core")
+        family_stories = [s for s in stories if s.get("category") == "Family Core"]
+        for s in family_stories: render_story_card(s)
 
 def render_story_card(story):
     is_completed = story["id"] in progress["stories_completed"]
