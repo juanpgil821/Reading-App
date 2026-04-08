@@ -2059,4 +2059,70 @@ Jeff Bezos reminds us that being 'stubborn on the vision but flexible on the det
     ]
 },
 
+    # ---------- CATEGORÍA: Family Core (Como llegamos aqui) ---------- #
+    {
+    "id": "story_41",
+    "title": "The Boy with the Big Eyes (Dad)",
+    "category": "Family Core",
+    "value": "Perseverance and Responsibility",
+    "text": """
+Dad arrived on a Tuesday, almost like any other day, just before 6 pm. He had a big head —probably because of a very big brain— but even bigger eyes. Some people said he looked as ugly as a pug. 
+
+When he was 2 years old, my grandparents got divorced, and he went to live with my grandfather. His early childhood was strict: order, obedience, and eating soup twice a day were non-negotiable rules. 
+
+After school, he attended extra classes. These classes built the foundation for a sharp mind, which he kept developing over the years. He learned to read, write, and do dictation. He even learned to divide by two-digit numbers much earlier than other kids his age. But there was one thing he never liked —Caligraphy—. To him, it felt like a punishment. 
+
+When Dad was almost 8, my Uncle Antonio came to the house. He couldn’t play with Dad yet because Antonio was just a baby. 
+
+Later, my grandfather divorced again, and Dad moved with him, while Uncle Antonio stayed with his mother, Andreina. Dad and my grandfather started living in Aunt Ana’s house. He had to change schools and was enrolled in a private school across the street. Here, Dad got into some mischief —like accidentally throwing a stone at a car or repeating things adults said in secret—. From that, he learned an important lesson and became careful and discreet. 
+
+After finishing 4th grade, Dad went to live with Grandma Say, my Uncle Alberto (4 years old), and baby Uncle Ruso. By the time he was nine, he was in charge of the house whenever the adults went out. He made sure everyone stayed alive, safe and fed, while avoiding fires or floods. 
+
+At 10, Dad finished elementary school as the top student in his class. Then he started middle school and took the school bus alone for the first time. He had no problems. 
+
+At that age, he didn’t like taking showers and spent hours playing PlayStation One. He rarely turned off the console at night, so he wouldn’t lose his progress and could continue the next day. 
+
+By the time he was 14 and in high school, Dad had three close friends: Angelo, Marcos, and Simón. After classes, they would go to someone’s house to play PlayStation or ride their bikes around the neighborhood. 
+
+In his last year of high school, at fifteen, Dad noticed a young student during breaks in the hallways. She was skinny, had beautiful hair, soft lips, and the most graceful walk he had ever seen. But what caught his attention most was her deep gaze. It wasn’t just the shape of her eyes —it was the feeling she gave—. That young girl would later become Mom.
+    """,
+    "questions": [
+        {
+            "question": "What was the rule Dad had to follow twice a day when he lived with his grandfather?",
+            "options": ["Playing PlayStation", "Drawing pugs", "Eating soup"],
+            "answer": "Eating soup",
+            "type": "multiple"
+        },
+        {
+            "question": "Dad was very good at math and learned to divide by two-digit numbers earlier than other kids.",
+            "options": ["True", "False"],
+            "answer": "True",
+            "type": "boolean"
+        },
+        {
+            "question": "At age nine, what big responsibility did Dad have when the adults went out?",
+            "options": [
+                "He was in charge of the house and his younger brothers", 
+                "He had to wash the car", 
+                "He had to do everyone's calligraphy"
+            ],
+            "answer": "He was in charge of the house and his younger brothers",
+            "type": "multiple"
+        },
+        {
+            "question": "What did Dad do at night with his PlayStation One so he wouldn't lose his progress?",
+            "options": ["He saved it on a memory card", "He rarely turned it off", "He wrote the code in a notebook"],
+            "answer": "He rarely turned it off",
+            "type": "multiple"
+        },
+        {
+            "question": "Dad learned to be 'careful and discreet' after making some mistakes. Why do you think it is important to be careful with the things we say or do?",
+            "answer": "",
+            "type": "thought"
+        }
+    ]
+},
+
+    
+
 ]
